@@ -794,15 +794,13 @@
     <div class="card" style="margin-bottom:16px">
       <h3>生态合作伙伴（部分）</h3>
       <p>合作资方、组件、逆变器、支架及辅材、认证与保险全链条头部伙伴。</p>
-      <img class="zoomable" src="assets/img_partners.png" alt="创维光伏生态合作伙伴一览（官方介绍原页）" style="width:100%;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
-      <p class="unit" style="margin-top:6px">👆 点击图片可放大查看</p>
+      <img class="zoomable" src="assets/img_partners_thumb.jpg" data-full="assets/img_partners.jpg" width="1100" height="603" loading="lazy" decoding="async" alt="创维光伏生态合作伙伴一览（官方介绍原页）" style="width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
     </div>
 
     <div class="card">
       <h3>全球业务布局</h3>
       <p>业务覆盖 9 大区域并设海外保障中心，25000+ 线下代理渠道触达全球。</p>
-      <img class="zoomable" src="assets/img_global.png" alt="创维光伏全球业务布局（官方介绍原页）" style="width:100%;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
-      <p class="unit" style="margin-top:6px">👆 点击图片可放大查看</p>
+      <img class="zoomable" src="assets/img_global_thumb.jpg" data-full="assets/img_global.jpg" width="1100" height="603" loading="lazy" decoding="async" alt="创维光伏全球业务布局（官方介绍原页）" style="width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
       <hr class="sep">
       <p class="unit">官网：www.skyworthpv.com ｜ 客服热线：400-063-8989 ｜ 邮箱：cwgf@skyworth.com</p>
     </div>
@@ -1051,10 +1049,16 @@
     var zModal = document.getElementById('zoomModal');
     var zImg = document.getElementById('zoomImg');
     var zClose = document.getElementById('zoomClose');
-    function openZoom(src, alt){
-      zImg.src = src;
+    function openZoom(thumbSrc, fullSrc, alt){
+      // 先显示已缓存的缩略图（秒开），再按需加载高清大图替换
+      zImg.src = thumbSrc || fullSrc;
       if(alt) zImg.alt = alt;
       zModal.classList.add('open');
+      if(fullSrc && fullSrc !== thumbSrc){
+        var full = new Image();
+        full.onload = function(){ zImg.src = fullSrc; };
+        full.src = fullSrc;
+      }
     }
     function closeZoom(){
       zModal.classList.remove('open');
@@ -1062,7 +1066,7 @@
     }
     document.querySelectorAll('.zoomable').forEach(function(img){
       img.addEventListener('click', function(){
-        openZoom(img.getAttribute('src'), img.getAttribute('alt'));
+        openZoom(img.getAttribute('src'), img.getAttribute('data-full'), img.getAttribute('alt'));
       });
     });
     zClose.addEventListener('click', closeZoom);
