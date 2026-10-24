@@ -47,9 +47,6 @@
   .hero{background:var(--blue);color:#fff;padding:64px 0 72px}
   .hero h1{font-size:34px;font-weight:500;letter-spacing:.5px}
   .hero p{margin-top:14px;font-size:16px;opacity:.92;max-width:680px}
-  .hero .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
-  .hero .tags span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
-    padding:6px 14px;border-radius:999px;font-size:13px}
   .entrances{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
   .entrance{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
     border-radius:var(--radius);padding:22px;display:block;transition:.2s}
@@ -180,6 +177,20 @@
   .img-modal img{width:100%;display:block;border:1px solid var(--line);border-radius:8px}
   .img-modal-actions{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
   .img-modal-actions .btn-save{display:inline-block;text-decoration:none;padding:10px 18px;font-size:14px}
+  /* 图片放大查看 */
+  .zoom-overlay{position:fixed;inset:0;z-index:9998;background:rgba(10,20,30,.92);
+    display:none;padding:0;overflow:hidden;-webkit-overflow-scrolling:touch}
+  .zoom-overlay.open{display:block}
+  .zoom-bar{position:absolute;top:0;left:0;right:0;display:flex;justify-content:flex-end;
+    padding:12px 14px;background:linear-gradient(rgba(10,20,30,.5),transparent);z-index:2}
+  .zoom-bar .btn-copy{color:#fff;border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.12)}
+  .zoom-bar .btn-copy:hover{background:rgba(255,255,255,.22)}
+  .zoom-overlay img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    max-width:94%;max-height:86%;width:auto;height:auto;display:block;border-radius:8px;
+    box-shadow:0 10px 40px rgba(0,0,0,.5)}
+  .zoom-hint{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:rgba(255,255,255,.8);font-size:12px}
+  .zoomable{cursor:zoom-in;transition:box-shadow .15s}
+  .zoomable:hover{box-shadow:0 0 0 3px var(--blue)}
   .ai-tip{margin-top:14px;padding:12px 14px;border-radius:10px;background:#F5F9FD;border:1px solid #CFE2F5}
   .ai-tip-t{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px}
   .ai-tip p{font-size:13px;color:var(--ink);line-height:1.7;margin:0 0 8px}
@@ -284,9 +295,6 @@
   <div class="wrap">
     <h1>光储盈培训赋能站</h1>
     <p>面向代理商及其业务团队的光储盈业务支持站点：把产品讲透、把流程讲清、把账算明白。</p>
-    <div class="tags">
-      <span>产品模式讲解</span><span>装机容量测算</span><span>业务流程指引</span>
-    </div>
     <div class="entrances">
       <a class="entrance" href="#model"><h3>① 产品模式</h3><p>订阅制怎么运作、配储方案、准入门槛与价格</p></a>
       <a class="entrance" href="#calc"><h3>② 装机容量测算</h3><p>实地输入客户数据，快速测算可装容量与组件数量</p></a>
@@ -786,13 +794,15 @@
     <div class="card" style="margin-bottom:16px">
       <h3>生态合作伙伴（部分）</h3>
       <p>合作资方、组件、逆变器、支架及辅材、认证与保险全链条头部伙伴。</p>
-      <img src="assets/img_partners.png" alt="创维光伏生态合作伙伴一览（官方介绍原页）" style="width:100%;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
+      <img class="zoomable" src="assets/img_partners.png" alt="创维光伏生态合作伙伴一览（官方介绍原页）" style="width:100%;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
+      <p class="unit" style="margin-top:6px">👆 点击图片可放大查看</p>
     </div>
 
     <div class="card">
       <h3>全球业务布局</h3>
       <p>业务覆盖 9 大区域并设海外保障中心，25000+ 线下代理渠道触达全球。</p>
-      <img src="assets/img_global.png" alt="创维光伏全球业务布局（官方介绍原页）" style="width:100%;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
+      <img class="zoomable" src="assets/img_global.png" alt="创维光伏全球业务布局（官方介绍原页）" style="width:100%;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
+      <p class="unit" style="margin-top:6px">👆 点击图片可放大查看</p>
       <hr class="sep">
       <p class="unit">官网：www.skyworthpv.com ｜ 客服热线：400-063-8989 ｜ 邮箱：cwgf@skyworth.com</p>
     </div>
@@ -848,6 +858,13 @@
       <button type="button" id="imgModalClose" class="btn-copy">关闭</button>
     </div>
   </div>
+</div>
+
+<!-- 图片放大查看（公司介绍模块：生态合作伙伴 / 全球业务布局） -->
+<div class="zoom-overlay" id="zoomModal">
+  <div class="zoom-bar"><button type="button" id="zoomClose" class="btn-copy">关闭 ✕</button></div>
+  <img id="zoomImg" alt="放大查看">
+  <div class="zoom-hint">点击空白处 / 按 ESC 关闭</div>
 </div>
 
 <script src="assets/html2canvas.min.js"></script>
@@ -1028,6 +1045,30 @@
   document.getElementById('imgModalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){ if(e.target===modal) closeModal(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
+  // 公司介绍图片点击放大
+  (function(){
+    var zModal = document.getElementById('zoomModal');
+    var zImg = document.getElementById('zoomImg');
+    var zClose = document.getElementById('zoomClose');
+    function openZoom(src, alt){
+      zImg.src = src;
+      if(alt) zImg.alt = alt;
+      zModal.classList.add('open');
+    }
+    function closeZoom(){
+      zModal.classList.remove('open');
+      zImg.removeAttribute('src');
+    }
+    document.querySelectorAll('.zoomable').forEach(function(img){
+      img.addEventListener('click', function(){
+        openZoom(img.getAttribute('src'), img.getAttribute('alt'));
+      });
+    });
+    zClose.addEventListener('click', closeZoom);
+    zModal.addEventListener('click', function(e){ if(e.target===zModal) closeZoom(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeZoom(); });
+  })();
 
   document.getElementById('saveImg').addEventListener('click', function(){
     var btn=this, hint=document.getElementById('saveHint'), area=document.getElementById('shotArea');
