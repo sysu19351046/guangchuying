@@ -204,6 +204,19 @@
   .cmp-table td.diff-pos{color:#B45309;font-weight:700;background:#FFFBEB}
   .cmp-table td.diff-neg{color:#15803D;font-weight:700;background:#F0FDF4}
   .cmp-table td.total-col{font-weight:700;color:#0062B2}
+  .cmp-table .k{display:none}
+  /* 手机端：对比表改为逐行堆叠的卡片，避免横向滚动，导出图片也能完整 */
+  @media(max-width:700px){
+    .cmp-table{display:block;border-collapse:separate}
+    .cmp-table thead{display:none}
+    .cmp-table tbody{display:block}
+    .cmp-table tr{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:10px}
+    .cmp-table tbody tr:nth-child(even){background:#FAFCFF}
+    .cmp-table td{display:block;border:0;padding:5px 0;text-align:left;white-space:normal;font-size:13px;color:var(--ink)}
+    .cmp-table td.rowhead{text-align:left;border-bottom:1px dashed var(--line);padding:0 0 7px;margin-bottom:4px;font-size:15px;color:var(--blue)}
+    .cmp-table .k{display:inline-block;width:54%;color:var(--muted);font-size:12px;font-weight:500;vertical-align:top}
+    .cmp-table .v{display:inline-block;width:44%;text-align:right;font-weight:600;vertical-align:top}
+  }
   .econ-note{font-size:13px;line-height:1.7;color:var(--ink);margin:12px 0 4px}
   .econ-note .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;margin-right:6px}
   .econ-note .tag.more{background:#FEF3C7;color:#B45309}
@@ -901,12 +914,12 @@
       var yearRent = monthRent * 12;
       var totalRent = yearRent * parseInt(y, 10);
       var flowMin = monthRent * 6 * 1.5;                      // 6个月流水最低值
-      rows += '<tr><td><strong>'+y+' 年</strong></td>'+
-        '<td>'+userRent+'</td>'+
-        '<td>'+fmt(monthRent)+'</td>'+
-        '<td>'+fmt(yearRent)+'</td>'+
-        '<td>'+fmt(totalRent)+'</td>'+
-        '<td>'+fmt(flowMin)+'</td></tr>';
+      rows += '<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
+        '<td><span class="k">组件月租（元/块/月）</span><span class="v">'+userRent+'</span></td>'+
+        '<td><span class="k">月租金（元）</span><span class="v">'+fmt(monthRent)+'</span></td>'+
+        '<td><span class="k">年租金（元）</span><span class="v">'+fmt(yearRent)+'</span></td>'+
+        '<td><span class="k">合同期租金（元）</span><span class="v">'+fmt(totalRent)+'</span></td>'+
+        '<td><span class="k">6个月流水（元）</span><span class="v">'+fmt(flowMin)+'</span></td></tr>';
     });
     cmp.innerHTML = rows;
 
@@ -927,12 +940,12 @@
       var gsyCost = monthRent + uncoveredCost;                 // 光储盈每月合计
       var diff = gsyCost - wholeOrigMonth;                     // >0 多交 / <0 省
       var diffTxt = (diff>=0?'+':'−') + fmt(Math.abs(diff));
-      econRows += '<tr><td><strong>'+y+' 年</strong></td>'+
-        '<td>'+fmt(wholeOrigMonth)+'</td>'+
-        '<td>'+fmt(monthRent)+'</td>'+
-        '<td>'+fmt(uncoveredCost)+'</td>'+
-        '<td class="total-col">'+fmt(gsyCost)+'</td>'+
-        '<td class="'+(diff>0?'diff-pos':'diff-neg')+'">'+diffTxt+'</td></tr>';
+      econRows += '<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
+        '<td><span class="k">原电费（元）</span><span class="v">'+fmt(wholeOrigMonth)+'</span></td>'+
+        '<td><span class="k">缴租金（元）</span><span class="v">'+fmt(monthRent)+'</span></td>'+
+        '<td><span class="k">电网补交（元）</span><span class="v">'+fmt(uncoveredCost)+'</span></td>'+
+        '<td class="total-col"><span class="k">合计（元）</span><span class="v">'+fmt(gsyCost)+'</span></td>'+
+        '<td class="'+(diff>0?'diff-pos':'diff-neg')+'"><span class="k">月差额（元）</span><span class="v">'+diffTxt+'</span></td></tr>';
       var abs = fmt(Math.abs(diff));
       if(diff > 0){
         notes.push('<span class="tag more">'+y+'年方案</span>比原先<strong>每月多交 '+abs+' 元</strong>，但这笔钱相当于分期付款——'+y+' 年合同期结束后，电站就归您所有。');
