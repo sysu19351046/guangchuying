@@ -321,7 +321,7 @@
         <div class="step"><div class="num">3</div><h4>分期付租金</h4><p>按 3 / 5 年周期，以组件块数为基数按月付租金</p></div>
         <div class="step"><div class="num">4</div><h4>1 元留购</h4><p>租期届满，以 1 元名义价格取得电站完整所有权</p></div>
       </div>
-      <p class="unit">创维全程负责电站<strong>建设 + 代运营 + 运维（含财产险及公责险）</strong>。合约期满用户可自行选择是否续保；若需继续运维，可自愿购买创维运维服务，标准为 <strong>3 元/板/月</strong>。</p>
+      <p class="unit">创维全程负责电站<strong>建设 + 代运营 + 运维（含财产险及公责险）</strong>。合约期满用户可自行选择是否有创维进行运维，运维标准为 <strong>3 元/板/月</strong>。</p>
     </div>
 
     <div class="card" style="margin-bottom:16px">
@@ -358,19 +358,20 @@
       <ol>
         <li>提供<strong>不动产权证</strong>或不动产登记资料；</li>
         <li><strong>四证齐全</strong>：土地使用证、建设用地规划许可证、建设工程规划许可证、建设工程施工许可证。<br>需提供完整版本产权证件；若证件页面标注存在在途抵押，须配套提供抵押合同或抵押登记证明。</li>
+        <li><strong>四证不符</strong>时，按装机容量差异化要求：
+          <table style="margin-top:10px">
+            <thead>
+              <tr><th>装机容量</th><th>所需资料</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>&lt; 100kW</td><td>【村级】盖章《非违建证明》</td></tr>
+              <tr><td>100kW ≤ 容量 &lt; 400kW</td><td>【村镇两级】盖章《非违建证明》</td></tr>
+              <tr><td>≥ 400kW</td><td>【村镇两级】盖章《非违建证明》+ 全套合规测绘资料</td></tr>
+            </tbody>
+          </table>
+        </li>
       </ol>
-      <p style="margin-top:10px"><strong>四证不符</strong>时，按装机容量差异化要求：</p>
-      <table style="margin-top:10px">
-        <thead>
-          <tr><th>装机容量</th><th>所需资料</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>&lt; 100kW</td><td>【村级】盖章《非违建证明》</td></tr>
-          <tr><td>100kW ≤ 容量 &lt; 400kW</td><td>【村镇两级】盖章《非违建证明》</td></tr>
-          <tr><td>≥ 400kW</td><td>【村镇两级】盖章《非违建证明》+ 全套合规测绘资料</td></tr>
-        </tbody>
-      </table>
-      <p class="unit" style="margin-top:10px">测绘资料要求：由乙级及以上测绘资质单位出具——测绘宗地图、土地地类图、测绘承诺书、测绘资质证书；由自然资源主管部门出具——仅需测绘宗地图、土地地类图（两份图纸均须加盖村镇两级公章）。执行时间：即日起正式执行。</p>
+      <p class="unit" style="margin-top:10px">测绘资料要求：由乙级及以上测绘资质单位出具——测绘宗地图、土地地类图、测绘承诺书、测绘资质证书；由自然资源主管部门出具——仅需测绘宗地图、土地地类图（两份图纸均须加盖村镇两级公章）。</p>
     </div>
 
     <div class="card">
@@ -481,7 +482,7 @@
       <div class="tip-box">
         <div class="tip-title">⚠ 用电量取数口径（直接影响测算准确性，务必区分）</div>
         <ul>
-          <li><strong>纯光方案：填「白天用电量」</strong>——光伏只在白天发电，夜间发的电不产生收益；若填全天用电量会明显高估装机容量。</li>
+          <li><strong>纯光方案：填「白天用电量」</strong>——光伏只在白天发电，夜间发的电不产生收益；若填全天用电量会明显高估装机容量，建议按 50% 的消纳比例测算。</li>
           <li><strong>配储方案：可填「全天用电量」</strong>——储能电池把白天余电搬到夜间使用，全天用电量均能被覆盖（按 70% 消纳口径测算）。</li>
         </ul>
       </div>
@@ -507,7 +508,6 @@
           <button type="button" data-r="1.0">100%</button>
         </div>
       </div>
-      <p class="unit" style="margin-top:10px">消纳比例建议：纯光方案取年用电量 50%、配储方案取 70%（可在 50%~100% 间按 10% 递增调整）。</p>
       <div class="grid g2" style="margin-top:14px">
         <div class="field" style="margin-top:0">
           <label>组件瓦数（W/块）</label>
