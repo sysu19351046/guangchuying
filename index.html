@@ -87,6 +87,10 @@
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
   .chip{background:var(--blue-light);color:var(--blue);border:1px solid #CFE2F5;
     padding:6px 14px;border-radius:999px;font-size:14px;font-weight:500}
+  .vr-link{display:inline-flex;align-items:center;gap:8px;margin:10px 0 6px;padding:10px 18px;
+    border-radius:999px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;
+    text-decoration:none;transition:.15s;box-shadow:0 2px 8px rgba(0,98,178,.25)}
+  .vr-link:hover{background:var(--blue-dark);transform:translateY(-1px)}
 
   /* table */
   table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;overflow:hidden}
@@ -94,6 +98,8 @@
   thead th{background:var(--blue);color:#fff;font-weight:500}
   tbody tr:nth-child(even){background:var(--bg-soft)}
   .unit{font-size:13px;color:var(--muted);margin-top:8px}
+  /* 价格表：单元格内容不换行，保证每种配储方案在同一行 */
+  .price-table th,.price-table td{white-space:nowrap}
 
   /* timeline */
   .timeline{position:relative;margin-top:10px;padding-left:8px}
@@ -263,6 +269,7 @@
   @media(max-width:640px){
     th,td{padding:8px 6px;font-size:13px}
     .cmp-table th,.cmp-table td{padding:8px 5px;font-size:12px}
+    .price-table th,.price-table td{padding:6px 4px;font-size:11.5px}
     .stat .num{font-size:21px}
     .hero{padding:48px 0 56px}
     .entrance{padding:18px}
@@ -321,7 +328,7 @@
         <div class="step"><div class="num">3</div><h4>分期付租金</h4><p>按 3 / 5 年周期，以组件块数为基数按月付租金</p></div>
         <div class="step"><div class="num">4</div><h4>1 元留购</h4><p>租期届满，以 1 元名义价格取得电站完整所有权</p></div>
       </div>
-      <p class="unit">创维全程负责电站<strong>建设 + 代运营 + 运维（含财产险及公责险）</strong>。合约期满用户可自行选择是否有创维进行运维，运维标准为 <strong>3 元/板/月</strong>。</p>
+      <p class="unit">创维全程负责电站<strong>建设 + 代运营 + 运维（含财产险及公责险）</strong>。合约期满用户可自行选择是否由创维进行运维，运维标准为 <strong>3 元/板/月</strong>。</p>
     </div>
 
     <div class="card" style="margin-bottom:16px">
@@ -358,19 +365,18 @@
       <ol>
         <li>提供<strong>不动产权证</strong>或不动产登记资料；</li>
         <li><strong>四证齐全</strong>：土地使用证、建设用地规划许可证、建设工程规划许可证、建设工程施工许可证。<br>需提供完整版本产权证件；若证件页面标注存在在途抵押，须配套提供抵押合同或抵押登记证明。</li>
-        <li><strong>四证不符</strong>时，按装机容量差异化要求：
-          <table style="margin-top:10px">
-            <thead>
-              <tr><th>装机容量</th><th>所需资料</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>&lt; 100kW</td><td>【村级】盖章《非违建证明》</td></tr>
-              <tr><td>100kW ≤ 容量 &lt; 400kW</td><td>【村镇两级】盖章《非违建证明》</td></tr>
-              <tr><td>≥ 400kW</td><td>【村镇两级】盖章《非违建证明》+ 全套合规测绘资料</td></tr>
-            </tbody>
-          </table>
-        </li>
+        <li><strong>四证不符</strong>时，按装机容量差异化要求：</li>
       </ol>
+      <table class="collect-table" style="margin:10px auto 0">
+        <thead>
+          <tr><th>装机容量</th><th>所需资料</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>&lt; 100kW</td><td>【村级】盖章《非违建证明》</td></tr>
+          <tr><td>100kW ≤ 容量 &lt; 400kW</td><td>【村镇两级】盖章《非违建证明》</td></tr>
+          <tr><td>≥ 400kW</td><td>【村镇两级】盖章《非违建证明》+ 全套合规测绘资料</td></tr>
+        </tbody>
+      </table>
       <p class="unit" style="margin-top:10px">测绘资料要求：由乙级及以上测绘资质单位出具——测绘宗地图、土地地类图、测绘承诺书、测绘资质证书；由自然资源主管部门出具——仅需测绘宗地图、土地地类图（两份图纸均须加盖村镇两级公章）。</p>
     </div>
 
@@ -380,9 +386,12 @@
         <span class="chip">金装房</span><span class="chip">向阳院</span><span class="chip">小阳楼</span>
       </div>
       <p class="unit">注：悦阳亭按小阳楼录单，但不提供螺旋桩。</p>
+      <div>
+        <a class="vr-link" href="https://vr.3d66.com/vr/index_detail_2047766.asp" target="_blank" rel="noopener">🏠 查看创维光伏产品示意图（VR 全景）↗</a>
+      </div>
       <p class="unit">三大户型产品的月租金单价不同（见下表）。</p>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
-      <table>
+      <table class="price-table">
         <thead>
           <tr><th>产品年限</th><th>配储方案</th><th>金装房</th><th>向阳院</th><th>小阳楼</th></tr>
         </thead>
@@ -482,8 +491,8 @@
       <div class="tip-box">
         <div class="tip-title">⚠ 用电量取数口径（直接影响测算准确性，务必区分）</div>
         <ul>
-          <li><strong>纯光方案：填「白天用电量」</strong>——光伏只在白天发电，夜间发的电不产生收益；若填全天用电量会明显高估装机容量，建议按 50% 的消纳比例测算。</li>
-          <li><strong>配储方案：可填「全天用电量」</strong>——储能电池把白天余电搬到夜间使用，全天用电量均能被覆盖（按 70% 消纳口径测算）。</li>
+          <li><strong>纯光方案：填「白天用电量」</strong>——光伏只在白天发电，夜间不产生收益，若填全天用电量会明显高估装机容量（建议按 50% 的消纳口径测算）。</li>
+          <li><strong>配储方案：可填「全天用电量」</strong>——储能电池把白天余电搬到夜间使用，夜间也能使用光伏绿电产生收益（建议按 70% 消纳口径测算）。</li>
         </ul>
       </div>
       <div class="field">
@@ -589,7 +598,7 @@
             <li><b>25 年累计可省</b>≈ 合作期后每年省电费 × 25（按电站满发、电价不变估算）</li>
             <li><b>容量范围校验</b>：纯光 16–400kW、配储 16–120kW（超出范围提示调整方案）</li>
           </ul>
-          <p class="unit" style="margin-top:10px">注：组件数量与装机容量与产品年限无关；用户月租取自上方「户用产品线与价格表」。</p>
+          <p class="unit" id="formulaEndNote" style="margin-top:10px">注：组件数量与装机容量与产品年限无关；用户月租取自上方「户用产品线与价格表」。</p>
         </div>
       </details>
     </div>
@@ -652,7 +661,7 @@
           <li>扫码下载【创维光伏 APP】，注册账号并完成实名认证（手机号 / 验证码 / 密码 + 姓名 / 身份证）。</li>
           <li><span class="key-tag">重点</span>选择电站类型 → 选<span class="key">“光储盈”</span> → <span class="key">扫描代理商二维码绑定</span>（绑错将导致订单归属错误）。</li>
           <li>填写电站安装地址（省 / 市 / 县 / 镇 / 村 / 门牌），上传用户手持明白纸照片。</li>
-          <li><span class="key-tag">重点</span>选择建站参数：<span class="key">房屋类型 = 个人房产、业务模式 = 个人模式、金融方案 = 售后回租、上网 / 并网 = 离网运行、备案 = 自然人备案</span>，再选产品、<span class="key">租赁年限 = 3/5 年</span>、是否配储——参数选错需退回重录。</li>
+          <li><span class="key-tag">重点</span>选择建站参数：<span class="key">房屋类型 = 个人房产</span>、<span class="key">业务模式 = 个人模式</span>、<span class="key">金融方案 = 售后回租</span>、<span class="key">上网 / 并网 = 离网运行</span>、<span class="key">备案 = 自然人备案</span>，再选<span class="key">产品</span>、<span class="key">租赁年限 = 3/5 年</span>、<span class="key">是否配储</span>——参数选错需退回重录。</li>
           <li>原件拍摄身份证正反面，系统 OCR 识别并填充基本信息，确认无误。</li>
           <li>关联收益账户：绑定一类银行卡，确认账户信息。</li>
           <li>签署信息使用授权书，完成风险评估（部分资方需要）。</li>
@@ -1099,19 +1108,32 @@
       hint.textContent='生成失败，请改用手机截屏保存。';
     }
 
-    // 手机端降低分辨率以明显缩短生成时间；桌面端保持高清
-    var scale = IS_MOBILE ? 1.6 : 2;
+    function runCapture(){
+      // 截图范围：板块顶部 →「注：…」这句话的底部为止（公式全部拍到，不多拍）
+      var areaRect = area.getBoundingClientRect();
+      var w = area.scrollWidth;
+      var h = area.scrollHeight;
+      var noteEl = document.getElementById('formulaEndNote');
+      if(noteEl){
+        var noteBottom = noteEl.getBoundingClientRect().bottom;
+        var hh = Math.ceil(noteBottom - areaRect.top) + 6;
+        if(hh > 0 && hh < h) h = hh;
+      }
+      // 控制画布尺寸：移动端超大画布会导致底部（公式与「注」）被截断或保存失败
+      var baseScale = IS_MOBILE ? 1.6 : 2;
+      var maxSide = 16000, maxArea = 12000000;
+      var scale = Math.min(baseScale, maxSide/Math.max(w,h), Math.sqrt(maxArea/(w*h)));
+      if(!isFinite(scale) || scale <= 0) scale = baseScale;
 
-    setTimeout(function(){
       html2canvas(area, {
         scale: scale,
         backgroundColor: '#ffffff',
         logging: false,
         imageTimeout: 0,
         removeContainer: true,
-        windowWidth: area.scrollWidth,
-        width: area.scrollWidth,
-        height: area.scrollHeight
+        windowWidth: w,
+        width: w,
+        height: h
       }).then(function(canvas){
         restore();
         var name='光储盈装机容量测算_'+tsNow();
@@ -1146,7 +1168,13 @@
           }, 'image/png');
         }
       }).catch(fail);
-    }, 60);
+    }
+
+    // 强制重排，并等待移动端 details 展开、字体与布局稳定后再截图，避免底部被截断
+    area.offsetHeight;
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ setTimeout(runCapture, 120); });
+    });
   });
 
   // 复制 AI 提问模板
