@@ -176,8 +176,9 @@
   .btn-save:hover{background:var(--blue-dark)}
   .btn-save:disabled{opacity:.65;cursor:default}
   .save-hint{font-size:13px;color:var(--muted)}
-  .img-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,20,30,.84);display:none;padding:16px;overflow:auto;-webkit-overflow-scrolling:touch}
+  .img-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,20,30,.84);display:none;padding:16px;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
   .img-modal.open{display:block}
+  body.no-scroll{overflow:hidden}
   .img-modal-inner{max-width:760px;margin:0 auto;background:#fff;border-radius:12px;padding:14px}
   .img-modal-tip{font-size:13px;font-weight:600;color:var(--blue);text-align:center;line-height:1.6;margin-bottom:10px}
   .img-modal img{width:100%;display:block;border:1px solid var(--line);border-radius:8px}
@@ -943,7 +944,7 @@
         '<td><span class="k">月租金（元）</span><span class="v">'+fmt(monthRent)+'</span></td>'+
         '<td><span class="k">年租金（元）</span><span class="v">'+fmt(yearRent)+'</span></td>'+
         '<td><span class="k">合同期租金（元）</span><span class="v">'+fmt(totalRent)+'</span></td>'+
-        '<td><span class="k">6个月流水（元）</span><span class="v">'+fmt(flowMin)+'</span></td></tr>';
+        '<td><span class="k">6个月流水最低要求（元）</span><span class="v">'+fmt(flowMin)+'</span></td></tr>';
     });
     cmp.innerHTML = rows;
 
@@ -1048,6 +1049,7 @@
   function closeModal(){
     modal.classList.remove('open');
     modalImg.removeAttribute('src');
+    document.body.classList.remove('no-scroll');
   }
   document.getElementById('imgModalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){ if(e.target===modal) closeModal(); });
@@ -1093,6 +1095,9 @@
     btn.disabled=true; btn.textContent='生成中…'; hint.textContent='正在生成图片，请稍候…';
     area.classList.add('shooting');
 
+    // 记录当前滚动位置：html2canvas 渲染时可能滚动页面，结束后需要还原，避免保存后页面乱跳
+    var scrollX0 = window.pageXOffset || 0, scrollY0 = window.pageYOffset || 0;
+
     // 无论用户是否展开公式，截图时都强制展开，拍完后恢复原状
     var dts=[].slice.call(area.querySelectorAll('details'));
     var wasOpen=dts.map(function(d){ return d.open; });
@@ -1102,6 +1107,7 @@
       area.classList.remove('shooting');
       dts.forEach(function(d,i){ d.open=wasOpen[i]; });
       btn.disabled=false; btn.textContent=old;
+      window.scrollTo(scrollX0, scrollY0);
     }
     function fail(){
       restore();
@@ -1109,31 +1115,37 @@
     }
 
     function runCapture(){
-      // 截图范围：板块顶部 →「注：…」这句话的底部为止（公式全部拍到，不多拍）
-      var areaRect = area.getBoundingClientRect();
       var w = area.scrollWidth;
       var h = area.scrollHeight;
-      var noteEl = document.getElementById('formulaEndNote');
-      if(noteEl){
-        var noteBottom = noteEl.getBoundingClientRect().bottom;
-        var hh = Math.ceil(noteBottom - areaRect.top) + 6;
-        if(hh > 0 && hh < h) h = hh;
-      }
-      // 控制画布尺寸：移动端超大画布会导致底部（公式与「注」）被截断或保存失败
-      var baseScale = IS_MOBILE ? 1.6 : 2;
-      var maxSide = 16000, maxArea = 12000000;
-      var scale = Math.min(baseScale, maxSide/Math.max(w,h), Math.sqrt(maxArea/(w*h)));
-      if(!isFinite(scale) || scale <= 0) scale = baseScale;
 
+      // 画布尺寸是否被当前设备支持（超限时浏览器会静默截断/失败，导致底部公式丢失）
+      function canMake(wd, ht){
+        try{
+          var c = document.createElement('canvas');
+          c.width = wd; c.height = ht;
+          var ok = (c.width === wd && c.height === ht) && !!c.getContext('2d');
+          c.width = 0; c.height = 0;
+          return ok;
+        }catch(e){ return false; }
+      }
+
+      // 在设备允许范围内尽量高清；若超出画布上限则逐步降级，保证整块内容（含最后一条公式）都能保存
+      var scale = Math.min(IS_MOBILE ? 1.6 : 2, 16000/Math.max(w,h));
+      if(!isFinite(scale) || scale <= 0) scale = 1;
+      var guard = 0;
+      while(scale > 0.5 && guard < 14 && !canMake(Math.ceil(w*scale), Math.ceil(h*scale))){
+        scale *= 0.85; guard++;
+      }
+
+      // 不传 width/height/windowWidth：交给 html2canvas 按元素实际尺寸整块渲染，
+      // 避免克隆视图宽度与真实布局不一致导致内容重排、底部公式被裁掉
       html2canvas(area, {
         scale: scale,
         backgroundColor: '#ffffff',
         logging: false,
         imageTimeout: 0,
         removeContainer: true,
-        windowWidth: w,
-        width: w,
-        height: h
+        useCORS: true
       }).then(function(canvas){
         restore();
         var name='光储盈装机容量测算_'+tsNow();
@@ -1151,6 +1163,7 @@
             modalDl.style.display='inline-block';
           }
           modal.classList.add('open');
+          document.body.classList.add('no-scroll');
           hint.textContent='图片已生成，长按图片即可保存到相册';
         } else {
           canvas.toBlob(function(blob){
