@@ -133,6 +133,57 @@
     .hero h1{font-size:26px}
   }
 
+  /* 度电成本板块 */
+  .gv-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  #gvGen{grid-template-columns:repeat(4,1fr)}
+  .gv-price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  .gv-src{margin-top:16px;padding:14px 16px;background:#F7FAFD;border:1px solid #DCE9F6;border-radius:10px}
+  .gv-src-t{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:6px}
+  .gv-src ul{margin:0;padding-left:18px}
+  .gv-src li{font-size:12.5px;color:var(--muted);line-height:1.75}
+  .gv-src li strong{color:var(--ink)}
+  .gv-src-n{font-size:12px;color:#8B6B2E;background:#FFFBEB;border:1px solid #FDE68A;
+    border-radius:8px;padding:7px 10px;margin-top:10px}
+  /* DOD 说明 */
+  .gv-dod{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .gv-dod .d{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
+  .gv-dod .t{font-size:18px;font-weight:600;color:var(--blue)}
+  .gv-dod .s{font-size:12px;color:var(--muted);margin:2px 0 8px}
+  .gv-dod p{font-size:13px;color:var(--ink);line-height:1.7}
+  .gv-chain{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px;
+    padding:12px 14px;background:#fff;border:1px dashed #CFE2F5;border-radius:10px}
+  .gv-chain span{font-size:14px;font-weight:600;color:var(--ink);line-height:1.35}
+  .gv-chain span em{display:block;font-style:normal;font-size:11px;font-weight:400;color:var(--muted)}
+  .gv-chain b{font-size:12px;color:var(--blue);background:var(--blue-light);border-radius:999px;
+    padding:2px 8px;font-weight:600}
+  /* 数字说明 */
+  td[data-tip], .result-box .big[data-tip]{cursor:help;text-decoration:underline;
+    text-decoration-style:dotted;text-decoration-thickness:1px;
+    text-underline-offset:3px;text-decoration-color:rgba(0,98,178,.45)}
+  #gvTip{position:fixed;z-index:9997;max-width:290px;background:#16232F;color:#fff;
+    font-size:12.5px;line-height:1.65;padding:10px 12px;border-radius:10px;
+    box-shadow:0 12px 30px rgba(15,30,45,.28);opacity:0;visibility:hidden;transition:opacity .12s;
+    white-space:pre-line;pointer-events:none;left:0;top:0}
+  #gvTip.on{opacity:1;visibility:visible}
+  @media(max-width:860px){
+    .gv-price-grid{grid-template-columns:1fr 1fr}
+    .gv-dod{grid-template-columns:1fr}
+  }
+
+  .gv-h3{font-size:16px;font-weight:500;margin:30px 0 8px;display:flex;align-items:center;gap:8px}
+  .gv-h3 .n{width:22px;height:22px;border-radius:50%;background:var(--blue-light);color:var(--blue);
+    font-size:12px;display:inline-flex;align-items:center;justify-content:center;font-weight:600;flex:0 0 auto}
+  .gv-note{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.7}
+  .gv-table td{font-variant-numeric:tabular-nums}
+  .gv-table td.best{color:var(--blue);font-weight:600;background:var(--blue-light)}
+  .gv-table td.warncell{color:#B45309;font-weight:600;background:#FFF7ED}
+  .gv-table td.lbl{text-align:left;color:var(--ink)}
+  .gv-table tr.total td{font-weight:600}
+  @media(max-width:640px){
+    .gv-pair{grid-template-columns:1fr}
+    .result-grid{grid-template-columns:repeat(2,1fr)}
+    #gvGen{grid-template-columns:repeat(2,1fr)}
+  }
   /* 装机容量测算 */
   .field{margin-top:14px}
   .field>label{display:block;font-size:14px;font-weight:500;margin-bottom:6px;color:var(--ink)}
@@ -290,10 +341,12 @@
     <ul class="menu" id="menu">
       <li><a href="#home">首页</a></li>
       <li><a href="#model">产品模式</a></li>
+      <li><a href="#cost">度电成本</a></li>
       <li><a href="#calc">装机容量测算</a></li>
       <li><a href="#process">业务流程</a></li>
       <li><a href="#company">公司介绍</a></li>
       <li><a href="#cases">案例展示</a></li>
+      <li><a href="河南市场判断与谈判策略.html">河南电价专题</a></li>
     </ul>
   </div>
 </header>
@@ -329,7 +382,7 @@
         <div class="step"><div class="num">3</div><h4>分期付租金</h4><p>按 3 / 5 年周期，以组件块数为基数按月付租金</p></div>
         <div class="step"><div class="num">4</div><h4>1 元留购</h4><p>租期届满，以 1 元名义价格取得电站完整所有权</p></div>
       </div>
-      <p class="unit">创维全程负责电站<strong>建设 + 代运营 + 运维（含财产险及公责险）</strong>。合约期满用户可自行选择是否由创维进行运维，运维标准为 <strong>3 元/板/月</strong>。</p>
+      <p class="unit">合约期内，创维全程负责电站<strong>建设 + 代运营 + 运维（含财产险及公责险）</strong>。</p>
     </div>
 
     <div class="card" style="margin-bottom:16px">
@@ -346,7 +399,6 @@
           <tr><td>所有彩钢瓦方案</td><td>工商业系统录入</td></tr>
         </tbody>
       </table>
-      <p class="unit" style="margin-top:10px">走工商业系统录入的项目只提供以下产品：组件、逆变器、储能电池（配储）。</p>
     </div>
 
     <div class="card" style="margin-bottom:16px">
@@ -455,12 +507,177 @@
   </div>
 </section>
 
+<!-- 发电量与度电成本 -->
+<section id="cost">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">02</span> 发电量与度电成本</h2>
+      <p>业务员最常被问的三个问题：<strong>一块板一年到底发多少电</strong>、<strong>租金折成每度电多少钱</strong>、<strong>3 年和 5 年到底哪个划算</strong>。这一节按同一个电价口径，把三笔账一次算清楚。</p>
+    </div>
+
+    <!-- ① 前提：年有效小时数 -->
+    <div class="card" style="margin-bottom:16px">
+      <h3>① 前提条件（河南口径，改这里，全节联动）</h3>
+      <p style="margin-top:8px">这一节所有数字都建立在这 5 个前提下。河南户用光伏年有效小时数一般在 <strong>1,050—1,250</strong> 之间（豫北偏高、豫南偏低；屋顶朝向、倾角、遮挡影响很大）。</p>
+
+      <div class="field" style="margin-top:16px">
+        <label>年有效发电小时数（h）<span class="lbl-tip">必填 · 全节共用一个前提</span></label>
+        <input type="number" id="gvHours" value="1150" min="600" max="1600" step="10">
+        <div class="opts" style="margin-top:10px" id="gvPreset">
+          <button type="button" data-h="1050">1,050 · 豫南/遮挡多</button>
+          <button type="button" data-h="1150" class="active">1,150 · 常用</button>
+          <button type="button" data-h="1250">1,250 · 豫北/朝向好</button>
+        </div>
+      </div>
+
+      <div class="gv-price-grid">
+        <div class="field">
+          <label>平段电价<span class="lbl-tip">其余时段</span></label>
+          <input type="number" id="gvFlat" value="0.6063" min="0.2" max="1.5" step="0.0001">
+        </div>
+        <div class="field">
+          <label>高峰电价<span class="lbl-tip">16:00—24:00</span></label>
+          <input type="number" id="gvPeak" value="1.0051" min="0.2" max="2" step="0.0001">
+        </div>
+        <div class="field">
+          <label>尖峰电价<span class="lbl-tip">1/12月17—19、7/8月20—23</span></label>
+          <input type="number" id="gvCap" value="1.1957" min="0.2" max="2" step="0.0001">
+        </div>
+        <div class="field">
+          <label>低谷电价<span class="lbl-tip">0—7 或 0—6、11—14</span></label>
+          <input type="number" id="gvValley" value="0.3017" min="0.05" max="1" step="0.0001">
+        </div>
+      </div>
+
+      <div class="gv-src">
+        <div class="gv-src-t">数据出处</div>
+        <ul>
+          <li><strong>电价（元/度）</strong>：《国网河南省电力公司 2026 年 10 月代理购电价格公告》——工商业 <strong>1—10 千伏两部制</strong>：平段 0.6063、高峰 1.0051、尖峰 1.1957、低谷 0.3017。</li>
+          <li><strong>峰谷浮动比例</strong>：《河南省发展和改革委员会关于调整工商业分时电价有关事项的通知》（<strong>豫发改价管〔2024〕283 号</strong>）——高峰 : 平段 : 低谷 = <strong>1.72 : 1 : 0.45</strong>，尖峰 = 高峰浮动 × 1.2。</li>
+          <li><strong>年有效小时数</strong>：河南户用经验值 1,050—1,250h（<strong>非官方口径</strong>，现场按屋顶朝向、倾角、遮挡调整）。</li>
+        </ul>
+        <p class="gv-src-n">若客户是 380V 单一制，平段 0.6363、高峰 1.0567、尖峰 1.2576、低谷 0.3152，直接改上面四个数即可。</p>
+      </div>
+    </div>
+
+    <!-- ② 一块板发多少电 -->
+    <div class="gv-h3"><span class="n">2</span>一块 785W 组件能发多少电</div>
+    <div class="result-grid" id="gvGen">
+      <div class="result-box"><div class="big" id="gvGenYear">—<small>度</small></div><div class="lbl">每年发电量（一块板）</div></div>
+      <div class="result-box"><div class="big" id="gvGenMonth">—<small>度</small></div><div class="lbl">每月平均发电量</div></div>
+      <div class="result-box"><div class="big" id="gvGenDay">—<small>度</small></div><div class="lbl">每天平均发电量</div></div>
+      <div class="result-box"><div class="big" id="gvGen25">—<small>度</small></div><div class="lbl">25 年累计（不衰减）</div></div>
+    </div>
+    <p class="gv-note">算法：<strong>0.785kW × 年有效小时数</strong>；月 = 年 ÷ 12；日 = 年 ÷ 365（实际冬季低、夏季高，日均值仅用于估算）。</p>
+
+    <!-- ③ 纯光方案 3年 vs 5年 -->
+    <div class="gv-h3"><span class="n">3</span>纯光方案：3 年与 5 年，租金怎么折成度电成本</div>
+    <p style="font-size:14px;color:var(--muted)">以 <strong>小阳楼</strong>为例（3 年 60 元/块/月，5 年 40 元/块/月），下表全部按「一块 785W 组件」计算。</p>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="gv-table">
+        <thead>
+          <tr><th style="text-align:left">项目（每块组件）</th><th>3 年方案</th><th>5 年方案</th></tr>
+        </thead>
+        <tbody id="gvPureBody"></tbody>
+      </table>
+    </div>
+    <p class="gv-note" id="gvPureNote"></p>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card soft">
+        <h3>为什么「任何对齐口径下，3 年都更便宜」</h3>
+        <ul>
+          <li><strong>3 年总租金更低</strong>：2,160 元/块 vs 2,400 元/块，少掏 <strong>240 元（−10%）</strong>。</li>
+          <li><strong>度电成本 = 总租金 ÷ 发电量</strong>，分子越小越便宜。分母相同的情况下，3 年必然更低。</li>
+          <li>5 年的「度电成本低」，是因为它把 2,400 元摊到了 <strong>5 年</strong>的发电量上；同样按 5 年摊，3 年是 <strong id="gvCmp3">—</strong>，5 年是 <strong id="gvCmp5">—</strong>。</li>
+          <li>一句话：<strong>3 年省在「分子」（总钱少），5 年只「省」在「分母」（时间拉长）</strong>——不能拿更长的分母去证明更便宜。</li>
+          <li>而且 3 年从第 4 年起租金归零，这一段 5 年方案没有。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>但 3 年有一个真实代价：期内现金流为负</h3>
+        <ul>
+          <li>3 年期内：每月租金 60 元，替代电费约 <strong id="gvSave3">—</strong> 元 → 每年净支出 <strong style="color:#B45309" id="gvFlow3">—</strong> 元/块</li>
+          <li>5 年期内：每月租金 40 元 → 每年净<strong>省</strong> <strong style="color:var(--blue)" id="gvFlow5">—</strong> 元/块</li>
+          <li>月租高 50%，6 个月流水门槛也高一截（100kW 规模约差 2.3 万）</li>
+        </ul>
+        <p style="margin-top:8px">所以两个方案的适用条件完全不同：</p>
+        <ul>
+          <li><strong>选 3 年</strong>：能过流水、看重总成本与资产归属、电价长期看涨</li>
+          <li><strong>选 5 年</strong>：月供压力大、流水不足、要「当期就省钱」的现金流型客户</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ④ 配储增量账 -->
+    <div class="gv-h3"><span class="n">4</span>小阳楼 1:1 配储：100kW + 100 度的增量账</div>
+    <p style="font-size:14px;color:var(--muted)">只算「比纯光多花的钱」。100kW ≈ <strong>127 块</strong>组件；1:1 配储 = <strong>100 度</strong>电池。电池的可用电量要先打两个折扣，见下。</p>
+
+    <div class="card soft" style="margin:12px 0 14px">
+      <h3>先搞懂两个折扣：90% DOD 和 88% 效率</h3>
+      <p style="margin-top:6px"><strong>100 度电池 ≠ 能放出 100 度电</strong>。中间要打两个折，这也是客户最容易算错的地方。</p>
+      <div class="gv-dod">
+        <div class="d">
+          <div class="t">DOD 90%</div>
+          <div class="s">放电深度（Depth of Discharge）</div>
+          <p>电池不能放到 0，必须留约 10% 余量来保护寿命、避免过放。<strong>100 度电池，真正敢用的只有 90 度</strong>；剩下 10 度是"压箱底"的。</p>
+        </div>
+        <div class="d">
+          <div class="t">效率 88%</div>
+          <div class="s">充放往返效率（Round-trip Efficiency）</div>
+          <p>充进去 100 度、放出来只剩 88 度。少的 12 度是电池化学反应发热 + 逆变器升降压损耗，<strong>物理上必然发生，不是产品缺陷</strong>。</p>
+        </div>
+      </div>
+      <div class="gv-chain">
+        <span>100 度<em>标称容量</em></span><b>×90%</b>
+        <span>90 度<em>可用容量</em></span><b>×88%</b>
+        <span>79.2 度<em>每天实际放出</em></span><b>×365</b>
+        <span>28,908 度<em>一年放电量</em></span>
+      </div>
+      <p class="gv-note" style="margin-top:10px">如果按 100% DOD、100% 效率的"理想值"算，日放 88 度、年 32,120 度，回本期能缩短到 <strong>4.2 年</strong>——但那是拿电池寿命换来的纸面数字，实际不能这么承诺。</p>
+    </div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="gv-table">
+        <thead>
+          <tr><th style="text-align:left">项目</th><th>3 年方案</th><th>5 年方案</th></tr>
+        </thead>
+        <tbody id="gvEssBody"></tbody>
+      </table>
+    </div>
+    <p class="gv-note">电价口径见第 ① 步（峰 <span id="gvNPeak">1.0051</span>、尖峰 <span id="gvNCap">1.1957</span>、谷 <span id="gvNValley">0.3017</span>）；回本期 = 增量总成本 ÷ 年净收益。带虚线的数字可悬停（手机点一下）查看算法。</p>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card soft">
+        <h3>重点结论：充绿电、替峰电，回本 4.7 年</h3>
+        <p>电池充的是<strong>白天用不掉、本来要弃掉的光伏</strong>（机会成本 0），放电替代 16—24 点的峰电（1.0051 元/度）：</p>
+        <ul>
+          <li>3 年方案：<strong style="color:var(--blue)">4.7 年</strong>回本</li>
+          <li>5 年方案：<strong style="color:var(--blue)">5.2 年</strong>回本</li>
+          <li>若替代的是尖峰（1.1957）：4.0 年 / 4.4 年</li>
+        </ul>
+        <p style="margin-top:8px">电池循环寿命 10—15 年，<strong>回本之后还有 5—10 年是净赚</strong>。</p>
+      </div>
+      <div class="card">
+        <h3>但如果是「谷电充电」，回本期翻倍</h3>
+        <p>如果白天光伏已经被吃得干干净净、没有余电可存，电池只能充谷电（0.3017÷0.88≈0.34 元/度成本）：</p>
+        <ul>
+          <li>3 年方案：<strong>7.2 年</strong>回本</li>
+          <li>5 年方案：<strong>8.0 年</strong>回本</li>
+        </ul>
+        <p style="margin-top:8px;color:#B45309"><strong>所以谈配储前必须先确认一件事：白天到底有没有剩电。</strong>有弃光，配储是印钞机；没有弃光，配储只是削需量的工具。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="gvTip" role="tooltip" aria-hidden="true"></div>
+
 <!-- 装机容量测算 -->
 <section id="calc">
   <div class="wrap">
    <div id="shotArea">
     <div class="sec-head">
-      <h2><span class="no">02</span> 装机容量测算</h2>
+      <h2><span class="no">03</span> 装机容量测算</h2>
       <p>一线业务员实地推广时，输入客户用电数据，快速测算可安装的<strong>装机容量</strong>与<strong>组件数量</strong>，并估算用户需缴纳的<strong>租金</strong>。</p>
       <p style="margin-top:6px">本测算基于<strong>全年数据</strong>做<strong>理想化估算</strong>；实际光伏出力会受每日天气、云层遮挡、屋顶朝向与倾角等因素影响，真实发电量通常低于测算值，结果仅供参考。</p>
     </div>
@@ -625,7 +842,7 @@
 <section id="process">
   <div class="wrap">
     <div class="sec-head">
-      <h2><span class="no">03</span> 业务流程</h2>
+      <h2><span class="no">04</span> 业务流程</h2>
       <p>代理商业务团队从获客到签约要走的完整订单操作流程。本手册覆盖到<strong>签约与配货单确认</strong>；发货、施工、并网在创维创享 APP 中继续推进。点击各阶段可展开详细步骤。</p>
     </div>
 
@@ -707,7 +924,7 @@
 <section id="company">
   <div class="wrap">
     <div class="sec-head">
-      <h2><span class="no">04</span> 关于创维光伏</h2>
+      <h2><span class="no">05</span> 关于创维光伏</h2>
       <p>本板块依次呈现<strong>集团背书、公司实力、创新历程、国家级认可、生态合作伙伴与全球业务布局</strong>，一线伙伴向客户介绍公司资质与实力时，可直接引用。<strong>（数据截止 2026 年 3 月）</strong></p>
     </div>
 
@@ -821,7 +1038,7 @@
 <section id="cases">
   <div class="wrap">
     <div class="sec-head">
-      <h2><span class="no">05</span> 案例展示</h2>
+      <h2><span class="no">06</span> 案例展示</h2>
       <p>真实电站案例与官方宣传短视频的集中展示区，一线可直接转发给客户。<strong>点击卡片即可跳转至微信视频号观看对应视频。</strong></p>
     </div>
     <div class="grid g3">
@@ -1208,6 +1425,221 @@
   });
 
   setRatioDefault(); updateRentHint(); compute();
+</script>
+
+<script>
+/* ===== 发电量与度电成本 ===== */
+(function(){
+  var PANEL=0.785, DOD=0.9, EFF=0.88, BLOCKS=127;
+  var R3={pv:60, ess:90}, R5={pv:40, ess:60};   // 小阳楼 元/块/月
+
+  function n0(x){ return Math.round(x).toLocaleString('zh-CN'); }
+  function n2(x){ return (Math.round(x*100)/100).toFixed(2); }
+  function n3(x){ return (Math.round(x*1000)/1000).toFixed(3); }
+  function signed(x){ return (x<0?'−':'+')+Math.round(Math.abs(x)).toLocaleString('zh-CN'); }
+  function num(id,def){ var el=document.getElementById(id); var v=el?parseFloat(el.value):NaN; return (v&&v>0)?v:def; }
+
+  function paint(tbodyId,tips){
+    var box=document.getElementById(tbodyId);
+    if(!box) return;
+    Array.prototype.forEach.call(box.querySelectorAll('td[data-k]'),function(td){
+      var t=tips[td.getAttribute('data-k')];
+      if(t) td.setAttribute('data-tip',t);
+    });
+  }
+
+  function render(){
+    var h=num('gvHours',1150);
+    var flat=num('gvFlat',0.6063), peak=num('gvPeak',1.0051);
+    var cap=num('gvCap',1.1957), valley=num('gvValley',0.3017);
+
+    var annual=PANEL*h, save=annual*flat;
+
+    /* ---- 发电量 ---- */
+    document.getElementById('gvGenYear').innerHTML  = n0(annual)+'<small>度</small>';
+    document.getElementById('gvGenMonth').innerHTML = n0(annual/12)+'<small>度</small>';
+    document.getElementById('gvGenDay').innerHTML   = n2(annual/365)+'<small>度</small>';
+    document.getElementById('gvGen25').innerHTML    = n0(annual*25)+'<small>度</small>';
+
+    var genBoxes=document.querySelectorAll('#gvGen .big');
+    if(genBoxes.length===4){
+      genBoxes[0].setAttribute('data-tip','0.785kW（一块 785W 组件）\n× 年有效小时数 '+h+'h\n= '+n0(annual)+' 度/年');
+      genBoxes[1].setAttribute('data-tip','年发电 '+n0(annual)+' 度 ÷ 12 个月\n= '+n0(annual/12)+' 度/月（月均值）');
+      genBoxes[2].setAttribute('data-tip','年发电 '+n0(annual)+' 度 ÷ 365 天\n= '+n2(annual/365)+' 度/天（日均值，冬低夏高）');
+      genBoxes[3].setAttribute('data-tip','年发电 '+n0(annual)+' 度 × 25 年\n= '+n0(annual*25)+' 度（未计衰减）');
+    }
+
+    /* ---- 纯光 3 年 / 5 年 ---- */
+    var tot3=R3.pv*36, tot5=R5.pv*60;
+    var c3=tot3/(annual*3), c5=tot5/(annual*5);
+    var t53=tot3/(annual*5), t55=tot5/(annual*5);
+    var t103=tot3/(annual*10), t105=tot5/(annual*10);
+    var t253=tot3/(annual*25), t255=tot5/(annual*25);
+    var f3=save-R3.pv*12, f5=save-R5.pv*12;
+
+    var rows=[
+      ['月租金（元/块/月）','rent','',n0(R3.pv),n0(R5.pv)],
+      ['合同期总租金（元/块）','tot','best',n0(tot3),n0(tot5)],
+      ['期内度电成本（合同期内）','in','warncell',n3(c3),n3(c5)],
+      ['按 5 年摊（元/度）','t5','best',n3(t53),n3(t55)],
+      ['按 10 年摊（元/度）','t10','best',n3(t103),n3(t105)],
+      ['按 25 年摊（元/度）','t25','best',n3(t253),n3(t255)],
+      ['期内年现金流（替代电费 − 租金）','flow','warncell',signed(f3),signed(f5)]
+    ];
+    var html='';
+    for(var i=0;i<rows.length;i++){
+      var r=rows[i];
+      var cls3=(r[1]==='flow')?'warncell':r[2];
+      var cls5=(r[1]==='flow')?'best':r[2];
+      html+='<tr><td class="lbl">'+r[0]+'</td>'+
+            '<td class="'+cls3+'" data-k="p3_'+r[1]+'">'+r[3]+'</td>'+
+            '<td class="'+cls5+'" data-k="p5_'+r[1]+'">'+r[4]+'</td></tr>';
+    }
+    document.getElementById('gvPureBody').innerHTML=html;
+
+    var TP={};
+    TP.p3_rent='小阳楼 3 年期价格政策\n60 元/块/月 × 36 个月 = 2,160 元/块';
+    TP.p5_rent='小阳楼 5 年期价格政策\n40 元/块/月 × 60 个月 = 2,400 元/块';
+    TP.p3_tot='月租 60 × 36 个月\n= 2,160 元/块';
+    TP.p5_tot='月租 40 × 60 个月\n= 2,400 元/块';
+    TP.p3_in='2,160 ÷（年发电 '+n0(annual)+' × 3 年）= '+n3(c3)+' 元/度\n分母只有 3 年发电量，不能与 5 年直接比较';
+    TP.p5_in='2,400 ÷（年发电 '+n0(annual)+' × 5 年）= '+n3(c5)+' 元/度\n分母是 5 年发电量，所以看着更低';
+    TP.p3_t5='2,160 ÷（年发电 '+n0(annual)+' × 5 年）= '+n3(t53)+' 元/度\n与 5 年方案同一把尺子';
+    TP.p5_t5='2,400 ÷（年发电 '+n0(annual)+' × 5 年）= '+n3(t55)+' 元/度';
+    TP.p3_t10='2,160 ÷（年发电 '+n0(annual)+' × 10 年）= '+n3(t103)+' 元/度';
+    TP.p5_t10='2,400 ÷（年发电 '+n0(annual)+' × 10 年）= '+n3(t105)+' 元/度';
+    TP.p3_t25='2,160 ÷（年发电 '+n0(annual)+' × 25 年）= '+n3(t253)+' 元/度\n未计组件衰减与运维';
+    TP.p5_t25='2,400 ÷（年发电 '+n0(annual)+' × 25 年）= '+n3(t255)+' 元/度';
+    TP.p3_flow='年发电 '+n0(annual)+' 度 × 平段电价 '+flat+' 元\n= '+n0(save)+' 元替代电费\n'+n0(save)+' − 月租 720 = '+signed(f3)+' 元/年';
+    TP.p5_flow='年发电 '+n0(annual)+' 度 × 平段电价 '+flat+' 元\n= '+n0(save)+' 元替代电费\n'+n0(save)+' − 月租 480 = '+signed(f5)+' 元/年';
+    paint('gvPureBody',TP);
+
+    document.getElementById('gvPureNote').innerHTML =
+      '按年有效小时数 <strong>'+h+'h</strong> 计算：一块板年发电 <strong>'+n0(annual)+' 度</strong>，'+
+      '3 年期内共发 '+n0(annual*3)+' 度、5 年期内共发 '+n0(annual*5)+' 度。'+
+      '期内度电成本的分母分别是 3 年和 5 年，<strong>不可直接比较</strong>；看第 4—6 行才是同一把尺子。带虚线的数字可悬停（手机点一下）查看算法。';
+
+    document.getElementById('gvCmp3').textContent = n3(t53)+' 元';
+    document.getElementById('gvCmp5').textContent = n3(t55)+' 元';
+    document.getElementById('gvSave3').textContent = n0(save);
+    document.getElementById('gvFlow3').textContent = n0(Math.abs(f3));
+    document.getElementById('gvFlow5').textContent = n0(Math.abs(f5));
+
+    /* ---- 1:1 配储增量 ---- */
+    var inc3=R3.ess-R3.pv, inc5=R5.ess-R5.pv;
+    var m3=inc3*BLOCKS, m5=inc5*BLOCKS;
+    var e3=m3*36, e5=m5*60;
+    var dayDis=100*DOD*EFF, yearDis=dayDis*365;
+    var e53=e3/(yearDis*5), e55=e5/(yearDis*5);
+    var e103=e3/(yearDis*10), e105=e5/(yearDis*10);
+    var netG=peak, netT=cap, netV=peak-valley/EFF;
+    var pbG3=e3/(yearDis*netG), pbG5=e5/(yearDis*netG);
+    var pbT3=e3/(yearDis*netT), pbT5=e5/(yearDis*netT);
+    var pbV3=e3/(yearDis*netV), pbV5=e5/(yearDis*netV);
+    var yr=function(v){ return (Math.round(v*10)/10).toFixed(1)+' 年'; };
+    var d1=function(v){ return (Math.round(v*10)/10).toFixed(1); };
+
+    var rows2=[
+      ['增量月租（元/块/月）','inc','',n0(inc3),n0(inc5)],
+      ['增量月租（100kW 合计，元/月）','incm','',n0(m3),n0(m5)],
+      ['增量总成本（约 127 块）','tot','best',n0(e3),n0(e5)],
+      ['电池 100 度 → 日放 '+d1(dayDis)+' 度 → 年放 '+n0(yearDis)+' 度','bat','',null,null],
+      ['5 年度电成本（元/度）','e5','best',n3(e53),n3(e55)],
+      ['10 年度电成本（元/度）','e10','best',n3(e103),n3(e105)],
+      ['回本期：充光伏绿电 · 替代峰电','pg','best',yr(pbG3),yr(pbG5)],
+      ['回本期：充光伏绿电 · 替代尖峰','pt','best',yr(pbT3),yr(pbT5)],
+      ['回本期：谷电充电 · 替代峰电','pv','',yr(pbV3),yr(pbV5)]
+    ];
+    var html2='';
+    for(var j=0;j<rows2.length;j++){
+      var q=rows2[j];
+      if(q[3]===null){
+        html2+='<tr><td class="lbl" colspan="3" data-k="e_bat" style="text-align:center;color:#5B6B7B;background:var(--bg-soft)">'+q[0]+'</td></tr>';
+      }else{
+        html2+='<tr><td class="lbl">'+q[0]+'</td>'+
+               '<td class="'+q[2]+'" data-k="e3_'+q[1]+'">'+q[3]+'</td>'+
+               '<td data-k="e5_'+q[1]+'">'+q[4]+'</td></tr>';
+      }
+    }
+    document.getElementById('gvEssBody').innerHTML=html2;
+
+    var TE={};
+    TE.e_bat='100 度（标称）× 90% DOD = 90 度可用\n90 × 88% 往返效率 = '+d1(dayDis)+' 度/天\n'+d1(dayDis)+' × 365 天 = '+n0(yearDis)+' 度/年';
+    TE.e3_inc='配储 90 − 纯光 60\n= '+inc3+' 元/块/月';
+    TE.e5_inc='配储 60 − 纯光 40\n= '+inc5+' 元/块/月';
+    TE.e3_incm=inc3+' 元/块 × 127 块（100kW）\n= '+n0(m3)+' 元/月';
+    TE.e5_incm=inc5+' 元/块 × 127 块（100kW）\n= '+n0(m5)+' 元/月';
+    TE.e3_tot=n0(m3)+' 元/月 × 36 个月\n= '+n0(e3)+' 元';
+    TE.e5_tot=n0(m5)+' 元/月 × 60 个月\n= '+n0(e5)+' 元';
+    TE.e3_e5=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 5 年）\n= '+n3(e53)+' 元/度';
+    TE.e5_e5=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 5 年）\n= '+n3(e55)+' 元/度';
+    TE.e3_e10=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 10 年）\n= '+n3(e103)+' 元/度';
+    TE.e5_e10=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 10 年）\n= '+n3(e105)+' 元/度';
+    TE.e3_pg=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 峰电价 '+peak+'）\n= '+yr(pbG3)+'\n充电用本来要弃掉的光伏，成本按 0 计';
+    TE.e5_pg=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 峰电价 '+peak+'）\n= '+yr(pbG5);
+    TE.e3_pt=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 尖峰电价 '+cap+'）\n= '+yr(pbT3);
+    TE.e5_pt=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 尖峰电价 '+cap+'）\n= '+yr(pbT5);
+    TE.e3_pv='每度净收益 = 峰电价 '+peak+' − 谷电价 '+valley+' ÷ 0.88\n= '+n3(netV)+' 元/度\n'+n0(e3)+' ÷（'+n0(yearDis)+' × '+n3(netV)+'）= '+yr(pbV3);
+    TE.e5_pv='每度净收益 = '+peak+' − '+valley+' ÷ 0.88 = '+n3(netV)+' 元/度\n'+n0(e5)+' ÷（'+n0(yearDis)+' × '+n3(netV)+'）= '+yr(pbV5);
+    paint('gvEssBody',TE);
+
+    var np=document.getElementById('gvNPeak'), nc=document.getElementById('gvNCap'), nv=document.getElementById('gvNValley');
+    if(np) np.textContent=peak; if(nc) nc.textContent=cap; if(nv) nv.textContent=valley;
+  }
+
+  ['gvHours','gvFlat','gvPeak','gvCap','gvValley'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.addEventListener('input',render);
+  });
+  var pre=document.getElementById('gvPreset');
+  if(pre){
+    pre.addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      Array.prototype.forEach.call(this.querySelectorAll('button'),function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      document.getElementById('gvHours').value=b.dataset.h;
+      render();
+    });
+  }
+  render();
+
+  /* ---- 数字说明浮层：电脑悬停、手机点击 ---- */
+  var tipEl=document.getElementById('gvTip');
+  var timer=null;
+  function place(x,y){
+    var w=tipEl.offsetWidth, hh=tipEl.offsetHeight;
+    var left=Math.min(Math.max(10,x-w/2), window.innerWidth-w-10);
+    var top=y-hh-14; if(top<10) top=y+22;
+    tipEl.style.left=left+'px'; tipEl.style.top=top+'px';
+  }
+  function show(el,x,y){
+    tipEl.textContent=el.getAttribute('data-tip');
+    tipEl.classList.add('on');
+    place(x,y);
+  }
+  function hide(){ tipEl.classList.remove('on'); clearTimeout(timer); }
+  document.addEventListener('mouseover',function(e){
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t&&t.getAttribute('data-tip')) show(t,e.clientX,e.clientY);
+  });
+  document.addEventListener('mousemove',function(e){
+    if(!tipEl.classList.contains('on')) return;
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t) place(e.clientX,e.clientY);
+  });
+  document.addEventListener('mouseout',function(e){
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t) hide();
+  });
+  document.addEventListener('click',function(e){
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t&&t.getAttribute('data-tip')){
+      var r=t.getBoundingClientRect();
+      show(t,r.left+r.width/2,r.top);
+      clearTimeout(timer); timer=setTimeout(hide,4000);
+    }else{ hide(); }
+  });
+})();
 </script>
 </body>
 </html>

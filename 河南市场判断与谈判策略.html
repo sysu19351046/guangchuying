@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>河南市场判断与谈判策略 · 光储盈</title>
+<style>
+  :root{
+    --blue:#0062B2;
+    --blue-dark:#004A85;
+    --blue-light:#E8F1FB;
+    --ink:#1A2B3C;
+    --muted:#5B6B7B;
+    --line:#E2E8F0;
+    --bg:#FFFFFF;
+    --bg-soft:#F5F8FB;
+    --radius:12px;
+    --red:#C0392B;
+    --orange:#E67E22;
+    --green:#2E8B57;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .badge{display:inline-block;font-size:12px;color:var(--blue);background:var(--blue-light);
+    padding:2px 10px;border-radius:999px;border:1px solid #CFE2F5;font-weight:500;white-space:nowrap}
+  .badge.gray{color:var(--muted);background:#EEF1F4;border-color:var(--line)}
+  .badge.red{color:var(--red);background:#FDECEA;border-color:#F5C6C0}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:30px;width:auto}
+  .brand .txt{font-weight:500;font-size:16px}
+  .brand .txt small{display:block;font-size:11px;color:var(--muted);font-weight:400}
+  .menu{display:flex;gap:6px;list-style:none}
+  .menu a{font-size:14px;padding:8px 12px;border-radius:8px}
+  .menu a:hover{background:var(--blue-light);color:var(--blue)}
+
+  .hero{background:var(--blue);color:#fff;padding:52px 0 56px}
+  .hero h1{font-size:32px;font-weight:500;letter-spacing:.5px}
+  .hero p{margin-top:14px;font-size:15px;opacity:.92;max-width:760px}
+  .hero .kpis{margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .kpi{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+    border-radius:var(--radius);padding:16px 18px}
+  .kpi .v{font-size:26px;font-weight:600;letter-spacing:.5px}
+  .kpi .v small{font-size:13px;font-weight:400;opacity:.85;margin-left:2px}
+  .kpi .l{font-size:12px;opacity:.85;margin-top:4px}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:24px}
+  .sec-head h2{font-size:23px;font-weight:500;display:flex;align-items:center;gap:10px}
+  .sec-head h2 .no{color:var(--blue);font-size:17px}
+  .sec-head p{color:var(--muted);margin-top:8px;font-size:14px}
+
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .card.soft{background:var(--bg-soft)}
+  .card h3{font-size:16px;font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .card p{font-size:14px;color:var(--muted)}
+  .card ul,.card ol{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
+  .card li{margin:5px 0}
+  .card li b{color:var(--ink);font-weight:600}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--line)}
+  th{background:var(--bg-soft);font-weight:500;color:var(--muted);font-size:12.5px}
+  td.l,th.l{text-align:left}
+  tr.hl td{background:#FFF7E8}
+  .num{font-variant-numeric:tabular-nums}
+  .up{color:#D9534F;font-weight:600}
+  .tbl-note{font-size:12px;color:var(--muted);margin-top:10px}
+
+  .verdict{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+  .vd{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--bg-soft)}
+  .vd .t{font-size:13px;color:var(--muted)}
+  .vd .s{font-size:15px;font-weight:600;margin-top:4px}
+  .vd .s.ok{color:var(--blue)}
+  .vd .s.warn{color:var(--orange)}
+
+  .chartbox{border:1px solid var(--line);border-radius:var(--radius);padding:16px 10px 6px;background:#fff}
+  .legend{display:flex;gap:18px;font-size:12.5px;color:var(--muted);padding:0 12px 8px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+  .bandrow{margin:10px 0 18px}
+  .bandrow .cap{font-size:13px;color:var(--muted);margin-bottom:6px}
+  .bandrow .cap b{color:var(--ink)}
+
+  .scrollhint{display:none;text-align:center;font-size:12px;color:#93A1AE;margin-top:8px}
+  @media(max-width:860px){.scrollhint{display:block}}
+
+
+  /* 两段价值 */
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .seg .s{border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .seg .s.a{background:linear-gradient(180deg,#F3F9FF,#fff);border-color:#CFE2F5}
+  .seg .s.b{background:linear-gradient(180deg,#FFF7E8,#fff);border-color:#F3DDB4}
+  .seg .s .tag{font-size:12px;color:var(--muted);letter-spacing:.3px}
+  .seg .s .big{font-size:26px;font-weight:600;margin:6px 0 2px}
+  .seg .s .tm{font-size:12.5px;color:var(--muted);padding-bottom:8px;border-bottom:1px dashed var(--line)}
+  /* 消纳率/覆盖率配色 */
+  table.ratio td.ok{background:#E9F5EF;color:#1E6B45;font-weight:600}
+  table.ratio td.mid{background:#FFF7E8;color:#7A5310;font-weight:600}
+  table.ratio td.low{background:#FDECEA;color:#8B2D24;font-weight:600}
+  table.ratio th small{font-weight:400;font-size:10.5px;color:#93A1AE}
+  @media(max-width:860px){.seg,.g4{grid-template-columns:1fr}.g4{grid-template-columns:repeat(2,1fr)}}
+
+
+  /* 逐月四档电价图 */
+  .pc{position:relative;height:330px;margin:26px 0 54px 46px}
+  .pc-grid{position:absolute;inset:0}
+  .pc-unit{position:absolute;left:-44px;top:-2px;font-size:10.5px;color:#93A1AE}
+  .pc-gl{position:absolute;left:0;right:0;height:1px;background:#EDF1F6}
+  .pc-ytick{position:absolute;left:-44px;width:38px;text-align:right;font-size:11px;
+    color:#93A1AE;transform:translateY(50%);font-variant-numeric:tabular-nums}
+  .pc-cols{position:absolute;inset:0;display:flex;gap:8px}
+  .pc-col{position:relative;flex:1;min-width:0;height:100%;cursor:pointer;border-radius:6px}
+  .pc-col:hover{background:rgba(0,98,178,.05)}
+  .pc-band{position:absolute;left:50%;transform:translateX(-50%);width:30px}
+  .pc-f{background:linear-gradient(180deg,#E67E22,#F2A96F);border-radius:5px 5px 0 0}
+  .pc-g{background:linear-gradient(180deg,#8ECBAE,#2E8B57);border-radius:0 0 5px 5px}
+  .pc-p{position:absolute;left:50%;transform:translate(-50%,50%);width:38px;height:3px;
+    background:#42505E;border-radius:2px;box-shadow:0 0 0 1.5px #fff}
+  .pc-j{position:absolute;left:50%;transform:translate(-50%,50%);width:12px;height:12px;border-radius:50%;
+    background:#C0392B;border:2px solid #fff;box-shadow:0 0 0 1.5px #C0392B}
+  .pc-foot{position:absolute;left:0;right:0;bottom:-46px;text-align:center;font-size:11px;color:var(--muted);line-height:1.45}
+  .pc-foot b{display:block;font-size:12px;color:var(--ink);font-weight:500}
+  .pc-foot i{font-style:normal;color:#C0392B;font-weight:600;font-variant-numeric:tabular-nums}
+  #pcTip{position:fixed;z-index:99;background:#16232F;color:#fff;border-radius:10px;padding:10px 12px;
+    font-size:12.5px;line-height:1.6;width:172px;pointer-events:none;opacity:0;transition:opacity .12s;
+    box-shadow:0 12px 28px rgba(15,30,45,.28);left:0;top:0}
+  #pcTip .h{font-weight:600;margin-bottom:5px;font-size:13px;letter-spacing:.2px}
+  #pcTip .r,#pcTip .d{display:flex;justify-content:space-between;gap:10px}
+  #pcTip .r b,#pcTip .d b{font-variant-numeric:tabular-nums}
+  #pcTip .d{margin-top:5px;padding-top:5px;border-top:1px solid rgba(255,255,255,.16)}
+  @media(max-width:860px){
+    .pc{margin-left:34px;height:270px}
+    .pc-ytick{left:-32px;width:28px;font-size:10px}
+    .pc-cols{gap:4px}
+    .pc-band{width:20px}
+    .pc-p{width:28px}
+    .pc-foot{font-size:10px;bottom:-42px}
+    .pc-foot b{font-size:11px}
+  }
+
+  /* 普通表格横向滚动 */
+  .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .grid>*{min-width:0}
+  .card{min-width:0}
+  .tblwrap table{min-width:640px}
+
+  /* 12×24 时段矩阵 */
+  .bandwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  table.band{min-width:700px;width:100%;border-collapse:separate;border-spacing:2px;table-layout:fixed}
+  table.band th.mlab{text-align:left;font-size:13px;font-weight:600;color:var(--ink);
+    padding:0 8px 0 2px;line-height:1.35;vertical-align:middle;background:#fff;border:0;
+    position:sticky;left:0;z-index:2}
+  table.band th.mlab b{display:block;font-weight:600}
+  table.band th.mlab em{display:block;font-style:normal;font-size:11px;color:var(--muted);font-weight:400}
+  table.band th.h.key{color:#5B6B7B;font-weight:600}
+  table.band th.h{font-size:10px;font-weight:400;color:#93A1AE;text-align:center;
+    padding:0 0 3px;background:none;border:0;letter-spacing:-.2px}
+  table.band td{height:30px;padding:0;border:0;border-radius:3px}
+  table.band td.g{background:#2E8B57}
+  table.band td.p{background:#EDEFF2;box-shadow:inset 0 0 0 1px #E1E6EC}
+  table.band td.f{background:#E67E22}
+  table.band td.j{background:#C0392B}
+  table.band th.stat{background:none;border:0;text-align:left;padding-left:10px;font-size:11.5px}
+  table.band td.stat{font-size:11.5px;color:var(--muted);text-align:left;padding-left:10px;
+    line-height:1.35;background:none;border:0}
+  table.band tr.pvrow td{height:16px}
+  table.band td.pv-s{background:#F6C24B}
+  table.band td.pv-m{background:#FBE1A8}
+  table.band td.pv-l{background:#FDF0D4}
+  table.band td.pv-e{background:#F7F9FB;box-shadow:inset 0 0 0 1px #EDF1F5}
+  table.band tr.spacer td{height:6px;background:none}
+
+  .money{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .money .m{border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-align:center}
+  .money .m .t{font-size:13px;color:var(--muted)}
+  .money .m .v{font-size:28px;font-weight:600;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+  .money .m .d{font-size:12px;color:var(--muted)}
+  .money .m.a{background:#FDECEA;border-color:#F5C6C0}
+  .money .m.b{background:#FFF7E8;border-color:#F3DDB4}
+  .money .m.c{background:#E9F5EF;border-color:#C6E3D3}
+
+  .step{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .step:last-child{border-bottom:0}
+  .step .n{width:34px;height:34px;border-radius:50%;background:var(--blue-light);color:var(--blue);
+    display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+  .step h4{font-size:15px;font-weight:600;margin-bottom:4px}
+  .step p{font-size:13.5px;color:var(--muted)}
+  .step .say{margin-top:8px;background:var(--blue-light);border-left:3px solid var(--blue);
+    padding:8px 12px;border-radius:0 6px 6px 0;font-size:13.5px;color:var(--ink)}
+
+  .qa{border-bottom:1px dashed var(--line);padding:14px 0}
+  .qa:last-child{border-bottom:0}
+  .qa .q{font-size:14px;font-weight:600}
+  .qa .a{font-size:13.5px;color:var(--muted);margin-top:6px}
+
+  .alert{background:#FDECEA;border:1px solid #F5C6C0;border-radius:var(--radius);padding:16px 18px;
+    font-size:13.5px;color:#8B2D24}
+  .alert b{color:#8B2D24}
+  .tip{background:#FFF7E8;border:1px solid #F3DDB4;border-radius:var(--radius);padding:16px 18px;
+    font-size:13.5px;color:#7A5310}
+  .tip b{color:#7A5310}
+
+  footer{padding:32px 0 48px;color:var(--muted);font-size:12.5px}
+  footer p{margin:4px 0}
+
+  @media(max-width:860px){
+    .hero .kpis,.verdict,.money,.g2,.g3{grid-template-columns:1fr}
+    .hero .kpis{grid-template-columns:repeat(2,1fr)}
+    .menu{display:none}
+    .hero h1{font-size:24px}
+    section{padding:38px 0}
+    table{font-size:12px}
+    th,td{padding:7px 5px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="创维光伏">
+      <div class="txt">光储盈培训赋能站<small>河南市场专题</small></div>
+    </a>
+    <ul class="menu">
+      <li><a href="index.html">返回首页</a></li>
+      <li><a href="#verdict">市场判断</a></li>
+      <li><a href="#price">电价事实</a></li>
+      <li><a href="#value">两段价值</a></li>
+      <li><a href="#ratio">配比测算</a></li>
+      <li><a href="#talk">谈判策略</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge" style="background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4);color:#fff">前提：河南多数县域为承载力红区 · 余电不上网 · 全额自发自用</span>
+    <h1>红区里，光储盈卖的不是「发电」，是两段电价差</h1>
+    <p>红区不允许全额上网、多数地区连余电上网也不放行，光伏发出来用不掉就是零。这让光储盈的价值结构变得非常清楚：<b>平段替代</b>（8:00—16:00，光伏直供）＋<b>峰段补充</b>（16:00—24:00，储能放电）。储能不是锦上添花，是并网门票和消纳出口。</p>
+    <div class="kpis">
+      <div class="kpi"><div class="v">0.61<small>元/度</small></div><div class="l">平段电价 · 8—16 点光伏直供替代</div></div>
+      <div class="kpi"><div class="v">1.01<small>元/度</small></div><div class="l">高峰电价 · 16—24 点储能补充</div></div>
+      <div class="kpi"><div class="v">0.71<small>元/度</small></div><div class="l">峰谷价差（1—10kV 单一制）</div></div>
+      <div class="kpi"><div class="v">8<small>小时</small></div><div class="l">每天连续高峰，光伏零出力</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 市场判断 -->
+<section id="verdict">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">01</span>结论：红区把光储盈从「划算」变成了「唯一解」</h2>
+      <p>不能上网之后，光伏每度电只剩两个去处：自己用掉，或者扔掉（0 元）。这个约束重写了整个收益模型。</p>
+    </div>
+
+    <div class="verdict">
+      <div class="vd"><div class="t">电价水平</div><div class="s ok">平 0.61 / 峰 1.01</div></div>
+      <div class="vd"><div class="t">峰谷价差</div><div class="s ok">0.62—0.74</div></div>
+      <div class="vd"><div class="t">晚峰时长</div><div class="s ok">8 小时</div></div>
+      <div class="vd"><div class="t">消纳约束</div><div class="s warn">红区 · 余电不上网</div></div>
+      <div class="vd"><div class="t">配储角色</div><div class="s ok">并网门槛 + 消纳出口</div></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>四个支撑点</h3>
+        <ul>
+          <li><b>红区只有一条路</b>：不允许全额上网、多数地区不允许余电上网，光伏必须做成「全额自发自用 + 防逆流」。白天用不掉的部分，在红区就是弃光，一分钱不值。</li>
+          <li><b>配储是并网门槛，不只是经济账</b>：河南对红区项目的要求是配储不低于装机容量 <b>20%、2 小时</b>，并提交消纳方案后方可接入。光储盈 1:1 的容量是这个门槛的 <b>2.5 倍</b>——不是刚好卡线，而是为了消纳率超配。</li>
+          <li><b>两段电价差都能吃</b>：平段 0.61（8—16 点，光伏直接替代）、高峰 1.01（16—24 点，储能放电补充）、尖峰 1.20（1/12 月 17—19 点、7/8 月 20—23 点）。</li>
+          <li><b>晚峰 8 小时光伏零出力</b>：16 点后辐照断崖式下降，这 8 小时只能靠电池或电网。电池能顶一部分，就是实打实的省钱。</li>
+        </ul>
+      </div>
+      <div class="card soft">
+        <h3>红区项目能不能做，只看三条</h3>
+        <ol>
+          <li><b>白天自用率 ≥50%</b>：这是红区项目的第一生死线。自用率低，光伏发得越多、弃得越多，装得越大亏得越大。</li>
+          <li><b>16—24 点有负荷</b>：决定电池有没有放电出口。没有晚峰负荷，电池就只是个"并网道具"，经济性无从谈起。</li>
+          <li><b>台区与变压器容量够</b>：红区要排队，且配储充电会占用台区容量，需先查可开放容量与变压器余量。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="alert" style="margin-top:16px">
+      <b>口径必须改：</b>过去讲「上网电价 0.276、自用 0.61，自用是上网的两倍多」，在红区说不通——<b>红区根本不让你上网</b>。正确的对比基准是「弃掉 = 0 元」。同一度光伏电，弃掉是 0，存起来晚上用值 0.89 元。这个对比比"上网 vs 自用"更有冲击力，也更站得住脚。
+    </div>
+  </div>
+</section>
+
+<!-- 02 电价事实 -->
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">02</span>电价事实：一张表看清「一度电什么时候最值钱」</h2>
+      <p>国网河南 2026 年 10 月代理购电价格（2026.10.1—10.31）。分时电价 =（代理购电价格 + 电度输配电价）× 浮动比例 + 线损 + 系统运行费 + 基金附加；浮动比例 高峰:平段:低谷 = 1.72:1:0.45，尖峰 = 高峰 × 1.2。</p>
+    </div>
+
+    <div class="card" style="padding:14px 14px 10px">
+      <div class="tblwrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="l">用电分类</th><th>电压等级</th>
+            <th>平段</th><th>高峰</th><th>低谷</th>
+            <th>峰谷价差</th><th>尖峰<small>（1/12月17-19时）</small></th>
+          </tr>
+        </thead>
+        <tbody class="num">
+          <tr><td class="l" rowspan="5">工商业<br>单一制</td><td>不满1千伏</td><td>0.6363</td><td class="up">1.0567</td><td>0.3152</td><td><b>0.7416</b></td><td>1.2576</td></tr>
+          <tr class="hl"><td>1—10千伏</td><td>0.6088</td><td class="up">1.0094</td><td>0.3028</td><td><b>0.7066</b></td><td>1.2008</td></tr>
+          <tr><td>35千伏</td><td>0.5820</td><td class="up">0.9633</td><td>0.2907</td><td>0.6726</td><td>1.1455</td></tr>
+          <tr><td>110千伏</td><td>0.5553</td><td class="up">0.9174</td><td>0.2787</td><td>0.6387</td><td>1.0904</td></tr>
+          <tr><td>220千伏及以上</td><td>0.5408</td><td class="up">0.8925</td><td>0.2722</td><td>0.6203</td><td>1.0605</td></tr>
+          <tr><td class="l" rowspan="4">工商业<br>两部制</td><td>1—10千伏</td><td>0.6063</td><td class="up">1.0051</td><td>0.3017</td><td>0.7035</td><td>1.1957</td></tr>
+          <tr><td>35千伏</td><td>0.5800</td><td class="up">0.9600</td><td>0.2898</td><td>0.6701</td><td>1.1414</td></tr>
+          <tr><td>110千伏</td><td>0.5533</td><td class="up">0.9140</td><td>0.2778</td><td>0.6361</td><td>1.0863</td></tr>
+          <tr><td>220千伏及以上</td><td>0.5388</td><td class="up">0.8890</td><td>0.2713</td><td>0.6177</td><td>1.0564</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="tbl-note">单位：元/千瓦时。两部制另收容量电费：最大需量 40/36.8/33.6/30.4 元/kW·月，变压器容量 25/23/21/19 元/kVA·月（按 1—10kV / 35kV / 110kV / 220kV 排列）。尖峰列为按 10 月价格水平折算的示意值，实际随当月代理购电价格浮动。</p>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:28px 0 6px">12 个月 × 24 小时，什么时候最贵一目了然</h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:14px">横轴是 0—23 点，纵轴是月份。河南全年只有三套时段规则，其中 2 月与 6 月完全一致，所以把 12 个月合并成 4 行——每一行都标明了它代表哪几个月，合并没有丢信息。</p>
+
+    <div class="card" style="padding:18px 16px 14px">
+      <div class="legend" style="padding:0 0 10px">
+        <span><i style="background:#C0392B"></i>尖峰（1.2×高峰）</span>
+        <span><i style="background:#E67E22"></i>高峰</span>
+        <span><i style="background:#EDEFF2;border:1px solid #DDE2E8"></i>平段</span>
+        <span><i style="background:#2E8B57"></i>低谷</span>
+        <span><i style="background:#F6C24B"></i>光伏出力（示意）</span>
+      </div>
+
+      <div class="bandwrap">
+        <table class="band">
+          <colgroup>
+            <col style="width:98px">
+            <col span="24">
+            <col style="width:136px">
+          </colgroup>
+          <thead><tr><th class="mlab"><b>月份</b><em>＼ 小时</em></th><th class="h key">0</th><th class="h">1</th><th class="h">2</th><th class="h">3</th><th class="h">4</th><th class="h">5</th><th class="h key">6</th><th class="h">7</th><th class="h">8</th><th class="h">9</th><th class="h">10</th><th class="h">11</th><th class="h key">12</th><th class="h">13</th><th class="h">14</th><th class="h">15</th><th class="h">16</th><th class="h">17</th><th class="h key">18</th><th class="h">19</th><th class="h">20</th><th class="h">21</th><th class="h">22</th><th class="h">23</th><th class="stat">时段合计</th></tr></thead>
+          <tbody>
+            <tr><th class="mlab"><b>1月、12月</b><em>含 2 小时尖峰</em></th><td class="g" title="0:00—1:00 低谷"></td><td class="g" title="1:00—2:00 低谷"></td><td class="g" title="2:00—3:00 低谷"></td><td class="g" title="3:00—4:00 低谷"></td><td class="g" title="4:00—5:00 低谷"></td><td class="g" title="5:00—6:00 低谷"></td><td class="g" title="6:00—7:00 低谷"></td><td class="p" title="7:00—8:00 平段"></td><td class="p" title="8:00—9:00 平段"></td><td class="p" title="9:00—10:00 平段"></td><td class="p" title="10:00—11:00 平段"></td><td class="p" title="11:00—12:00 平段"></td><td class="p" title="12:00—13:00 平段"></td><td class="p" title="13:00—14:00 平段"></td><td class="p" title="14:00—15:00 平段"></td><td class="p" title="15:00—16:00 平段"></td><td class="f" title="16:00—17:00 高峰"></td><td class="j" title="17:00—18:00 尖峰"></td><td class="j" title="18:00—19:00 尖峰"></td><td class="f" title="19:00—20:00 高峰"></td><td class="f" title="20:00—21:00 高峰"></td><td class="f" title="21:00—22:00 高峰"></td><td class="f" title="22:00—23:00 高峰"></td><td class="f" title="23:00—24:00 高峰"></td><td class="stat">峰 8h（尖 2h）<br>平 9h · 谷 7h</td></tr>
+            <tr><th class="mlab"><b>2月、6月</b><em>无尖峰</em></th><td class="g" title="0:00—1:00 低谷"></td><td class="g" title="1:00—2:00 低谷"></td><td class="g" title="2:00—3:00 低谷"></td><td class="g" title="3:00—4:00 低谷"></td><td class="g" title="4:00—5:00 低谷"></td><td class="g" title="5:00—6:00 低谷"></td><td class="g" title="6:00—7:00 低谷"></td><td class="p" title="7:00—8:00 平段"></td><td class="p" title="8:00—9:00 平段"></td><td class="p" title="9:00—10:00 平段"></td><td class="p" title="10:00—11:00 平段"></td><td class="p" title="11:00—12:00 平段"></td><td class="p" title="12:00—13:00 平段"></td><td class="p" title="13:00—14:00 平段"></td><td class="p" title="14:00—15:00 平段"></td><td class="p" title="15:00—16:00 平段"></td><td class="f" title="16:00—17:00 高峰"></td><td class="f" title="17:00—18:00 高峰"></td><td class="f" title="18:00—19:00 高峰"></td><td class="f" title="19:00—20:00 高峰"></td><td class="f" title="20:00—21:00 高峰"></td><td class="f" title="21:00—22:00 高峰"></td><td class="f" title="22:00—23:00 高峰"></td><td class="f" title="23:00—24:00 高峰"></td><td class="stat">峰 8h<br>平 9h · 谷 7h</td></tr>
+            <tr><th class="mlab"><b>3—5月<br>9—11月</b><em>午间低谷</em></th><td class="g" title="0:00—1:00 低谷"></td><td class="g" title="1:00—2:00 低谷"></td><td class="g" title="2:00—3:00 低谷"></td><td class="g" title="3:00—4:00 低谷"></td><td class="g" title="4:00—5:00 低谷"></td><td class="g" title="5:00—6:00 低谷"></td><td class="p" title="6:00—7:00 平段"></td><td class="p" title="7:00—8:00 平段"></td><td class="p" title="8:00—9:00 平段"></td><td class="p" title="9:00—10:00 平段"></td><td class="p" title="10:00—11:00 平段"></td><td class="g" title="11:00—12:00 低谷"></td><td class="g" title="12:00—13:00 低谷"></td><td class="g" title="13:00—14:00 低谷"></td><td class="p" title="14:00—15:00 平段"></td><td class="p" title="15:00—16:00 平段"></td><td class="f" title="16:00—17:00 高峰"></td><td class="f" title="17:00—18:00 高峰"></td><td class="f" title="18:00—19:00 高峰"></td><td class="f" title="19:00—20:00 高峰"></td><td class="f" title="20:00—21:00 高峰"></td><td class="f" title="21:00—22:00 高峰"></td><td class="f" title="22:00—23:00 高峰"></td><td class="f" title="23:00—24:00 高峰"></td><td class="stat">峰 8h<br>平 7h · 谷 9h</td></tr>
+            <tr><th class="mlab"><b>7月、8月</b><em>含 3 小时尖峰</em></th><td class="g" title="0:00—1:00 低谷"></td><td class="g" title="1:00—2:00 低谷"></td><td class="g" title="2:00—3:00 低谷"></td><td class="g" title="3:00—4:00 低谷"></td><td class="g" title="4:00—5:00 低谷"></td><td class="g" title="5:00—6:00 低谷"></td><td class="g" title="6:00—7:00 低谷"></td><td class="p" title="7:00—8:00 平段"></td><td class="p" title="8:00—9:00 平段"></td><td class="p" title="9:00—10:00 平段"></td><td class="p" title="10:00—11:00 平段"></td><td class="p" title="11:00—12:00 平段"></td><td class="p" title="12:00—13:00 平段"></td><td class="p" title="13:00—14:00 平段"></td><td class="p" title="14:00—15:00 平段"></td><td class="p" title="15:00—16:00 平段"></td><td class="f" title="16:00—17:00 高峰"></td><td class="f" title="17:00—18:00 高峰"></td><td class="f" title="18:00—19:00 高峰"></td><td class="f" title="19:00—20:00 高峰"></td><td class="j" title="20:00—21:00 尖峰"></td><td class="j" title="21:00—22:00 尖峰"></td><td class="j" title="22:00—23:00 尖峰"></td><td class="f" title="23:00—24:00 高峰"></td><td class="stat">峰 8h（尖 3h）<br>平 9h · 谷 7h</td></tr>
+            <tr class="spacer"><td colspan="26"></td></tr>
+            <tr class="pvrow"><th class="mlab"><b>光伏出力</b><em>示意</em></th><td class="pv-e" title="0:00—1:00 光伏无出力"></td><td class="pv-e" title="1:00—2:00 光伏无出力"></td><td class="pv-e" title="2:00—3:00 光伏无出力"></td><td class="pv-e" title="3:00—4:00 光伏无出力"></td><td class="pv-e" title="4:00—5:00 光伏无出力"></td><td class="pv-e" title="5:00—6:00 光伏无出力"></td><td class="pv-e" title="6:00—7:00 光伏无出力"></td><td class="pv-l" title="7:00—8:00 光伏弱"></td><td class="pv-s" title="8:00—9:00 光伏强"></td><td class="pv-s" title="9:00—10:00 光伏强"></td><td class="pv-s" title="10:00—11:00 光伏强"></td><td class="pv-s" title="11:00—12:00 光伏强"></td><td class="pv-s" title="12:00—13:00 光伏强"></td><td class="pv-s" title="13:00—14:00 光伏强"></td><td class="pv-s" title="14:00—15:00 光伏强"></td><td class="pv-s" title="15:00—16:00 光伏强"></td><td class="pv-m" title="16:00—17:00 光伏中"></td><td class="pv-l" title="17:00—18:00 光伏弱"></td><td class="pv-e" title="18:00—19:00 光伏无出力"></td><td class="pv-e" title="19:00—20:00 光伏无出力"></td><td class="pv-e" title="20:00—21:00 光伏无出力"></td><td class="pv-e" title="21:00—22:00 光伏无出力"></td><td class="pv-e" title="22:00—23:00 光伏无出力"></td><td class="pv-e" title="23:00—24:00 光伏无出力"></td><td class="stat">7 点起出力<br>17 点后归零</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="scrollhint">← 左右滑动查看完整 24 小时 →</p>
+
+      <p class="tbl-note" style="margin-top:12px">合并规则：河南按「1、2、12 月」「3—5、9—11 月」「6—8 月」三套规则划分时段。其中 <b>2 月与 6 月</b> 规则完全相同（0—7 低谷、7—16 平段、16—24 高峰），合并为一行；<b>1、12 月</b> 只是比 2 月多出 17:00—19:00 两小时尖峰；<b>7、8 月</b> 比 6 月多出 20:00—23:00 三小时尖峰。依据：豫发改价管〔2024〕283 号附件「1—12 月峰平谷时段」。</p>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="tip">
+        <b>谈判要点 1：</b>把客户电费单上的「峰段电量」圈出来。16:00—24:00 这 8 小时，是他一天里最贵的 8 小时，也是光伏一度电都发不出来的 8 小时——这正是储能唯一能干活的窗口。
+      </div>
+      <div class="tip">
+        <b>谈判要点 2：</b>春秋季中午 11:00—14:00 是低谷价（0.3028），偏偏光伏出力最猛。红区又不让上网，所以中午这段的电只有两个去处：就地用掉，或者存起来——存不住就是弃光。这就是红区"必须配储"的技术原因。
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:34px 0 6px">逐月看：同一个月里，最贵和最便宜差 3—4 倍</h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px">下面是 2026 年 1—10 月「工商业单一制 · 不满 1 千伏」的四档电价。柱子上半段是平段到高峰（橙）、下半段是低谷到平段（绿），深色横线是平段，红点是尖峰（1—10 月中只有 1、7、8 月有；12 月也有尖峰，但电价尚未公布）。<b>鼠标悬停（手机点一下）看确切数字。</b></p>
+
+    <div class="card" style="padding:20px 18px 64px">
+      <div class="legend" style="padding:0 0 4px">
+        <span><i style="background:#C0392B"></i>尖峰</span>
+        <span><i style="background:#E67E22"></i>高峰</span>
+        <span><i style="background:#42505E"></i>平段</span>
+        <span><i style="background:#79C0A0"></i>低谷</span>
+        <span style="color:#C0392B">柱下红字 = 峰谷价差</span>
+      </div>
+      <div class="pc">
+        <div class="pc-unit">元 / 度</div>
+        <div class="pc-grid">
+          <div class="pc-gl" style="bottom:0.00%"></div>
+          <div class="pc-ytick" style="bottom:0.00%">0.30</div>
+          <div class="pc-gl" style="bottom:17.39%"></div>
+          <div class="pc-ytick" style="bottom:17.39%">0.50</div>
+          <div class="pc-gl" style="bottom:34.78%"></div>
+          <div class="pc-ytick" style="bottom:34.78%">0.70</div>
+          <div class="pc-gl" style="bottom:52.17%"></div>
+          <div class="pc-ytick" style="bottom:52.17%">0.90</div>
+          <div class="pc-gl" style="bottom:69.57%"></div>
+          <div class="pc-ytick" style="bottom:69.57%">1.10</div>
+          <div class="pc-gl" style="bottom:86.96%"></div>
+          <div class="pc-ytick" style="bottom:86.96%">1.30</div>
+          
+        </div>
+        <div class="pc-cols">
+          <div class="pc-col" data-m="1月" data-gu="0.3866" data-p="0.6810" data-f="1.0664" data-j="1.250513271" data-cha="0.6798" data-jch="0.8639160960000001">
+            <div class="pc-band pc-f" style="bottom:33.13%;height:33.51%"></div>
+            <div class="pc-band pc-g" style="bottom:7.53%;height:25.60%"></div>
+            <div class="pc-p" style="bottom:33.13%"></div>
+            <div class="pc-j" style="bottom:82.65%"></div>
+            <div class="pc-foot"><b>1月</b><i>0.68</i></div>
+          </div>
+          <div class="pc-col" data-m="2月" data-gu="0.4352" data-p="0.7547" data-f="1.1728" data-j="" data-cha="0.7376" data-jch="">
+            <div class="pc-band pc-f" style="bottom:39.54%;height:36.36%"></div>
+            <div class="pc-band pc-g" style="bottom:11.76%;height:27.77%"></div>
+            <div class="pc-p" style="bottom:39.54%"></div>
+            
+            <div class="pc-foot"><b>2月</b><i>0.74</i></div>
+          </div>
+          <div class="pc-col" data-m="3月" data-gu="0.4192" data-p="0.7430" data-f="1.1669" data-j="" data-cha="0.7476" data-jch="">
+            <div class="pc-band pc-f" style="bottom:38.52%;height:36.86%"></div>
+            <div class="pc-band pc-g" style="bottom:10.37%;height:28.15%"></div>
+            <div class="pc-p" style="bottom:38.52%"></div>
+            
+            <div class="pc-foot"><b>3月</b><i>0.75</i></div>
+          </div>
+          <div class="pc-col" data-m="4月" data-gu="0.4134" data-p="0.7150" data-f="1.1099" data-j="" data-cha="0.6965" data-jch="">
+            <div class="pc-band pc-f" style="bottom:36.09%;height:34.33%"></div>
+            <div class="pc-band pc-g" style="bottom:9.86%;height:26.23%"></div>
+            <div class="pc-p" style="bottom:36.09%"></div>
+            
+            <div class="pc-foot"><b>4月</b><i>0.70</i></div>
+          </div>
+          <div class="pc-col" data-m="5月" data-gu="0.4156" data-p="0.6948" data-f="1.0604" data-j="" data-cha="0.6448" data-jch="">
+            <div class="pc-band pc-f" style="bottom:34.33%;height:31.79%"></div>
+            <div class="pc-band pc-g" style="bottom:10.05%;height:24.28%"></div>
+            <div class="pc-p" style="bottom:34.33%"></div>
+            
+            <div class="pc-foot"><b>5月</b><i>0.64</i></div>
+          </div>
+          <div class="pc-col" data-m="6月" data-gu="0.3942" data-p="0.6771" data-f="1.0474" data-j="" data-cha="0.6532" data-jch="">
+            <div class="pc-band pc-f" style="bottom:32.79%;height:32.20%"></div>
+            <div class="pc-band pc-g" style="bottom:8.19%;height:24.60%"></div>
+            <div class="pc-p" style="bottom:32.79%"></div>
+            
+            <div class="pc-foot"><b>6月</b><i>0.65</i></div>
+          </div>
+          <div class="pc-col" data-m="7月" data-gu="0.3912" data-p="0.6955" data-f="1.0940" data-j="1.2843386310000002" data-cha="0.7028" data-jch="0.8931537060000003">
+            <div class="pc-band pc-f" style="bottom:34.40%;height:34.65%"></div>
+            <div class="pc-band pc-g" style="bottom:7.93%;height:26.47%"></div>
+            <div class="pc-p" style="bottom:34.40%"></div>
+            <div class="pc-j" style="bottom:85.59%"></div>
+            <div class="pc-foot"><b>7月</b><i>0.70</i></div>
+          </div>
+          <div class="pc-col" data-m="8月" data-gu="0.3783" data-p="0.7341" data-f="1.1999" data-j="1.4224112950000003" data-cha="0.8216" data-jch="1.0441046700000003">
+            <div class="pc-band pc-f" style="bottom:37.75%;height:40.50%"></div>
+            <div class="pc-band pc-g" style="bottom:6.81%;height:30.94%"></div>
+            <div class="pc-p" style="bottom:37.75%"></div>
+            <div class="pc-j" style="bottom:97.60%"></div>
+            <div class="pc-foot"><b>8月</b><i>0.82</i></div>
+          </div>
+          <div class="pc-col" data-m="9月" data-gu="0.3532" data-p="0.6916" data-f="1.1347" data-j="" data-cha="0.7814" data-jch="">
+            <div class="pc-band pc-f" style="bottom:34.06%;height:38.52%"></div>
+            <div class="pc-band pc-g" style="bottom:4.63%;height:29.43%"></div>
+            <div class="pc-p" style="bottom:34.06%"></div>
+            
+            <div class="pc-foot"><b>9月</b><i>0.78</i></div>
+          </div>
+          <div class="pc-col" data-m="10月" data-gu="0.3152" data-p="0.6363" data-f="1.0567" data-j="" data-cha="0.7416" data-jch="">
+            <div class="pc-band pc-f" style="bottom:29.25%;height:36.56%"></div>
+            <div class="pc-band pc-g" style="bottom:1.32%;height:27.93%"></div>
+            <div class="pc-p" style="bottom:29.25%"></div>
+            
+            <div class="pc-foot"><b>10月</b><i>0.74</i></div>
+          </div>
+        </div>
+      </div>
+      <p class="tbl-note" style="margin-top:34px">口径：工商业单一制 · 不满 1 千伏，电度用电价格含线损、输配电价、系统运行费与基金附加；高峰/低谷/尖峰按 1.72 : 1 : 0.45（尖峰 = 高峰浮动 ×1.2）折算。1—10 千伏用户各档约低 0.01—0.06 元/度（平段低约 0.03、高峰低约 0.05）。数据来源：国网河南省电力公司 2026 年 1—10 月代理购电价格公告。</p>
+    </div>
+    <div id="pcTip" aria-hidden="true"></div>
+
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card" style="text-align:center"><div style="font-size:12px;color:var(--muted)">峰谷价差（全年区间）</div><div style="font-size:24px;font-weight:600">0.64 — 0.82</div><div style="font-size:12px;color:var(--muted)">元/度，每月都在变</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:12px;color:var(--muted)">尖峰最高（8 月 20—23 点）</div><div style="font-size:24px;font-weight:600;color:#C0392B">1.42</div><div style="font-size:12px;color:var(--muted)">元/度，是低谷的 3.8 倍</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:12px;color:var(--muted)">尖谷差最大（8 月）</div><div style="font-size:24px;font-weight:600;color:#C0392B">1.04</div><div style="font-size:12px;color:var(--muted)">元/度，一度电差一块钱</div></div>
+    </div>
+
+    <div class="tip" style="margin-top:16px">
+      <b>这张图怎么用：</b>光伏只在 8—16 点发电，先把 <b>0.64—0.75 的平段电</b>替掉；白天用不掉的存起来，16 点以后放，替的就是 <b>1.05—1.20 的高峰电</b>；到了 7、8 月的 20—23 点，替的是 <b>1.28—1.42 的尖峰电</b>。同一块板、同一度电，放在不同时段用，价值差 3—4 倍——这就是「用光伏绿电最划算」的全部道理，也是客户唯一需要记住的一句话。
+    </div>
+
+    <script>
+    (function(){
+      var tip=document.getElementById('pcTip');
+      if(!tip) return;
+      function fmt(v){return Number(v).toFixed(3);}
+      function build(c){
+        var m=c.getAttribute('data-m'), gu=c.getAttribute('data-gu'), p=c.getAttribute('data-p'),
+            f=c.getAttribute('data-f'), j=c.getAttribute('data-j'), cha=c.getAttribute('data-cha'),
+            jch=c.getAttribute('data-jch');
+        var h='<div class="h">2026 年 '+m+' · 不满 1 千伏</div>';
+        if(j) h+='<div class="r"><span>尖峰</span><b style="color:#FF9A8B">'+fmt(j)+'</b></div>';
+        else  h+='<div class="r"><span>尖峰</span><b style="opacity:.45">本月无</b></div>';
+        h+='<div class="r"><span>高峰</span><b style="color:#FFC48A">'+fmt(f)+'</b></div>';
+        h+='<div class="r"><span>平段</span><b>'+fmt(p)+'</b></div>';
+        h+='<div class="r"><span>低谷</span><b style="color:#8FD9B6">'+fmt(gu)+'</b></div>';
+        h+='<div class="d"><span>峰谷价差</span><b>'+fmt(cha)+'</b></div>';
+        if(jch) h+='<div class="d" style="border-top:0;padding-top:2px;"><span>尖谷价差</span><b style="color:#FF9A8B">'+fmt(jch)+'</b></div>';
+        return h;
+      }
+      function place(x,y){
+        var w=tip.offsetWidth,h=tip.offsetHeight;
+        var left=Math.min(Math.max(10,x-w/2), window.innerWidth-w-10);
+        var top=y-h-16;
+        if(top<10) top=y+20;
+        tip.style.left=left+'px'; tip.style.top=top+'px';
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('.pc-col'),function(c){
+        function show(e){
+          tip.innerHTML=build(c);
+          tip.style.opacity='1';
+          var pt=(e.touches&&e.touches[0])?e.touches[0]:e;
+          place(pt.clientX, pt.clientY);
+        }
+        function hide(){ tip.style.opacity='0'; }
+        c.addEventListener('mouseenter',show);
+        c.addEventListener('mousemove',show);
+        c.addEventListener('mouseleave',hide);
+        c.addEventListener('touchstart',function(e){show(e);},{passive:true});
+        c.addEventListener('touchmove',function(e){show(e);},{passive:true});
+        c.addEventListener('touchend',function(){setTimeout(hide,1200);});
+      });
+    })();
+    </script>
+  </div>
+</section>
+
+<!-- 03 全年变化 -->
+<section id="trend">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">03</span>全年变化：价差在 0.61—0.79 之间波动，越热越值钱</h2>
+      <p>2026 年 1—10 月，河南代理购电价格从 0.3122（5月）涨到 0.4514（8月），峰谷价差随之在 0.61—0.79 元/度之间摆动。</p>
+    </div>
+
+    <div class="chartbox">
+      <div class="legend">
+        <span><i style="background:#0062B2;opacity:.25"></i>峰谷价差（元/度，1—10kV 单一制）</span>
+        <span><i style="background:#E67E22;border-radius:50%"></i>代理购电价格（元/度）</span>
+      </div>
+      <svg viewBox="0 0 680 290" width="100%" role="img" aria-label="2026年1-10月代理购电价格与峰谷价差">
+        <!-- 网格 -->
+        <g stroke="#E2E8F0" stroke-width="1">
+          <line x1="60" y1="54.8" x2="620" y2="54.8"/>
+          <line x1="60" y1="128.9" x2="620" y2="128.9"/>
+          <line x1="60" y1="203" x2="620" y2="203"/>
+          <line x1="60" y1="240" x2="620" y2="240"/>
+        </g>
+        <g font-size="11" fill="#8C9AA8" text-anchor="end">
+          <text x="52" y="58">0.80</text>
+          <text x="52" y="132">0.70</text>
+          <text x="52" y="206">0.60</text>
+        </g>
+        <g font-size="11" fill="#8C9AA8" text-anchor="start">
+          <text x="628" y="223">0.30</text>
+          <text x="628" y="123">0.40</text>
+          <text x="628" y="73">0.45</text>
+        </g>
+
+        <!-- 柱：峰谷价差 -->
+        <g fill="#0062B2" fill-opacity="0.22">
+          <rect x="64" y="110.4" width="32" height="129.6"/>
+          <rect x="120" y="153.3" width="32" height="86.7"/>
+          <rect x="176" y="160.7" width="32" height="79.3"/>
+          <rect x="232" y="123.0" width="32" height="117.0"/>
+          <rect x="288" y="195.6" width="32" height="44.4"/>
+          <rect x="344" y="189.6" width="32" height="50.4"/>
+          <rect x="400" y="127.4" width="32" height="112.6"/>
+          <rect x="456" y="64.4" width="32" height="175.6" fill="#0062B2" fill-opacity="0.55"/>
+          <rect x="512" y="94.1" width="32" height="145.9"/>
+          <rect x="568" y="156.3" width="32" height="83.7"/>
+        </g>
+        <!-- 数值标签 -->
+        <g font-size="10" fill="#5B6B7B" text-anchor="middle">
+          <text x="80" y="104">0.645</text>
+          <text x="136" y="147">0.703</text>
+          <text x="192" y="154">0.713</text>
+          <text x="248" y="117">0.662</text>
+          <text x="304" y="189">0.610</text>
+          <text x="360" y="183">0.618</text>
+          <text x="416" y="121">0.668</text>
+          <text x="472" y="58" fill="#004A85" font-weight="600">0.787</text>
+          <text x="528" y="88">0.747</text>
+          <text x="584" y="150">0.707</text>
+        </g>
+        <!-- 折线：代理购电 -->
+        <polyline fill="none" stroke="#E67E22" stroke-width="2.2"
+          points="80,180.2 136,134.8 192,126.8 248,167.1 304,207.8 360,201.2 416,162.1 472,68.6 528,100.2 584,131.6"/>
+        <g fill="#E67E22">
+          <circle cx="80" cy="180.2" r="3.2"/><circle cx="136" cy="134.8" r="3.2"/>
+          <circle cx="192" cy="126.8" r="3.2"/><circle cx="248" cy="167.1" r="3.2"/>
+          <circle cx="304" cy="207.8" r="3.2"/><circle cx="360" cy="201.2" r="3.2"/>
+          <circle cx="416" cy="162.1" r="3.2"/><circle cx="472" cy="68.6" r="3.2"/>
+          <circle cx="528" cy="100.2" r="3.2"/><circle cx="584" cy="131.6" r="3.2"/>
+        </g>
+        <!-- 月份 -->
+        <g font-size="11" fill="#5B6B7B" text-anchor="middle">
+          <text x="80" y="258">1月</text><text x="136" y="258">2月</text><text x="192" y="258">3月</text>
+          <text x="248" y="258">4月</text><text x="304" y="258">5月</text><text x="360" y="258">6月</text>
+          <text x="416" y="258">7月</text><text x="472" y="258">8月</text><text x="528" y="258">9月</text>
+          <text x="584" y="258">10月</text>
+        </g>
+        <text x="60" y="282" font-size="11" fill="#8C9AA8">数据来源：国网河南省电力公司 2026 年 1—10 月代理购电价格公告；价差 =（代理购电价格 + 输配电价0.168）×（1.72−0.45）</text>
+      </svg>
+    </div>
+
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card">
+        <h3>8 月是全年最值钱的月份</h3>
+        <p>代理购电 0.4514、价差 0.787，且 20:00—23:00 是尖峰。储能一晚放电，是一年里收益最高的时段。</p>
+      </div>
+      <div class="card">
+        <h3>5—6 月是低谷期</h3>
+        <p>价差只有 0.61，装机淡季。这时候谈客户，要把 7—8 月的高价差单独拎出来算「旺季收益」。</p>
+      </div>
+      <div class="card">
+        <h3>价差跟代理购电同涨同跌</h3>
+        <p>浮动比例固定 1.72:1:0.45，代理购电价格越高，价差越大。用电越紧张，储能越赚钱——这是一条可以写进方案的规律。</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:30px 0 10px">2026 年河南三个政策变化，必须讲清楚</h3>
+    <div class="grid g2">
+      <div class="card soft">
+        <h3><span class="badge">2026-03-01</span> 工商业全面入市</h3>
+        <p>按国家《电力中长期市场基本规则》，直接参与市场交易的经营主体不再人为规定分时电价水平和时段；河南自 2026 年 3 月 1 日起工商业用户全面参与电力现货市场，现货价格区间 0—1.2 元/度。</p>
+        <p style="margin-top:8px"><b>对销售的意义：</b>已入市客户不再有固定的 1.72:1:0.45，改成随行就市——中午可能贴近 0，晚峰可能顶到 1.2。价差更大但波动更大，也意味着"靠电价判断吃饭"的储能更需要策略。电网代理购电用户仍执行固定分时，是最好讲、最好算的客群。</p>
+      </div>
+      <div class="card soft">
+        <h3><span class="badge red">红区</span> 配储 20%/2h 是并网前置条件</h3>
+        <p>按河南承载力「红黄绿」分区规则：<b>红区</b>暂停备案，或配储不低于装机容量 <b>20%、2 小时</b>并提交消纳方案后可接入「全部自发自用」项目；<b>黄区</b>需承诺 15%/2h 储能。2026 年起取消变压器 80% 反向负载率一刀切，改为按季度发布可开放容量、按备案顺序核减。</p>
+        <p style="margin-top:8px"><b>对销售的意义：</b>在红区，储能的第一身份不是"省钱工具"，而是<b>"拿到并网资格的钥匙"</b>。这句话本身就是最强的开场白——没有储能，屋顶根本并不了网。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 两段价值 -->
+<section id="value">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">04</span>两段价值：平段替代，峰段补充</h2>
+      <p>红区不能上网，所以不要把光储盈讲成「发电卖钱」，要讲成「把两段最贵的电换掉」。这两段钱的来源完全不同，销售话术也必须分开。</p>
+    </div>
+
+    <div class="seg">
+      <div class="s a">
+        <div class="tag">第一段 · 8:00—16:00</div>
+        <div class="big">平段替代 <span style="font-size:16px;color:#5B6B7B">0.61 元/度</span></div>
+        <div class="tm">谁在供电：<b>光伏直供</b>（不需要电池）</div>
+        <p style="margin-top:10px;font-size:13.5px;color:var(--muted)">白天光伏出力最集中的 8 小时，只要负荷跟得上，发多少就抵多少。这是纯光就能拿到的基本盘，也是判断这个客户能不能做的第一道关：<b>白天负荷吃不下，这一段就打折</b>。</p>
+      </div>
+      <div class="s b">
+        <div class="tag">第二段 · 16:00—24:00</div>
+        <div class="big">峰段补充 <span style="font-size:16px;color:#5B6B7B">1.01 元/度</span></div>
+        <div class="tm">谁在供电：<b>储能放电</b>（光伏此时零出力）</div>
+        <p style="margin-top:10px;font-size:13.5px;color:var(--muted)">这 8 小时是一天里最贵的，光伏一度电都发不出来。电池放出的每一度，都直接抵掉 1.01 元（尖峰月 1.20 元）。注意用词是<b>「补充」不是「替代」</b>——能顶掉一部分，但不可能顶满，这一点必须提前说清。</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:28px 0 6px">第三笔（红区特有）：把弃光变成钱</h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:14px">绿区黄区还能低价上网，红区不行。白天用不掉的电，在红区的价值是 <b>0</b>。储能把这部分电存到晚上，每度变现 0.89 元。</p>
+
+    <div class="card" style="padding:14px 14px 10px">
+      <div class="tblwrap">
+      <table>
+        <thead>
+          <tr><th class="l">时段</th><th>电价</th><th class="l">谁在供电</th><th class="l">每度电值多少</th><th class="l">销售怎么说</th></tr>
+        </thead>
+        <tbody class="num">
+          <tr><td class="l">0:00—7:00</td><td>0.3028</td><td class="l">电网（低谷）</td><td class="l">成本价，用于给电池充电</td><td class="l">"这个时段给电池充电最便宜"</td></tr>
+          <tr class="hl"><td class="l">8:00—16:00</td><td>0.6088</td><td class="l">光伏直供</td><td class="l"><b>替代 0.61 元</b></td><td class="l">"白天您用的电，光伏替您发了"</td></tr>
+          <tr><td class="l">11:00—14:00<small>（春秋季）</small></td><td>0.3028</td><td class="l">光伏富余 → 电池</td><td class="l">不存就是 0</td><td class="l">"中午的电最不值钱，但别扔，存着"</td></tr>
+          <tr><td class="l">16:00—24:00</td><td class="up">1.0094</td><td class="l">电池 → 负荷</td><td class="l"><b>抵掉 1.01 元</b></td><td class="l">"电池放的每一度，都是省下来的一块钱"</td></tr>
+          <tr><td class="l">尖峰时段</td><td class="up">1.2008</td><td class="l">电池（优先放这里）</td><td class="l"><b>抵掉 1.20 元</b></td><td class="l">"1、12、7、8 月，电要留到尖峰再放"</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="tbl-note">1—10kV 单一制、2026 年 10 月价格口径；380V 工商业为平 0.6363 / 峰 1.0567 / 谷 0.3152 / 尖 1.2576。</p>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="tip">
+        <b>充电优先级（决定电池收益的关键）：</b>① 先用白天富余光伏（机会成本 <b>0</b>，因为本来要弃掉）→ ② 富余不够再用谷电（0.3028 ÷ 0.88 ≈ 0.34 成本）→ ③ 绝不把已经能自用的光伏电存起来（机会成本 0.61，最不划算）。
+      </div>
+      <div class="tip">
+        <b>一句话记法：</b>电池存的是「本来要扔的电」和「半夜最便宜的电」，放出去抵的是「晚上最贵的电」。这中间 0.57—0.89 元/度的落差，就是光储盈全部的利润来源。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 配比 -->
+<section id="ratio">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">05</span>「1:1 只能存 1/3」——先承认，再把它讲成配比逻辑</h2>
+      <p>这是河南客户问得最多、也最容易把销售问住的一句：「我 100 千瓦一天发 300 度，你这电池才 100 度，晚上不还得买电？」回避它只会丢单，把它算清楚反而最建立信任。</p>
+    </div>
+
+    <div class="card soft">
+      <h3>第一句就这么答</h3>
+      <p style="font-size:15px;color:var(--ink);line-height:1.8">"您说得对，晚上确实还要买一部分电。但您要买的这部分<b>本来就要买</b>——我们做的是把您白天用不掉、在红区只能白白扔掉的那一百多度电，挪到晚上一块钱一度的时段去用。不装储能，这部分是 0 元；装了，它值 0.89 元。"</p>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:26px 0 6px">第一步：把容量账摊开算，不粉饰</h3>
+    <div class="grid g4">
+      <div class="card" style="text-align:center"><div style="font-size:12px;color:var(--muted)">100kW 日均发电</div><div style="font-size:24px;font-weight:600">300 度</div><div style="font-size:12px;color:var(--muted)">按河南 1100h/年折算</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:12px;color:var(--muted)">1:1 电池容量</div><div style="font-size:24px;font-weight:600">100 度</div><div style="font-size:12px;color:var(--muted)">可用 90 度（90% DOD）</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:12px;color:var(--muted)">可存比例</div><div style="font-size:24px;font-weight:600">30%</div><div style="font-size:12px;color:var(--muted)">≈ 1/3，客户说得没错</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:12px;color:var(--muted)">实际放出</div><div style="font-size:24px;font-weight:600">79 度</div><div style="font-size:12px;color:var(--muted)">按 88% 往返效率</div></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:28px 0 6px">第二步：转念——电池不是存「全部光伏」，是存「白天用不掉的富余」</h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:14px">富余电量 = 日发电 ×（1 − 白天自用率）。真正决定配多大的，是客户的白天自用率，不是屋顶面积。</p>
+
+    <div class="card" style="padding:14px 14px 10px">
+      <div class="tblwrap">
+      <table class="ratio">
+        <thead>
+          <tr><th class="l">白天自用率</th><th>富余电量</th><th>1:1<br><small>可存 90 度</small></th><th>1:2<br><small>可存 180 度</small></th><th>1:3<br><small>可存 270 度</small></th><th class="l">判断</th></tr>
+        </thead>
+        <tbody class="num">
+          <tr><td class="l">70%</td><td>90 度</td><td class="ok">100%</td><td class="ok">100%</td><td class="ok">100%</td><td class="l">1:1 足够，无需加配</td></tr>
+          <tr class="hl"><td class="l">60%</td><td>120 度</td><td class="mid">75%</td><td class="ok">100%</td><td class="ok">100%</td><td class="l">1:1 勉强，1:2 更稳</td></tr>
+          <tr><td class="l">50%</td><td>150 度</td><td class="low">60%</td><td class="ok">100%</td><td class="ok">100%</td><td class="l">建议 1:2</td></tr>
+          <tr><td class="l">40%</td><td>180 度</td><td class="low">50%</td><td class="ok">100%</td><td class="ok">100%</td><td class="l">必须 1:2 起</td></tr>
+          <tr><td class="l">30%</td><td>210 度</td><td class="low">43%</td><td class="mid">86%</td><td class="ok">100%</td><td class="l">1:2 或缩装机，二选一</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="tbl-note">表中百分比 = 电池可用容量 ÷ 白天富余电量，即「富余电量被存下来的比例」；100% 表示富余全部消纳、零弃光。按 100kW 电站、日均 300 度测算。</p>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:28px 0 6px">第三步：晚峰能顶多少，给一个诚实的覆盖率</h3>
+    <div class="grid g2">
+      <div class="card" style="padding:14px 14px 10px">
+        <div class="tblwrap">
+        <table class="ratio">
+          <thead><tr><th class="l">晚峰用电（16—24 点）</th><th>1:1 能顶 79 度</th><th class="l">剩余照常买</th></tr></thead>
+          <tbody class="num">
+            <tr><td class="l">80 度</td><td class="ok">99%</td><td class="l">1 度</td></tr>
+            <tr class="hl"><td class="l">100 度</td><td class="ok">79%</td><td class="l">21 度</td></tr>
+            <tr><td class="l">150 度</td><td class="mid">53%</td><td class="l">71 度</td></tr>
+            <tr><td class="l">200 度</td><td class="low">40%</td><td class="l">121 度</td></tr>
+            <tr><td class="l">300 度</td><td class="low">26%</td><td class="l">221 度</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="tbl-note">覆盖率 = 电池可放电量 ÷ 晚峰用电量。这是给客户的「诚实指标」，可以直接写进方案书。</p>
+      </div>
+      <div class="card soft">
+        <h3>三步选配法（现场就能算）</h3>
+        <ol>
+          <li><b>定下限</b>：白天自用率 → 富余量 → 电池至少要吃掉 <b>80% 的富余</b>，否则弃光太多。</li>
+          <li><b>定上限</b>：晚峰用电量 × 60%，是电池的经济上限——再大的电池，8 小时也放不完，回本周期会明显拉长。</li>
+          <li><b>取档</b>：在产品 1:1 / 1:2 / 1:3 里就近选，并预留一档扩容位。</li>
+        </ol>
+        <p style="margin-top:10px;font-size:13px;color:var(--muted)">举例：100kW 电站，白天自用率 55%（富余 135 度）、晚峰用电 200 度 → 下限要求吃掉 108 度 → 1:2（可存 180 度）合适；上限 200×60% = 120 度，说明 1:2 已经很接近经济上限，再加就过头了。</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:28px 0 6px">第四步：账要按「增量」算，不要按「全覆盖」算</h3>
+    <div class="grid g2">
+      <div class="card">
+        <h3>单机账（12kW + 16 度，380V 口径）</h3>
+        <ul>
+          <li>日发电 36 度，白天自用 20 度，富余 16 度</li>
+          <li>电池存 14.4 度 → 放 12.7 度，弃光 1.6 度</li>
+          <li>日收益 = 20×0.6363 + 12.7×1.0567 ≈ <b>26.1 元</b></li>
+          <li>年收益（330 天）≈ <b>8,600 元</b>；纯光不配储 ≈ 4,200 元</li>
+          <li><b>配储增量 ≈ 4,400 元/年·台</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>整站账（100kW + 1:1，1—10kV 口径）</h3>
+        <ul>
+          <li>日发电 300 度，白天自用 165 度（55%），富余 135 度</li>
+          <li>电池存 90 度 → 放 79 度，弃光 45 度</li>
+          <li>日收益 = 165×0.6088 + 79×1.0094 ≈ <b>180 元</b></li>
+          <li>年收益（330 天）≈ <b>5.9 万元</b>；纯光不配储 ≈ 3.3 万元</li>
+          <li><b>配储增量 ≈ 2.6 万元/年</b></li>
+        </ul>
+      </div>
+    </div>
+    <p class="tbl-note">增量收益 = 储能带来的「弃光变现 + 峰段替代」，与纯光方案相比多出来的部分。租金对比请用增量，不要用总收益——这样客户看到的是"多花的钱换回多少"，而不是一个虚高的总数。</p>
+
+    <h3 style="font-size:16px;font-weight:500;margin:28px 0 6px">第五步：六个动作，把「存不下」变成「刚刚好」</h3>
+    <div class="card" style="padding:8px 22px">
+      <div class="step">
+        <div class="n">1</div>
+        <div><h4>预期前置：第一次见面就说覆盖率</h4>
+        <p>不要等客户问。开场就把「覆盖 40—70% 晚峰」讲出来，比后期解释一百句都管用。<b>谁敢承诺 100%，谁就是在用低价电池骗单。</b></p></div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div><h4>把覆盖率写进方案书，作为验收口径</h4>
+        <p>方案里明确：日放电量、晚峰覆盖率区间、年增量收益。客户拿到的是一个可验证的承诺，而不是一句"很划算"。</p></div>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div><h4>模块化扩容：先 1:1，看三个月再决定加不加</h4>
+        <p>12K 方案是每台逆变器配 16 度电池、逐块叠加。先按 1:1 装，用实际负荷曲线验证弃光率；弃光超过 15% 再加一块电池，比一次性配大更省钱、更有说服力。</p></div>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <div><h4>负荷前移：把能白天干的活挪到 8—16 点</h4>
+        <p>自用率每提高 10 个点，富余就少 30 度，1:1 就够用了。这是最省钱的一招，几乎不需要客户额外投入——只是改生产排班。</p></div>
+      </div>
+      <div class="step">
+        <div class="n">5</div>
+        <div><h4>别按屋顶面积定装机（红区里超配没有意义）</h4>
+        <p>红区不能上网，1.5 倍超配多发的电在中午既卖不掉、也存不下，只会变成更长的弃光曲线。应按「白天负荷 + 电池容量」定装机，宁少勿多。</p></div>
+      </div>
+      <div class="step">
+        <div class="n">6</div>
+        <div><h4>放电策略：把电留给最贵的 2—3 小时</h4>
+        <p>1、12 月 17—19 点、7、8 月 20—23 点是尖峰（1.20 元）。这几个月的电留到尖峰段放，收益比从 16 点摊着放高 15% 以上；其余月份从 16 点起放即可。</p></div>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:16px">
+      <b>顺手一个利好：</b>河南红区要求配储不低于装机 20%、2 小时——100kW 项目门槛是 40 度。光储盈 1:1 是 100 度，<b>2.5 倍于门槛</b>。所以配比这件事，我们可以大大方方说："我们不是刚好够着并网线，是为了让您的弃光率降到 10% 以内才配这么大。"
+    </div>
+  </div>
+</section>
+
+<!-- 06 客户筛选 -->
+<section id="target">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">06</span>客户筛选：红区里，白天自用率就是生死线</h2>
+      <p>同样的产品装在不同客户身上，收益能差一倍。红区不能上网，所以筛客户只看一件事：<b>光伏发出来的电，白天能不能被他自己吃掉</b>。</p>
+    </div>
+
+    <div class="card" style="padding:6px 14px">
+      <div class="tblwrap">
+      <table>
+        <thead>
+          <tr><th class="l">等级</th><th class="l">客户特征</th><th>白天自用率</th><th class="l">红区适配性</th><th class="l">建议方案</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="l"><span class="badge red">S 级</span></td>
+            <td class="l">两班/三班制造、冷库冷链、烘干（辣椒/烟叶/粮食）、纺织、食品加工、养殖恒温、充电站</td>
+            <td><b>≥60%</b></td>
+            <td class="l">白天负荷吃得住、晚峰也有负荷，两段价值全拿</td>
+            <td>光 + 储（1:1 起，晚峰大就 1:2）</td>
+          </tr>
+          <tr>
+            <td class="l"><span class="badge">A 级</span></td>
+            <td class="l">单班工厂、商超、酒店、餐饮，白天负荷大、月用电 3 万度以上</td>
+            <td><b>40—60%</b></td>
+            <td class="l">平段替代没问题，但晚峰弱，配储收益主要靠消纳弃光</td>
+            <td>光 + 小储（1:1），或纯光</td>
+          </tr>
+          <tr>
+            <td class="l"><span class="badge gray">C 级</span></td>
+            <td class="l">白天基本没人、纯上网型屋顶；居民生活用电客户</td>
+            <td><b>&lt;30%</b></td>
+            <td class="l">红区里发一度弃一度，装得越大亏得越大；居民峰谷差仅 0.15 元</td>
+            <td><b>不做，或大幅缩小装机</b></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card"><h3>查电费单（3 分钟）</h3><p>看四项：用电类别、电压等级、峰段电量占比、最大需量。峰段（16—24 点）电量占比 ≥30% → 配储有钱赚；＜15% → 只做纯光。</p></div>
+      <div class="card"><h3>算白天自用率（红区核心）</h3><p>取客户 8—16 点的用电量，除以光伏理论日发电量。≥60% 放心做，40—60% 配 1:1，＜30% 直接劝退或缩容。</p></div>
+      <div class="card"><h3>查分区与容量</h3><p>先查该台区是红/黄/绿区与可开放容量，再看变压器余量是否够储能充电，最后确认产权收资（四证或非违建证明）。</p></div>
+    </div>
+
+    <div class="alert" style="margin-top:16px">
+      <b>红区里最该劝退的客户，是「屋顶很大、白天没人」的。</b>这种客户过去靠上网能算得过来，现在红区不让上网，装得越大弃得越多。销售要敢说"您这个屋顶现在不适合装"——这句话换来的信任，往往比多签一单更值钱。
+    </div>
+  </div>
+</section>
+
+<!-- 07 谈判策略 -->
+<section id="talk">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">07</span>谈判策略：六步成单 + 三句话 + 六条异议</h2>
+      <p>核心思路：先看电费单，再算弃光率；不比设备价格，比每度电的去处。</p>
+    </div>
+
+    <div class="card" style="padding:8px 22px">
+      <div class="step">
+        <div class="n">1</div>
+        <div>
+          <h4>第一次拜访：只做「电费单体检」，不上屋顶</h4>
+          <p>拿客户近 12 个月电费单，现场算三个数：白天自用率、峰段电量占比、弃光量。当场把这三个数写在纸上给客户——这一动作的转化率远高于讲产品。</p>
+          <div class="say">"王总，您去年 8 月这一个月，16 点到 24 点这 8 小时用了 4.2 万度，按 1.06 元（380V 峰段）算就是 4.4 万块钱。这 8 小时，光伏一度电都发不出来。"</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div>
+          <h4>第二次：带同行业同规模的收益模型，用保守口径</h4>
+          <p>拿一个同行业、同规模的案例，按 0.50 元价差（打七折）算，把「每月省多少、租金多少、净现金流多少」列成一张三列表。保守口径反而是最强的信任工具。</p>
+          <div class="say">"我先按最保守的算：电价跌、价差缩到 0.5 元，您每月还是净省 —— 元。真实情况大概率比这个好。"</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div>
+          <h4>第三次：踏勘 + 收资同步推进</h4>
+          <p>按《踏勘安装标准》走，同时把产权收资清单一次给全：不动产权证，或四证齐全；四证不符的按装机容量分档出「村镇两级盖章非违建证明」，≥400kW 还需乙级及以上测绘资质单位出具宗地图/地类图/承诺书。资料一次收齐，后面不返工。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <div>
+          <h4>报价：三种模式任选，锚定「月租金 &lt; 月省电费」</h4>
+          <p>客户购置 + 售后回租（3 年 / 5 年期，期满 1 元留购）是主线；给出全款与分期做对照。谈判焦点不要停在总价，要停在「每月现金流为正」。</p>
+          <div class="say">"您不用掏一分钱，每月租金 元，省下的电费 元，现金流正的。3 年后 1 块钱，电站是您的。"</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">5</div>
+        <div>
+          <h4>临门一脚：用三个时间窗口制造紧迫感</h4>
+          <p>① 7—8 月价差 0.787 是全年峰值，装机越晚越少吃一年旺季；② 红区按备案顺序核减、可开放容量按季度公布，越晚排越久；③ 配储 20%/2h 的并网门槛只会趋严，不会放宽。三个窗口都是真的，不用编。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">6</div>
+        <div>
+          <h4>签约后：把「计量」和「并网模式」写进确认单</h4>
+          <p>按 283 号文，因客户自身原因未完成分时计量装置调整的，用电量按峰段电价结算。装机前核对计量方式、并网模式（自发自用余电上网 / 全额上网）、结算户号，避免收益对不上账。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:30px 0 8px">三句话，背下来就能用</h3>
+    <div class="grid g3">
+      <div class="card soft"><h3>① 说平段</h3><p>"您 8 点到 16 点用的是 0.61 一度的电，光伏正好发在这个时段——这一段，发多少抵多少。"</p></div>
+      <div class="card soft"><h3>② 说峰段</h3><p>"16 点到 24 点是 1.01，光伏这时候一度都发不出来。电池能顶掉其中一部分，顶掉一度就是省一块钱。"</p></div>
+      <div class="card soft"><h3>③ 说红区</h3><p>"您这是红区，余电上不了网。发出来、用不掉，就是白白扔掉——不配储，屋顶发的电有一半是废的。"</p></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:500;margin:30px 0 8px">六条必问异议，标准应答</h3>
+    <div class="card" style="padding:6px 20px">
+      <div class="qa">
+        <div class="q">Q1：电价以后跌了怎么办？</div>
+        <div class="a">河南现货下限确实放到 0，但那是中午光伏大发的时候；晚峰上限仍是 1.2 元。而且我们方案里替代的是您自己用电，根本不依赖上网电价——红区也上不了网。测算我们按价差 0.5 元算，已经打了七折。</div>
+      </div>
+      <div class="qa">
+        <div class="q">Q2：光伏不是更便宜吗，为什么要加储能？</div>
+        <div class="a">纯光只能替代白天的平段 0.61 元，而且白天用不掉的部分在红区直接被弃掉。16 点以后光伏零出力，可您最贵的 8 小时恰恰在 16—24 点。更关键的是：红区并网本来就要求配储（不低于装机 20%、2 小时），不配储连并网资格都拿不到。</div>
+      </div>
+      <div class="qa">
+        <div class="q">Q2-1：1:1 才这么点电池，存不下我全部光伏，晚上不还得买电？</div>
+        <div class="a">对，晚上还要买一部分，我们从不承诺"零购电"。但电池存的是您<b>白天用不掉、本来只能弃掉</b>的那部分——这部分现在是 0 元，存起来晚上放出去，值 0.89 元。您晚峰剩下的用电照常买，那部分本来就要买。所以我们算账算的是"增量"：这台机器把弃光变现了多少钱，而不是"能不能覆盖全部晚峰"。<br><span style="color:#8B2D24">反问一句：如果有人说 1:1 就能全覆盖，请让他报一下电池容量和您晚峰的用电量，一除就知道覆盖率。</span></div>
+      </div>
+      <div class="qa">
+        <div class="q">Q3：电池衰减、安全怎么保证？</div>
+        <div class="a">1:1 起配，电池与逆变器按 12kW 一台独立成组，单台故障不影响整体；循环寿命、质保年限写进合同。而且我们的收益模型是按 0.88 往返效率算的，已经留了损耗。</div>
+      </div>
+      <div class="qa">
+        <div class="q">Q4：隔壁报价比你低几千块。</div>
+        <div class="a">比三样：一是电池容量与您的白天富余量是否匹配（配小了弃光、配大了浪费，便宜方案通常电池虚标或小配）；二是电池是不是原厂整套、质保几年；三是含不含代运营和防逆流调试。低价方案基本都在这三项里省了钱。</div>
+      </div>
+      <div class="qa">
+        <div class="q">Q5：屋顶是租的，怕拆迁。</div>
+        <div class="a">按产权收资口径办：不动产权证或四证齐全即可；四证不符的按容量分档开村镇两级盖章的非违建证明。合同里明确拆迁补偿与资产归属，这个我们有标准条款。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 风险 -->
+<section id="risk">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">08</span>风险与红线：这五条必须提前讲，不能等客户问</h2>
+      <p>讲清楚风险不是减分，是加分。客户最怕的是「装完才发现」——尤其是红区，任何一个前提没核实，都可能变成并网不了或者弃光一半。</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>① 红区并网：配储是门槛，但也要排队</h3>
+        <p>红区项目需配储不低于装机 20%、2 小时并提交消纳方案方可接入「全部自发自用」；且 2026 年起河南改为按季度发布可开放容量、按备案顺序核减，红区仍要排队。</p>
+        <p style="margin-top:8px;color:var(--ink)"><b>应对：</b>踏勘前查最新的红黄绿分区与可开放容量；红区不承诺工期，先把备案顺序占上。</p>
+      </div>
+      <div class="card">
+        <h3>② 防逆流：不是装完就能发电</h3>
+        <p>全额自发自用必须做到零逆流，需在并网点配置防逆流（零逆流）控制并调试合格；一旦反送，轻则被要求限发，重则影响并网验收。</p>
+        <p style="margin-top:8px;color:var(--ink)"><b>应对：</b>把防逆流装置与调试写进方案和报价，别让它在验收阶段变成增项。</p>
+      </div>
+      <div class="card">
+        <h3>③ 覆盖率预期：说满了就是埋雷</h3>
+        <p>1:1 只能存约 30% 的日发电量，晚峰覆盖率多在 40—79%。如果销售口头承诺"晚上不用买电"，装完客户一定会拿电费单来对账。</p>
+        <p style="margin-top:8px;color:var(--ink)"><b>应对：</b>方案书里写清「日放电量 + 覆盖率区间 + 年增量收益」三个数，作为验收口径。</p>
+      </div>
+      <div class="card">
+        <h3>④ 分时政策可能再调（最大变量）</h3>
+        <p>2026 年 1 月河南曾就《调整工商业分时电价峰谷浮动基数》征求意见，方向是「输配电价不再参与峰谷浮动」。目前 10 月表仍按 283 号执行（输配参与浮动），若落地，峰谷价差会从约 0.71 元收窄到 <b>约 0.49 元</b>。</p>
+        <p style="margin-top:8px;color:var(--ink)"><b>应对：</b>测算按 0.50 元价差兜底并写明假设；同时强调收益的另一半（弃光变现）不受峰谷价差影响。</p>
+      </div>
+    </div>
+
+    <div class="alert" style="margin-top:16px">
+      <b>⑤ 两条最危险的红线。</b> 一是<b>用电类别错配</b>：居民生活电价 0.560 元/度、峰谷差仅 0.15 元，农业生产 0.4842 元/度，用工商业口径给居民算账，装完必然投诉。二是<b>白天没负荷</b>：红区不让上网，自用率低于 30% 的屋顶装得越大弃得越多，宁可劝退。这两条判断，比任何话术都重要。
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>数据来源</b>：《关于调整工商业分时电价有关事项的通知》（豫发改价管〔2024〕283号）；国网河南省电力公司 2026 年 1—10 月代理购电价格公告；《关于转发第四监管周期省级电网输配电价及有关事项的通知》（豫发改价管〔2026〕506号）；河南电网居民、农业用电销售电价表（豫发改价管〔2026〕506号）；河南省 2025—2026 年度新能源增量项目机制电价竞价结果；《电力中长期市场基本规则》（2026-03-01 施行）。</p>
+    <p style="margin-top:8px">本页数据为公开文件测算口径，实际项目收益以客户电费单、踏勘结果与当期电价为准。版本：2026-10-26。</p>
+  </div>
+</footer>
+
+</body>
+</html>
