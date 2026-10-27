@@ -293,6 +293,44 @@
   .save-box{margin-top:12px;padding:14px 16px;border-radius:var(--radius);background:var(--blue-light);border:1px solid var(--blue);
     font-size:14px;line-height:1.6;color:var(--ink)}
   .save-box strong{color:var(--blue);font-size:16px}
+  /* 配储计算过程 */
+  .stp{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed #E6EDF4}
+  .stp:last-child{border-bottom:0}
+  .stp .n{flex:0 0 20px;width:20px;height:20px;border-radius:50%;background:var(--blue-light);
+    color:var(--blue);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .stp b{display:block;font-size:13.5px;color:var(--ink);margin-bottom:3px}
+  .stp p{font-size:13px;color:var(--muted);line-height:1.75}
+  .stp em{font-style:normal;color:var(--blue);font-weight:600;font-size:14px}
+  .stp .calc{font-family:inherit;color:var(--ink)}
+  /* 10 年期经济性分析 */
+  .ty-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+  .ty-kpi .result-box .big{font-size:23px}
+  .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .ty-table{width:100%;min-width:430px;border-collapse:collapse;font-size:13px}
+  .ty-table th,.ty-table td{border:1px solid var(--line);padding:9px 8px;text-align:center;color:var(--ink);white-space:nowrap}
+  .ty-table th{background:var(--bg-soft);font-weight:600}
+  .ty-table td:first-child{text-align:left;color:var(--muted);white-space:normal}
+  .ty-table td.hi{color:var(--blue);font-weight:700;background:var(--blue-light)}
+  @media(max-width:860px){.ty-kpi{grid-template-columns:1fr}}
+  /* 四个用电数据输入（纯光 / 配储 位置一致） */
+  .load4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 16px;margin-top:14px}
+  .load4 .field{margin-top:0;display:flex;flex-direction:column}
+  .load4 .field .inu{margin-top:auto}
+  .inu{position:relative}
+  .inu input{padding-right:46px}
+  .inu .u{position:absolute;right:13px;top:50%;transform:translateY(-50%);font-size:13px;
+    color:var(--muted);pointer-events:none}
+  .loadunit{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .loadunit .t{font-size:13px;color:var(--muted)}
+  .loadunit .opts{margin:0}
+  #tenYearBox [data-ty]{cursor:help;text-decoration:underline;text-decoration-style:dotted;
+    text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(0,98,178,.45)}
+  #tyTip{position:fixed;z-index:9997;max-width:340px;background:#16232F;color:#fff;font-size:12.5px;
+    line-height:1.75;padding:10px 12px;border-radius:10px;box-shadow:0 12px 30px rgba(15,30,45,.28);
+    opacity:0;visibility:hidden;transition:opacity .12s;white-space:pre-line;pointer-events:none;left:0;top:0}
+  #tyTip.on{opacity:1;visibility:visible}
+  /* 两列两行：左列=白天（用电量在上、消纳率在下），右列=晚上 */
+  @media(max-width:420px){.load4{gap:12px 10px}}
   /* 公司介绍 */
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
   .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
@@ -327,6 +365,33 @@
     .entrance{padding:18px}
     .scroll-hint{display:block;font-size:12px;color:var(--muted);margin-top:4px}
   }
+  /* 配比卡片 */
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .plan{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff;position:relative;cursor:pointer;transition:.15s}
+  .plan:hover{border-color:#9CC7EC}
+  .plan.sel{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-light)}
+  .plan .pt{font-size:15px;font-weight:600}
+  .plan .pv{font-size:26px;font-weight:600;color:var(--blue);margin:6px 0 2px;line-height:1.2}
+  .plan .pv small{font-size:13px;font-weight:400;color:var(--muted)}
+  .plan .pmeta{font-size:12px;color:var(--muted);margin-bottom:8px}
+  .plan .kv{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--muted);
+    padding:4px 0;border-bottom:1px dashed #EEF2F6}
+  .plan .kv span{flex:0 0 auto}
+  .plan .kv b{color:var(--ink);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+  .plan .kv b em{font-style:normal;font-weight:500;color:var(--muted);font-size:11.5px}
+  .plan .kv:last-of-type{border-bottom:0}
+  .plan-sep{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.3px;
+    margin:10px 0 2px;padding-top:6px;border-top:1px solid #EEF2F6;display:flex;align-items:center;gap:6px}
+  .plan-sep::after{content:"";flex:1;height:1px;background:#EEF2F6}
+  .reco-badge{position:absolute;top:-9px;right:12px;background:var(--blue);color:#fff;
+    font-size:11px;padding:2px 9px;border-radius:999px}
+  .tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;margin-top:10px}
+  .tag-ok{background:#E9F5EF;color:#1E6B45;border:1px solid #C6E3D3}
+  .tag-warn{background:#FFF7E8;color:#7A5310;border:1px solid #F3DDB4}
+  .tag-no{background:#FDECEA;color:#8B2D24;border:1px solid #F5C6C0}
+  .p-ok{color:#1E6B45;font-weight:600}
+  .p-no{color:#8B2D24;font-weight:600}
+  @media(max-width:860px){.plan-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -678,12 +743,19 @@
    <div id="shotArea">
     <div class="sec-head">
       <h2><span class="no">03</span> 装机容量测算</h2>
-      <p>一线业务员实地推广时，输入客户用电数据，快速测算可安装的<strong>装机容量</strong>与<strong>组件数量</strong>，并估算用户需缴纳的<strong>租金</strong>。</p>
-      <p style="margin-top:6px">本测算基于<strong>全年数据</strong>做<strong>理想化估算</strong>；实际光伏出力会受每日天气、云层遮挡、屋顶朝向与倾角等因素影响，真实发电量通常低于测算值，结果仅供参考。</p>
+      <p>输入客户的用电数据，测算可安装的<strong>装机容量</strong>、<strong>组件数量</strong>与<strong>电池容量</strong>，并估算租金与每月电费差额。</p>
+      <p style="margin-top:6px">纯光方案只看一个指标就够，配储方案要同时满足两个约束——三种配比哪一个落在交点上，页面会直接算出来。配储的判断标准只有两条：<strong>弃光率尽量接近 0</strong>（发的电别浪费）、<strong>电池利用率尽量高</strong>（买的容量别闲着）。测算基于全年数据做理想化估算，实际发电受天气、遮挡、朝向影响，结果仅供参考。</p>
     </div>
 
     <div class="card" style="margin-bottom:16px">
-      <h3>① 选择产品组合</h3>
+      <h3>① 选择方案类型与产品</h3>
+      <div class="field">
+        <label>方案类型</label>
+        <div class="tabs" id="modeTabs">
+          <button type="button" data-m="pv" class="active">纯光方案</button>
+          <button type="button" data-m="es">配储方案</button>
+        </div>
+      </div>
       <div class="field">
         <label>户型产品</label>
         <div class="opts" id="houseType">
@@ -692,49 +764,50 @@
           <button type="button" data-v="小阳楼">小阳楼</button>
         </div>
       </div>
-      <div class="field">
-        <label>配储方案</label>
-        <div class="opts" id="scheme">
-          <button type="button" data-v="纯光" class="active">纯光</button>
-          <button type="button" data-v="1:1配储">1:1 配储</button>
-          <button type="button" data-v="1:2配储">1:2 配储</button>
-          <button type="button" data-v="1:3配储">1:3 配储</button>
-        </div>
-      </div>
-      <p class="unit" id="rentHint" style="margin-top:14px">当前产品用户月租（3年 / 5年）见下方测算对比表</p>
+      <p class="unit" id="rentHint" style="margin-top:14px">当前产品用户月租见下方测算对比表</p>
     </div>
 
     <div class="card" style="margin-bottom:16px">
       <h3>② 输入客户用电数据</h3>
       <div class="tip-box">
-        <div class="tip-title">⚠ 用电量取数口径（直接影响测算准确性，务必区分）</div>
+        <div class="tip-title">⚠ 两个用电量怎么取（全页只在这里定义，下面所有输入都按这个口径）</div>
         <ul>
-          <li><strong>纯光方案：填「白天用电量」</strong>——光伏只在白天发电，夜间不产生收益，若填全天用电量会明显高估装机容量（建议按 50% 的消纳口径测算）。</li>
-          <li><strong>配储方案：可填「全天用电量」</strong>——储能电池把白天余电搬到夜间使用，夜间也能使用光伏绿电产生收益（建议按 70% 消纳口径测算）。</li>
+          <li><strong>白天用电量 ＝ 平段电量</strong>。白天对应电价的<strong>平峰（平段）时段</strong>，约 7:00—16:00，共 9 小时。这一段光伏正在发电，是能被直接抵掉的部分。（春秋季 11:00—14:00 属低谷，仍计入白天，按平段价估算偏保守。）</li>
+          <li><strong>晚上用电量 ＝ 高峰电量</strong>。晚上对应电价的<strong>高峰时段</strong>，16:00—24:00，共 8 小时，光伏此时零出力，只能靠电池或电网。（1、12 月 17—19 点、7、8 月 20—23 点为尖峰，按高峰价估算同样偏保守。）</li>
+          <li><strong>取数最省事的办法</strong>：直接抄电费单上的「<strong>平段电量</strong>」和「<strong>高峰电量</strong>」，不用自己拆负荷曲线。没有分时电费单时，可按白天 60% / 晚上 40% 粗估。</li>
+          <li>下方三个电价的对应关系：<strong>平段电价 ↔ 白天</strong>、<strong>高峰电价 ↔ 晚上</strong>、低谷电价仅用于夜间谷电参考。</li>
         </ul>
       </div>
-      <div class="field">
-        <label>用电量类型</label>
-        <div class="opts" id="kwhType">
-          <button type="button" data-v="year" class="active">年用电量</button>
-          <button type="button" data-v="month">月用电量</button>
+
+      <!-- 四个输入：纯光 / 配储 位置完全一致 -->
+      <div class="load4">
+        <div class="field">
+          <label>白天用电量<span class="lbl-tip">平峰时段 · 抄「平段电量」</span></label>
+          <div class="inu"><input type="number" id="dayUse" value="6000" min="0" step="100"><span class="u">度</span></div>
+        </div>
+        <div class="field">
+          <label>晚上用电量<span class="lbl-tip">高峰时段 · 抄「高峰电量」</span></label>
+          <div class="inu"><input type="number" id="nightUse" value="0" min="0" step="100"><span class="u">度</span></div>
+        </div>
+        <div class="field">
+          <label>白天用电消纳率<span class="lbl-tip">光伏至少承担白天负荷的比例</span></label>
+          <div class="inu"><input type="number" id="dayRate" value="70" min="0" max="100" step="5"><span class="u">%</span></div>
+        </div>
+        <div class="field">
+          <label>晚上用电消纳率<span class="lbl-tip" id="nightRateTip">无储能，默认 0</span></label>
+          <div class="inu"><input type="number" id="nightRate" value="0" min="0" max="100" step="5"><span class="u">%</span></div>
         </div>
       </div>
-      <div class="field">
-        <label id="kwhLabel">年用电量（kWh/年）<span class="lbl-tip">纯光填白天用电量 / 配储填全天用电量</span></label>
-        <input type="number" id="kwhInput" placeholder="例如 120000" min="0">
-      </div>
-      <div class="field">
-        <label>消纳比例（光伏发电 ÷ 实际用电；推荐：纯光 50% / 配储 70%，可 50%~100% 按 10% 递增）</label>
-        <div class="opts" id="ratioOpts">
-          <button type="button" data-r="0.5" class="active">50%</button>
-          <button type="button" data-r="0.6">60%</button>
-          <button type="button" data-r="0.7">70%</button>
-          <button type="button" data-r="0.8">80%</button>
-          <button type="button" data-r="0.9">90%</button>
-          <button type="button" data-r="1.0">100%</button>
+      <div class="loadunit">
+        <span class="t">用电量单位</span>
+        <div class="opts" id="loadUnit">
+          <button type="button" data-u="day">每日</button>
+          <button type="button" data-u="month" class="active">每月</button>
+          <button type="button" data-u="year">每年</button>
         </div>
+        <span class="t" style="font-size:12px">同时作用于白天与晚上两个用电量；切换方案时这四个输入的位置不变。</span>
       </div>
+
       <div class="grid g2" style="margin-top:14px">
         <div class="field" style="margin-top:0">
           <label>组件瓦数（W/块）</label>
@@ -742,18 +815,59 @@
         </div>
         <div class="field" style="margin-top:0">
           <label>年有效小时数（h）</label>
-          <input type="number" id="genHours" value="1200" min="0">
+          <input type="number" id="genHours" value="1150" min="0">
         </div>
       </div>
-      <div class="field" style="margin-top:14px">
-        <label>平均电价（元/度，默认 0.7）</label>
-        <input type="number" id="price" value="0.7" min="0" step="0.01">
+      <div class="gv-price-grid" style="margin-top:14px">
+        <div class="field"><label>平段电价<span class="lbl-tip">对应白天（平峰）</span></label><input type="number" id="cFlat" value="0.6063" step="0.0001"></div>
+        <div class="field"><label>高峰电价<span class="lbl-tip">对应晚上（高峰）</span></label><input type="number" id="cPeak" value="1.0051" step="0.0001"></div>
+        <div class="field"><label>低谷电价<span class="lbl-tip">夜间谷段 · 仅配储谷电参考</span></label><input type="number" id="cValley" value="0.3017" step="0.0001"></div>
       </div>
     </div>
 
     <div class="card soft">
       <h3>③ 测算结果</h3>
+
+      <div id="ratioBlock" style="display:none">
+        <h4 class="subhead" style="margin:2px 0 4px">配比判断：三种方案哪一种符合设计条件</h4>
+        <p class="unit" style="margin:0 0 12px">每一档都先按「白天负荷 + 夜间储能」两个需求反推<strong>最小可行装机</strong>；装完再按真实出力倒推一遍，看这一档的电到底是<strong>存不进电池</strong>（弃光）还是<strong>电池吃不满</strong>（电池偏大）。点击选择配比，下方结果同步更新。</p>
+        <div class="plan-grid" id="esOut"></div>
+        <p class="unit" id="esWarn" style="display:none;margin-top:12px;color:#B45309"></p>
+        <p class="unit" style="margin-top:6px"><strong>设计条件：弃光率越低越好（≤5% 视为达标），电池利用率越高越好（≥60% 视为达标）。</strong>
+          标签含义：<strong>符合设计条件</strong>＝两项都达标；<strong>弃光偏多</strong>＝光伏明显大于「白天负荷 ＋ 电池容量」，多发的电实在没处去，要往上选一档配比把电池配大；<strong>电池偏大</strong>＝光伏能挤出来的富余就那么多，电池有大量容量天天闲着，要往下选一档配比省钱。</p>
+      </div>
+
+      <details class="formula" id="esSteps" style="margin:0 0 16px;display:none">
+        <summary id="esStepsSum">这档配比是怎么算出来的？点开看计算过程</summary>
+        <div class="body" id="esStepsBody"></div>
+      </details>
+
+      <details class="formula" id="rentCmp" style="margin:0 0 16px;display:none">
+        <summary id="rentCmpSum">三种配比的 3 年期租金对比，点开看</summary>
+        <div class="body">
+          <p class="unit" style="margin:0 0 8px">同一个客户、同一套用电数据，1:1 / 1:2 / 1:3 各自按「最小可行装机」落定后，3 年期分别要交多少租金。口径与下方「不同产品年限对比」完全一致：月租金 ＝ 组件数 × 组件月租，6 个月流水最低值 ＝ 月租金 × 6 × 1.5。</p>
+          <div style="overflow-x:auto">
+            <table class="cmp-table">
+              <thead>
+                <tr>
+                  <th>方案</th>
+                  <th>组件月租金<br>(元/块/月)</th>
+                  <th>月缴纳租金<br>(元)</th>
+                  <th>年缴纳租金<br>(元)</th>
+                  <th>整个合同期租金<br>(元)</th>
+                  <th>6个月流水<br>最低值(元)</th>
+                </tr>
+              </thead>
+              <tbody id="rentCmpBody"></tbody>
+            </table>
+          </div>
+          <p class="unit" id="rentCmpNote" style="margin-top:8px"></p>
+        </div>
+      </details>
+
+      <h4 class="subhead" id="resHead" style="margin:16px 0 10px">当前方案</h4>
       <div class="result-grid" id="result"></div>
+
       <h4 class="subhead" style="margin:18px 0 10px">不同产品年限对比（组件数量与装机容量相同）</h4>
       <div style="overflow-x:auto">
         <table class="cmp-table">
@@ -771,8 +885,8 @@
         </table>
       </div>
 
-      <h4 class="subhead" style="margin:20px 0 4px">经济性分析（平均电价 <span id="priceShown">0.70</span> 元/度）</h4>
-      <p class="unit" style="margin:0 0 10px">每月账单对比：原来只交电费；装了光储盈后 = 交租金 + 未被光伏覆盖部分仍向电网补交电费。</p>
+      <h4 class="subhead" style="margin:20px 0 4px">经济性分析（平段 <span id="priceShown">0.61</span> / 高峰 <span id="priceShown2">1.01</span> 元/度）</h4>
+      <p class="unit" style="margin:0 0 10px">每月账单对比：原来只交电费；装光储盈后 = 交租金 + 未被光伏覆盖部分仍向电网补交电费。<strong id="econHeadNote">合同期内本质是分期买电站，因此多数客户这段时间是"多交"的，请与下面的 10 年期分析一起看。</strong></p>
       <div style="overflow-x:auto">
         <table class="cmp-table">
           <thead>
@@ -793,30 +907,52 @@
       </div>
       <p class="unit" style="margin-top:6px">差额为负 = 每月省钱；差额为正 = 每月多交，但合同期满电站归用户所有。</p>
       <p id="econNote" class="econ-note"></p>
+      <div id="tenYearBox" style="display:none">
+        <h4 class="subhead" id="tenYearHead" style="margin:22px 0 4px">10 年期经济性分析（合同期满后电站归用户所有）</h4>
+        <p class="unit" id="tenYearIntro" style="margin:0 0 10px">租金只交 3 年或 5 年，之后到第 10 年是<strong>零租金发电</strong>。把时间拉到 10 年，才能看出这套方案真实的用电成本——下面的数字都是<strong>每月口径</strong>，不放大总额。核心只有一个数：<strong>光伏发出的电，每度只花「度电成本」，比按平段电价买电便宜的那部分，乘上每月发电量，就是每月省下的电费。</strong></p>
+        <div class="ty-kpi" id="tenYearKpi"></div>
+        <p class="unit" id="tenYearCallout" style="display:none;margin:12px 0 0;padding:10px 12px;background:#F1F7FD;border:1px dashed #CFE2F5;border-radius:8px;color:#0F5A93"></p>
+        <div class="tblwrap" style="margin-top:14px">
+          <table class="ty-table">
+            <thead>
+              <tr><th>10 年口径</th><th>3 年方案</th><th>5 年方案</th></tr>
+            </thead>
+            <tbody id="tenYearBody"></tbody>
+          </table>
+        </div>
+        <p class="unit" style="margin-top:8px" id="tenYearNote"></p>
+      </div>
+
       <div class="save-box" id="saveBox"></div>
 
       <div id="warnBox"></div>
 
       <details class="formula">
-        <summary>查看测算公式与口径说明（共 14 条，逐行对照）</summary>
+        <summary>查看测算公式与口径说明（共 20 条，逐行对照）</summary>
         <div class="body">
           <ul class="flist">
-            <li><b>年发电量需求</b>＝ 年用电量 × 消纳比例</li>
-            <li><b>装机容量（块）</b>＝ 年发电量需求 ÷（组件瓦数 ÷ 1000 × 年有效小时数）</li>
-            <li><b>装机容量（kW）</b>＝ 组件块数 × 组件瓦数 ÷ 1000</li>
-            <li><b>月缴纳租金</b>＝ 组件块数 × 用户月租（元/块/月）</li>
-            <li><b>年缴纳租金</b>＝ 月缴纳租金 × 12</li>
-            <li><b>整个合同期租金</b>＝ 年缴纳租金 × 合同年限（3 年 / 5 年）</li>
-            <li><b>6 个月流水最低值</b>＝ 月缴纳租金 × 6 × 1.5（还款能力要求）</li>
-            <li><b>原先每月电费</b>＝ 月用电量 × 平均电价</li>
-            <li><b>电网补交电费</b>＝（月用电量 − 光伏月发电量）× 平均电价，负数取 0</li>
-            <li><b>光储盈每月合计</b>＝ 月缴纳租金 ＋ 电网补交电费</li>
-            <li><b>月差额</b>＝ 光储盈每月合计 − 原先每月电费（正数＝多交，负数＝省钱）</li>
-            <li><b>合作期后每年省电费</b>≈ 光伏年发电量 × 平均电价</li>
-            <li><b>25 年累计可省</b>≈ 合作期后每年省电费 × 25（按电站满发、电价不变估算）</li>
-            <li><b>容量范围校验</b>：纯光 16–400kW、配储 16–120kW（超出范围提示调整方案）</li>
+            <li><b>日发电强度 g</b>＝ 年有效小时数 ÷ 365（度/kW·日）</li>
+            <li><b>白天消纳目标 A</b>＝ 白天用电量 × 白天用电消纳率</li>
+            <li><b>晚上消纳目标 B</b>＝ 晚上用电量 × 晚上用电消纳率</li>
+            <li><b>纯光装机</b>＝ A ÷ g（只满足白天，晚上不参与）</li>
+            <li><b>配储·需存进电池的电</b>＝ B ÷ 0.88（充放往返效率）</li>
+            <li><b>配储·电池最小容量</b>＝ 需存电量 ÷ 0.9（放电深度 DOD）</li>
+            <li><b>配储·光伏侧装机</b>＝（A ＋ 需存电量）÷ g（白天直供 ＋ 存进电池）</li>
+            <li><b>配储·电池侧装机</b>＝ 电池最小容量 ÷ 配比（1:N 即 1kW 配 N 度）</li>
+            <li><b>该档装机容量</b>＝ max（光伏侧，电池侧），两侧都要满足；纯光上限 400kW、配储上限 120kW</li>
+            <li><b>电池容量</b>＝ 装机容量 × 配比（kWh/kW）；<b>电池可存上限</b>＝ 电池容量 × 0.9</li>
+            <li><b>日均发电量</b>＝ 装机容量 × g</li>
+            <li><b>白天消耗</b>＝ min（日均发电量，A）；若还有富余，继续补给白天剩余负荷，最多到白天用电量全量（不能超过实际用电）</li>
+            <li><b>实际存电</b>＝ min（富余，电池可存上限）；<b>夜间放电</b>＝ 存电 × 0.88</li>
+            <li><b>弃光</b>＝ 富余电量 − 实际存电 − 额外补给的白天负荷；<b>弃光率</b>＝ 弃光 ÷ 日均发电量</li>
+            <li><b>电池利用率</b>＝ 实际存电 ÷ 电池可存上限（＝1 说明每天能充满放完）</li>
+            <li><b>白天占比</b>＝ 白天消耗 ÷ 白天用电量；<b>夜间占比</b>＝ 夜间放电 ÷ 晚上用电量</li>
+            <li><b>推荐配比</b>＝ 先筛出「弃光率 ≤ 5%」的档位，再取其中电池利用率最高的一档；三档都超标时取弃光率最低的；仍相同则取组件数最少（租金最低）</li>
+            <li><b>原先每月电费</b>＝ 白天月用电 × 平段 ＋ 晚上月用电 × 高峰；<b>电网补交</b>＝（白天月用电 − 直供月量）× 平段 ＋（晚上月用电 − 放电月量）× 高峰；<b>月差额</b>＝ 月租金 ＋ 补交 − 原先电费</li>
+            <li><b>配储·10 年平均度电成本</b>＝ 合同期总租金 ÷（10 年 × 365 ×（白天消耗 ＋ 夜间放电））；分母只算真正用掉的电，已扣充放损耗与弃光</li>
+            <li><b>配储·加权替代电价</b>＝（白天消耗×平段 ＋ 夜间放电×高峰）÷（白天消耗 ＋ 夜间放电）；<b>10 年口径每月省电费</b>＝ 每月可用电量 ×（加权替代电价 − 10 年平均度电成本）</li>
           </ul>
-          <p class="unit" id="formulaEndNote" style="margin-top:10px">注：组件数量与装机容量与产品年限无关；用户月租取自上方「户用产品线与价格表」。</p>
+          <p class="unit" id="formulaEndNote" style="margin-top:10px">注：本测算是「日能量平衡」模型，不区分同一天内各小时的功率曲线，也不考虑逆变器与电池的功率上限；组件数量与装机容量与产品年限无关；用户月租取自「产品模式」中的户用产品线与价格表。容量范围校验：纯光 16–400kW，配储 16–120kW。</p>
         </div>
       </details>
     </div>
@@ -830,13 +966,15 @@
       </div>
       <div class="ai-tip">
         <div class="ai-tip-t">💡 建议：把图片发给豆包、元宝等 AI，帮你复核测算是否准确</div>
-        <div class="prompt-box"><span id="promptText">这是创维光伏公司推出的「光储盈」产品，下面这张图是我按照他们给定的规则和公式测算出的装机容量结果（见图）。测算方式：装机容量＝年用电量×消纳比例÷（组件瓦数÷1000×年有效小时数）。请帮我检查：1）公式与单位换算是否正确；2）组件块数与装机容量计算是否准确；3）租金、月差额与 25 年收益推算是否合理；4）是否存在明显高估或漏项。</span></div>
+        <div class="prompt-box"><span id="promptText">这是创维光伏「光储盈」配储方案的装机测算结果（测算口径见图中公式说明）。请帮我复核：① 公式与单位换算是否有误；② 组件块数、装机容量、电池容量是否匹配；③ 弃光率与电池利用率是否合理、两者有无矛盾；④ 租金、月差额与 10 年收益是否高估或漏项。</span></div>
         <button type="button" class="btn-copy" id="copyPrompt">复制提问模板</button>
       </div>
       <p class="unit" style="margin-top:10px">手机端（含微信）点击后会弹出图片，长按图片即可保存到相册；电脑端直接下载到浏览器默认目录。</p>
     </div>
   </div>
 </section>
+
+
 
 <!-- 业务流程 -->
 <section id="process">
@@ -1074,6 +1212,8 @@
   m.addEventListener('click',function(e){if(e.target.tagName==='A')m.classList.remove('open')});
 </script>
 
+<div id="tyTip" role="tooltip" aria-hidden="true"></div>
+
 <div class="img-modal" id="imgModal">
   <div class="img-modal-inner">
     <div class="img-modal-tip" id="imgModalTip">长按图片保存到相册</div>
@@ -1095,167 +1235,589 @@
 <script src="assets/html2canvas.min.js"></script>
 
 <script>
-  // 装机容量测算
-  var PRICE = {
-    '金装房':{'3':{'纯光':55,'1:1配储':85,'1:2配储':100,'1:3配储':115},
-             '5':{'纯光':35,'1:1配储':55,'1:2配储':65,'1:3配储':75}},
-    '向阳院':{'3':{'纯光':60,'1:1配储':90,'1:2配储':105,'1:3配储':120},
-             '5':{'纯光':40,'1:1配储':60,'1:2配储':70,'1:3配储':80}},
-    '小阳楼':{'3':{'纯光':60,'1:1配储':90,'1:2配储':105,'1:3配储':120},
-             '5':{'纯光':40,'1:1配储':60,'1:2配储':70,'1:3配储':80}}
+/* ===== 装机容量测算：白天 / 晚上双约束 ===== */
+var G3=(function(){
+  var DOD=0.9,EFF=0.88;
+  var PRICE={flat:0.6063,peak:1.0051,valley:0.3017};
+  var RENT={
+    '金装房':{'3':{'纯光':55,'1:1':85,'1:2':100,'1:3':115},'5':{'纯光':35,'1:1':55,'1:2':65,'1:3':75}},
+    '向阳院':{'3':{'纯光':60,'1:1':90,'1:2':105,'1:3':120},'5':{'纯光':40,'1:1':60,'1:2':70,'1:3':80}},
+    '小阳楼':{'3':{'纯光':60,'1:1':90,'1:2':105,'1:3':120},'5':{'纯光':40,'1:1':60,'1:2':70,'1:3':80}}
   };
-  var state = {house:'金装房', scheme:'纯光', ratio:0.5, kwhType:'year'};
+  function $(id){return document.getElementById(id);}
+  function num(id,d){var e=$(id);if(!e)return d;var v=parseFloat(e.value);return (isFinite(v)&&v>=0)?v:d;}
+  function fmt(n){return Math.round(n).toLocaleString('zh-CN');}
+  function dec(x,d){return (Math.round(x*Math.pow(10,d))/Math.pow(10,d)).toFixed(d);}
+  function pct(x){return (Math.max(0,Math.min(1,x))*100).toFixed(0)+'%';}
+  function toDay(v,u){return u==='day'?v:(u==='month'?v/30:v/365);}
 
-  function fmt(n){ return (Math.round(n*100)/100).toLocaleString('zh-CN'); }
-  function clampWarn(capKw){
-    var pure = state.scheme==='纯光';
-    var min = 16, max = pure ? 400 : 120;
-    if(capKw < min || capKw > max){
-      return '<div class="warn">⚠ 当前测算容量 '+fmt(capKw)+'kW 超出'+(pure?'纯光':'配储')+
-        '产品录入范围（'+min+'–'+max+'kW），请调整方案或客户条件。</div>';
+  /* 设计逻辑：① 先算白天/晚上消纳目标 → ② 反推最小可行装机与电池 → ③ 按真实出力重排能量流
+     能量优先级：白天负荷(到目标A) → 充电(到夜间目标B) → 富余继续充电池(提升利用率) → 富余补白天剩余负荷 → 弃光 */
+  function plan(o){
+    var g=o.hours/365, pw=o.panel/1000;
+    var rd=(o.rd==null)?0.7:o.rd, rn=(o.rn==null)?0.7:o.rn;
+    var A=o.day*rd, B=o.night*rn;                 // 白天 / 晚上 的消纳目标（度/日）
+    var r={k:o.k,g:g,day:o.day,night:o.night,rd:rd,rn:rn,A:A,B:B};
+    if(o.k===0){
+      r.needCharge=0; r.needBat=0;
+      r.pDay=g>0?A/g:0; r.pBat=0; r.pMax=r.pDay;
+    }else{
+      r.needCharge=B/EFF;                         // 要存进电池的电（放出来要打折）
+      r.needBat=r.needCharge/DOD;                 // 电池最小容量（kWh）
+      r.pDay=g>0?(A+r.needCharge)/g:0;            // 光伏侧：白天直供 ＋ 存进电池
+      r.pBat=o.k>0?r.needBat/o.k:0;               // 电池侧：按 1:N 反推装机
+      r.pMax=Math.max(r.pDay,r.pBat);
     }
-    return '';
+    r.byBattery=(o.k!==0 && r.pBat>r.pDay+1e-9);  // 装机是被电池侧顶上去的
+    var cap=(o.k===0)?400:120;
+    r.pReq=r.pMax;                                // 钳制前的理论装机
+    r.pMax=Math.min(Math.max(0,r.pMax),cap);
+    r.overCap=(r.pReq>cap+1e-9);
+    r.panels=Math.max(0,Math.ceil(r.pMax/pw-1e-9)); // 向上取整，保证需求被满足
+    r.kw=r.panels*pw;
+    r.bat=o.k*r.kw;
+    r.capCharge=DOD*r.bat;                        // 电池一天最多能存多少
+
+    /* ③ 真实出力倒推：按优先级把日均发电量分干净，分不掉的才是弃光
+       注意：存电量永远不能超过电池物理上限（装机被 120kW 上限钳住时会用到这条） */
+    r.gen=r.kw*g;
+    var direct=Math.min(r.gen,A);                                              // 先顶白天负荷到目标
+    var charge=Math.min(Math.max(0,r.gen-direct),Math.min(r.needCharge,r.capCharge)); // 再存夜间要用的电
+    var excess=Math.max(0,r.gen-direct-charge);
+    var extraCharge=Math.min(excess,Math.max(0,r.capCharge-charge));
+    charge+=extraCharge; excess-=extraCharge;                                  // 电池还有空间就继续存
+    var extraDay=Math.min(excess,Math.max(0,o.day-direct));
+    direct+=extraDay; excess-=extraDay;                                        // 再补给白天剩余负荷
+    r.direct=direct;
+    r.charge=charge;
+    r.discharge=charge*EFF;
+    r.curtail=Math.max(0,excess);
+    r.curtailRate=r.gen>0?r.curtail/r.gen:0;
+    r.fillRate=r.capCharge>0?Math.min(1,r.charge/r.capCharge):0;
+    r.dayCover=o.day>0?Math.min(1,r.direct/o.day):0;
+    r.nightCover=o.night>0?Math.min(1,r.discharge/o.night):0;
+    r.coverage=r.nightCover;
+    r.okDay=(A<=0)||(r.direct>=A-0.5);
+    r.okNight=(B<=0)||(r.discharge>=B-0.5);
+    r.batShort=(o.k!==0 && r.bat+1e-9<r.needBat);   // 电池被装机上限拖累，装不到需求容量
+    r.selfUse=r.gen>0?Math.min(1,(r.direct+r.charge)/r.gen):0;
+    return r;
   }
-  function rbox(label, val, unit, sub, reco){
-    return '<div class="result-box'+(reco?' reco':'')+'">'+
-      '<div class="big">'+val+' <small>'+unit+'</small></div>'+
-      '<div class="lbl">'+label+'</div>'+
-      (sub?'<div class="sub">'+sub+'</div>':'')+'</div>';
-  }
-  function compute(){
-    var r = document.getElementById('result');
-    var wbox = document.getElementById('warnBox');
-    var cmp = document.getElementById('cmpBody');
-    var raw = parseFloat(document.getElementById('kwhInput').value);
-    var panelW = parseFloat(document.getElementById('panelW').value);
-    var genH = parseFloat(document.getElementById('genHours').value);
-    if(isNaN(raw) || raw<=0 || isNaN(panelW) || panelW<=0 || isNaN(genH) || genH<=0){
-      r.innerHTML = '<div class="result-box"><div class="lbl">请输入年/月用电量、组件瓦数与年有效小时数开始测算</div></div>';
-      cmp.innerHTML = ''; document.getElementById('econBody').innerHTML = '';
-      document.getElementById('econNote').innerHTML = ''; document.getElementById('saveBox').innerHTML = '';
-      wbox.innerHTML = '';
-      return;
-    }
-    var annualKwh = state.kwhType==='month' ? raw*12 : raw;   // 统一折算为年用电量
-    var genNeed = annualKwh * state.ratio;                    // 需光伏年发电量 kWh
-    // 装机容量(块) = 年发电量需求 ÷ (组件瓦数kW × 年有效小时数)；组件瓦数 W→kW 需 ÷1000
-    var panelsF = genNeed / ((panelW/1000) * genH);
-    var panels = Math.round(panelsF);
-    var capKw = panels * (panelW/1000);
+  return {plan:plan,$:$,num:num,fmt:fmt,dec:dec,pct:pct,toDay:toDay,PRICE:PRICE,RENT:RENT};
+})();
 
-    var html = '';
-    html += rbox('组件数量（块）', fmt(panels), '块', '测算值 '+fmt(panelsF)+' 块（取整）', true);
-    html += rbox('装机容量（kW）', fmt(capKw), 'kW', '年发电需求 '+fmt(genNeed)+' kWh', true);
-    r.innerHTML = html;
+var S={mode:'pv',house:'金装房',ratio:1,manual:false,unit:'month',
+       night:{pv:0,es:2500}, nrate:{pv:0,es:70}};
 
-    // 不同产品年限对比（组件数量与装机容量相同，仅月租随年限变化）
-    var rows = '';
-    ['3','5'].forEach(function(y){
-      var userRent = PRICE[state.house][y][state.scheme];     // 元/块/月
-      var monthRent = panels * userRent;
-      var yearRent = monthRent * 12;
-      var totalRent = yearRent * parseInt(y, 10);
-      var flowMin = monthRent * 6 * 1.5;                      // 6个月流水最低值
-      rows += '<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
-        '<td><span class="k">组件月租（元/块/月）</span><span class="v">'+userRent+'</span></td>'+
-        '<td><span class="k">月租金（元）</span><span class="v">'+fmt(monthRent)+'</span></td>'+
-        '<td><span class="k">年租金（元）</span><span class="v">'+fmt(yearRent)+'</span></td>'+
-        '<td><span class="k">合同期租金（元）</span><span class="v">'+fmt(totalRent)+'</span></td>'+
-        '<td><span class="k">6个月流水最低要求（元）</span><span class="v">'+fmt(flowMin)+'</span></td></tr>';
-    });
-    cmp.innerHTML = rows;
+function rbox(label,val,unit,sub,reco){
+  return '<div class="result-box'+(reco?' reco':'')+'">'+
+    '<div class="big">'+val+' <small>'+unit+'</small></div>'+
+    '<div class="lbl">'+label+'</div>'+(sub?'<div class="sub">'+sub+'</div>':'')+'</div>';
+}
 
-    // 经济性分析（平均电价）
-    var price = parseFloat(document.getElementById('price').value);
-    if(isNaN(price) || price<=0) price = 0.7;
-    document.getElementById('priceShown').textContent = price.toFixed(2);
+/* 三档配比：各自按「白天+晚上消纳目标」独立反推装机与电池，再按真实出力校验 */
+function buildPlans(day,night,rd,rn,hours,panel){
+  var list=[1,2,3].map(function(k){
+    return G3.plan({day:day,night:night,rd:rd,rn:rn,hours:hours,k:k,panel:panel});
+  });
+  var valid=list.filter(function(p){ return p.kw>=16; });
+  /* 设计条件：弃光率 ≤5%，且白天/夜间两个目标都覆盖到 */
+  var pool=valid.filter(function(p){ return p.curtailRate<=0.05 && p.okDay && p.okNight; });
+  var reason=pool.length?'ok':'none';
+  if(!pool.length){ pool=valid.length?valid.slice():list.slice(); }
 
-    var pvMonth = genNeed/12;                                  // 光伏月发电 kWh
-    var wholeMonth = annualKwh/12;                             // 总月用电 kWh
-    var pvOrigMonth = pvMonth * price;                        // 光伏部分原月电费
-    var wholeOrigMonth = wholeMonth * price;                   // 原全额月电费
-    var uncoveredCost = Math.max(0, wholeMonth - pvMonth) * price;  // 未覆盖月电费
-    var econRows = '', notes = [];
-    ['3','5'].forEach(function(y){
-      var userRent = PRICE[state.house][y][state.scheme];
-      var monthRent = panels * userRent;
-      var gsyCost = monthRent + uncoveredCost;                 // 光储盈每月合计
-      var diff = gsyCost - wholeOrigMonth;                     // >0 多交 / <0 省
-      var diffTxt = (diff>=0?'+':'−') + fmt(Math.abs(diff));
-      econRows += '<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
-        '<td><span class="k">原电费（元）</span><span class="v">'+fmt(wholeOrigMonth)+'</span></td>'+
-        '<td><span class="k">缴租金（元）</span><span class="v">'+fmt(monthRent)+'</span></td>'+
-        '<td><span class="k">电网补交（元）</span><span class="v">'+fmt(uncoveredCost)+'</span></td>'+
-        '<td class="total-col"><span class="k">合计（元）</span><span class="v">'+fmt(gsyCost)+'</span></td>'+
-        '<td class="'+(diff>0?'diff-pos':'diff-neg')+'"><span class="k">月差额（元）</span><span class="v">'+diffTxt+'</span></td></tr>';
-      var abs = fmt(Math.abs(diff));
-      if(diff > 0){
-        notes.push('<span class="tag more">'+y+'年方案</span>比原先<strong>每月多交 '+abs+' 元</strong>，但这笔钱相当于分期付款——'+y+' 年合同期结束后，电站就归您所有。');
-      } else {
-        notes.push('<span class="tag save">'+y+'年方案</span>比原先<strong>每月省 '+abs+' 元</strong>，而且 '+y+' 年合同期结束后还能免费获得一座光伏电站。');
+  var best=null;
+  pool.forEach(function(p){
+    if(!best){ best=p; return; }
+    if(p.curtailRate<best.curtailRate-0.01){ best=p; return; }   // 弃光更低优先
+    if(p.curtailRate>best.curtailRate+0.01) return;
+    if(p.fillRate>best.fillRate+0.05){ best=p; return; }         // 弃光接近时，利用率更高优先
+    if(Math.abs(p.fillRate-best.fillRate)<=0.05 && p.panels<best.panels) best=p; // 再比组件数（租金）
+  });
+  if(!best) best=list[2];
+  return {list:list, rec:best.k, recObj:best, reason:reason, pool:pool};
+}
+
+function renderPlans(bp){
+  if(!G3.$('esOut')) return;
+  var html='';
+  bp.list.forEach(function(p){
+    var k=p.k, tag='ok', txt='符合设计条件';
+    if(p.kw<16){ tag='no'; txt='装机不足 16kW'; }
+    else if(p.overCap){ tag='no'; txt='超 120kW 上限 · 需拆分'; }
+    else if(!p.okDay){ tag='warn'; txt='白天需求未覆盖 · 装机不足'; }
+    else if(!p.okNight){ tag='warn'; txt='夜间目标未覆盖 · 电池偏小'; }
+    else if(p.curtailRate>0.05){ tag='warn'; txt='弃光偏多 · 光伏相对电池偏大'; }
+    else if(p.fillRate<0.6){ tag='warn'; txt='电池偏大 · 容量用不上'; }
+    var clsC=p.curtailRate>0.05?'p-no':'p-ok';
+    var clsF=p.fillRate>=0.6?'p-ok':(p.fillRate<0.4?'p-no':'');
+    html+='<div class="plan'+(k===S.ratio?' sel':'')+'" data-k="'+k+'">'+
+      (k===bp.rec?'<span class="reco-badge">推荐</span>':'')+
+      '<div class="pt">1:'+k+' 配储</div>'+
+      '<div class="pv">'+G3.dec(p.kw,1)+'<small> kW</small></div>'+
+      '<div class="pmeta">电池 '+G3.dec(p.bat,0)+' 度 · '+p.panels+' 块组件</div>'+
+      '<div class="kv"><span>日均发电量</span><b>'+G3.fmt(p.gen)+' 度</b></div>'+
+      '<div class="kv"><span>白天消耗（占白天）</span><b>'+G3.fmt(p.direct)+' 度 <em>'+G3.pct(p.dayCover)+'</em></b></div>'+
+      '<div class="kv"><span>夜间充电（进电池）</span><b>'+G3.fmt(p.charge)+' 度</b></div>'+
+      '<div class="kv"><span>夜间放电（占晚上）</span><b>'+G3.fmt(p.discharge)+' 度 <em>'+G3.pct(p.nightCover)+'</em></b></div>'+
+      '<div class="plan-sep">设计条件校验</div>'+
+      '<div class="kv"><span>弃光电量</span><b class="'+clsC+'">'+G3.fmt(p.curtail)+' 度</b></div>'+
+      '<div class="kv"><span>弃光率</span><b class="'+clsC+'">'+G3.pct(p.curtailRate)+'</b></div>'+
+      '<div class="kv"><span>电池利用率</span><b class="'+clsF+'">'+G3.pct(p.fillRate)+'</b></div>'+
+      '<span class="tag tag-'+tag+'">'+txt+'</span>'+
+    '</div>';
+  });
+  G3.$('esOut').innerHTML=html;
+}
+
+/* 当前配比的计算过程（折叠） */
+function renderSteps(p){
+  var box=G3.$('esSteps');
+  if(!box) return;
+  var A=p.A, B=p.B, kw=p.kw, bat=p.bat;
+  var s1='白天用电量 '+G3.fmt(p.day)+' 度 × 白天消纳率 '+G3.pct(p.rd)+' ＝ <em>'+G3.fmt(A)+' 度</em>';
+  var s2='晚上用电量 '+G3.fmt(p.night)+' 度 × 晚上消纳率 '+G3.pct(p.rn)+' ＝ <em>'+G3.fmt(B)+' 度</em>';
+  var s3=G3.fmt(B)+' ÷ 0.88（充放效率）＝ <em>'+G3.fmt(p.needCharge)+' 度</em>';
+  var s4=G3.fmt(A)+'（白天用）＋ '+G3.fmt(p.needCharge)+'（存进电池）＝ <em>'+G3.fmt(A+p.needCharge)+' 度</em>，÷ '+G3.dec(p.g,2)+' 度/kW ＝ <em>'+G3.dec(p.pDay,1)+' kW</em>';
+  var s5=G3.fmt(p.needCharge)+' ÷ 0.9（放电深度）＝ <em>'+G3.fmt(p.needBat)+' 度</em>；按 1:'+p.k+' 算（1 kW 配 '+p.k+' 度），电池这边要求装机 '+G3.dec(p.pBat,1)+' kW';
+  var finalTxt='光伏侧要 '+G3.dec(p.pDay,1)+' kW，电池侧要 '+G3.dec(p.pBat,1)+' kW，取大的那个 → '+
+    (p.byBattery?'<strong>电池侧更大</strong>，装机被电池顶上去，':'<strong>光伏侧更大</strong>，电池会富余，')+
+    '最终装机 <em>'+G3.dec(kw,1)+' kW</em>、电池 <em>'+G3.fmt(bat)+' 度</em>（共 '+p.panels+' 块组件）';
+  var s6='装机 '+G3.dec(kw,1)+' kW × '+G3.dec(p.g,2)+' 度/kW ＝ <em>'+G3.fmt(p.gen)+' 度</em>。这 '+G3.fmt(p.gen)+' 度先顶白天负荷，吃掉 '+
+    G3.fmt(p.direct)+' 度（占白天用电 <em>'+G3.pct(p.dayCover)+'</em>'+(p.direct>p.A+0.5?'，含光伏多出来补给白天的 '+G3.fmt(p.direct-p.A)+' 度':'')+'）。';
+  var s7='电池一天最多能存 '+G3.dec(bat,0)+' × 0.9 ＝ '+G3.fmt(p.capCharge)+' 度；从剩下的电里实际充进 <em>'+G3.fmt(p.charge)+
+    ' 度</em>（这就是「夜间充电量」，含充放损耗），晚上放出来 <em>'+G3.fmt(p.discharge)+' 度</em>（＝ 充电量 × 0.88），占晚上用电 '+
+    G3.pct(p.nightCover)+(p.okNight?'，✓ 已覆盖夜间目标':'，✗ 未达夜间目标')+'。';
+  var s8='以日均发电量为 100% 看：白天消耗 '+G3.fmt(p.direct)+' 度 ＋ 夜间充电 '+G3.fmt(p.charge)+' 度 ＝ '+G3.fmt(p.direct+p.charge)+
+    ' 度，剩下 <em>'+G3.fmt(p.curtail)+' 度</em>没处去就是<strong>弃光</strong>（<strong>弃光率 '+G3.pct(p.curtailRate)+'</strong>）；电池利用率 ＝ 实际充电 '+G3.fmt(p.charge)+
+    ' ÷ 可存上限 '+G3.fmt(p.capCharge)+' ＝ <strong>'+G3.pct(p.fillRate)+'</strong>。';
+  var s9=(p.curtailRate>0.05
+    ? '这一档弃光偏多：装机被电池侧顶到 '+G3.dec(p.kw,1)+' kW，光伏相对电池偏大，多发的电存不进去。想压弃光就得<strong>往上选一档配比</strong>（电池更大）或缩小夜间用电口径。'
+    : (p.fillRate<0.6
+      ? '这一档电池偏大：光伏只发 '+G3.fmt(p.gen)+' 度，能进电池的富余就那么多，电池有 '+G3.pct(1-p.fillRate)+' 的容量用不上。<strong>往下选一档配比</strong>就能用更少的钱拿到同样的电量。'
+      : '这一档两项都达标：电基本发多少用多少（弃光 '+G3.pct(p.curtailRate)+'），电池每天也基本能充满放完（利用率 '+G3.pct(p.fillRate)+'）——这就是我们要的设计条件。'));
+
+  var rows=[
+    ['白天要发多少电？', s1+'。光伏每天至少要发这么多，才够白天用。'],
+    ['晚上要放多少电？', s2+'。这部分要靠电池在晚上放出来。'],
+    ['电池得先充进去多少？', s3+'。存 100 度放出来只剩 88 度，所以要放 '+G3.fmt(B)+' 度就得先充 '+G3.fmt(p.needCharge)+' 度。'],
+    ['光伏每天总共要发多少？', s4+'。'],
+    ['电池至少要多大？', s5+'。电池要留 10% 不敢用（保护寿命），所以容量得比充进去的量再大一点。'],
+    ['两侧取大的那个', finalTxt+'。'],
+    ['日均发电量与白天消耗', s6],
+    ['夜间充电与实际放电', s7],
+    ['弃光与电池利用率', s8],
+    ['这一档的结论', s9]
+  ];
+  var h='';
+  rows.forEach(function(q,i){
+    h+='<div class="stp"><span class="n">'+(i+1)+'</span><div><b>'+q[0]+'</b><p>'+q[1]+'</p></div></div>';
+  });
+  G3.$('esStepsBody').innerHTML=h;
+  G3.$('esStepsSum').textContent='「'+S.house+' · 1:'+p.k+' 配储」是怎么算出来的？点开看计算过程（含白天消耗、充电量、放电量、弃光的推导）';
+  box.style.display='';
+}
+
+function render(){
+  if(!G3.$('result')) return;
+  var isPv=(S.mode==='pv');
+  G3.$('ratioBlock').style.display=isPv?'none':'';
+  var nrt=G3.$('nightRateTip');
+  if(nrt) nrt.textContent=isPv?'无储能，默认 0':'电池要满足的夜间比例，默认 70%';
+
+  /* AI 复核提问模板：只列问题，公式交给页面上的口径说明 */
+  var pt=G3.$('promptText');
+  if(pt) pt.textContent=isPv
+    ? '这是创维光伏「光储盈」纯光方案的装机测算结果（测算口径见图中公式说明）。请帮我复核：① 公式与单位换算是否有误；② 组件块数与装机容量是否匹配；③ 自用率与弃光是否合理；④ 租金、月差额与 10 年收益是否高估或漏项。'
+    : '这是创维光伏「光储盈」配储方案的装机测算结果（测算口径见图中公式说明）。请帮我复核：① 公式与单位换算是否有误；② 组件块数、装机容量、电池容量是否匹配；③ 弃光率与电池利用率是否合理、两者有无矛盾；④ 租金、月差额与 10 年收益是否高估或漏项。';
+
+  G3.PRICE.flat=G3.num('cFlat',0.6063);
+  G3.PRICE.peak=G3.num('cPeak',1.0051);
+  G3.PRICE.valley=G3.num('cValley',0.3017);
+  var flat=G3.PRICE.flat, peak=G3.PRICE.peak;
+  var panel=G3.num('panelW',785), hours=G3.num('genHours',1150);
+
+  /* 四个统一输入（两种方案共用同一组取值） */
+  var dayRate=Math.min(100,Math.max(0,G3.num('dayRate',70)))/100;
+  var nightRate=Math.min(100,Math.max(0,G3.num('nightRate',0)))/100;
+  var day=G3.toDay(G3.num('dayUse',6000),S.unit);
+  var night=G3.toDay(G3.num('nightUse',0),S.unit);
+  var r;
+  if(isPv){
+    r=G3.plan({day:day,night:night,rd:dayRate,rn:nightRate,hours:hours,k:0,panel:panel});
+    var st0=G3.$('esSteps'); if(st0) st0.style.display='none';
+  }else{
+    var bp=buildPlans(day,night,dayRate,nightRate,hours,panel);
+    if(!S.manual) S.ratio=bp.rec;
+    renderPlans(bp);
+    r=G3.plan({day:day,night:night,rd:dayRate,rn:nightRate,hours:hours,k:S.ratio,panel:panel});
+    renderSteps(r);
+
+    /* 三档都不达标时才出现的提示 */
+    var esWarn=G3.$('esWarn');
+    if(esWarn){
+      if(bp.reason==='ok'){ esWarn.style.display='none'; esWarn.innerHTML=''; }
+      else{
+        esWarn.style.display='';
+        esWarn.innerHTML='⚠ 三档都没能同时满足「弃光率 ≤5% + 白天/夜间目标覆盖」，推荐按「弃光最低 → 利用率最高 → 组件最少」的顺序取；建议核对用电口径，或改走工商业方案。';
       }
-    });
-    document.getElementById('econBody').innerHTML = econRows;
-    document.getElementById('econNote').innerHTML = notes.join('<br>');
+    }
 
-    // 合作期后收益（理想条件：电站归用户，满发估算）
-    var saveYear = genNeed * price;                           // 每年省电费
-    var save25 = saveYear * 25;                               // 25年累计
-    document.getElementById('saveBox').innerHTML =
-      '合作期结束后电站归用户所有。理想条件下，每年可省电费约 <strong>'+fmt(saveYear)+' 元</strong>（光伏年发电 '+fmt(genNeed)+' kWh × 电价）；'+
-      '按光伏电站 25 年使用寿命、满发估算，累计可省约 <strong>'+fmt(save25)+' 元</strong>。';
+    /* 三种配比的 3 年期租金对比 */
+    var rcBox=G3.$('rentCmp');
+    if(rcBox){
+      var rc='';
+      bp.list.forEach(function(x){
+        var u=G3.RENT[S.house]['3']['1:'+x.k];
+        var m=x.panels*u, yr=m*12, tot=yr*3, flow=m*6*1.5;
+        rc+='<tr'+(x.k===bp.rec?' style="background:#E8F1FB"':'')+'>'+
+          '<td class="rowhead"><strong>1:'+x.k+' 配储</strong>'+(x.k===bp.rec?'<br><span style="font-size:11px;color:#0062B2">推荐</span>':'')+'</td>'+
+          '<td><span class="k">组件月租（元/块/月）</span><span class="v">'+u+'</span></td>'+
+          '<td><span class="k">月租金（元）</span><span class="v">'+G3.fmt(m)+'</span></td>'+
+          '<td><span class="k">年租金（元）</span><span class="v">'+G3.fmt(yr)+'</span></td>'+
+          '<td><span class="k">合同期租金（元）</span><span class="v">'+G3.fmt(tot)+'</span></td>'+
+          '<td><span class="k">6个月流水最低（元）</span><span class="v">'+G3.fmt(flow)+'</span></td></tr>';
+      });
+      G3.$('rentCmpBody').innerHTML=rc;
+      var rows=bp.list.map(function(x){
+        var u=G3.RENT[S.house]['3']['1:'+x.k];
+        return {k:x.k,panels:x.panels,m:x.panels*u,pj:x};
+      });
+      var cheap=rows[0];
+      rows.forEach(function(o){ if(o.m<cheap.m) cheap=o; });
+      var note='三档组件数 '+rows.map(function(o){ return '1:'+o.k+' → '+o.panels+' 块'; }).join('、')+
+        '，3 年期月租金 '+rows.map(function(o){ return G3.fmt(o.m); }).join(' / ')+' 元。月租金最低的是 <b>1:'+cheap.k+'</b>（'+G3.fmt(cheap.m)+' 元/月）'+
+        (cheap.k===bp.rec
+          ? '，正好是上方推荐的配比——弃光与电池利用率都达标，租金也最低。'
+          : '，但它弃光 '+G3.pct(cheap.pj.curtailRate)+'、电池利用率 '+G3.pct(cheap.pj.fillRate)+'，没达到设计条件，别只按租金挑。');
+      note+='注意租金 ＝ 组件数 × 组件月租，两头都在变：配比越大单块月租越高；而配比过小时电池反推的装机反而更大、组件数更多。所以「配比越大越贵」并不总成立。';
+      G3.$('rentCmpNote').innerHTML=note;
+      G3.$('rentCmpSum').textContent='三种配比的 3 年期租金对比（1:'+bp.list[0].k+' / 1:'+bp.list[1].k+' / 1:'+bp.list[2].k+' 各多少块、每月交多少）';
+      rcBox.style.display='';
+    }
+  }
+  if(isPv){
+    var rcPv=G3.$('rentCmp'); if(rcPv) rcPv.style.display='none';
+  }
 
-    wbox.innerHTML = clampWarn(capKw);
+  var scheme=isPv?'纯光':('1:'+S.ratio);
+  var u3=G3.RENT[S.house]['3'][scheme], u5=G3.RENT[S.house]['5'][scheme];
+
+  G3.$('rentHint').textContent='当前产品（'+S.house+' · '+(isPv?'纯光':('1:'+S.ratio+' 配储'))+'）用户月租：3 年 '+u3+' 元/块/月，5 年 '+u5+' 元/块/月';
+
+  var h='';
+  h+=rbox('组件数量',r.panels,'块','取整前 '+G3.dec(r.pMax/(panel/1000),1)+' 块');
+  h+=rbox('装机容量',G3.dec(r.kw,1),'kW','年发电 '+G3.fmt(r.gen*365)+' 度');
+  h+=rbox('日均发电量',G3.fmt(r.gen),'度','按 '+G3.dec(r.g,2)+' 度/kW·日 计');
+  if(isPv){
+    h+=rbox('白天消耗',G3.fmt(r.direct),'度','占白天用电量 '+G3.pct(r.dayCover));
+    h+=rbox('光伏自用率',G3.pct(r.selfUse),'','弃光 '+G3.fmt(r.curtail*365)+' 度/年');
+    h+=rbox('月缴纳租金',G3.fmt(r.panels*u3),'元','3 年期，5 年为 '+G3.fmt(r.panels*u5)+' 元');
+  }else{
+    h+=rbox('电池容量',G3.dec(r.bat,0),'度','配比 1:'+S.ratio+'（kWh/kW），可存上限 '+G3.fmt(r.capCharge)+' 度');
+    h+=rbox('弃光率',G3.pct(r.curtailRate),'','弃光 '+G3.fmt(r.curtail)+' 度/日，越低越好（≤5% 达标）');
+    h+=rbox('电池利用率',G3.pct(r.fillRate),'','实际充电 '+G3.fmt(r.charge)+' ÷ 可存上限 '+G3.fmt(r.capCharge)+' 度');
   }
-  function updateRentHint(){
-    var h3 = PRICE[state.house]['3'][state.scheme];
-    var h5 = PRICE[state.house]['5'][state.scheme];
-    document.getElementById('rentHint').textContent =
-      '当前产品（'+state.house+'·'+state.scheme+'）用户月租：3年 '+h3+' 元/块/月，5年 '+h5+' 元/块/月';
+  G3.$('result').innerHTML=h;
+  G3.$('resHead').textContent='当前方案：'+S.house+' · '+(isPv?'纯光':('1:'+S.ratio+' 配储'));
+
+  /* 不同年限对比 */
+  var cmp='';
+  [3,5].forEach(function(y){
+    var u=G3.RENT[S.house][String(y)][scheme];
+    var m=r.panels*u, yr=m*12, tot=yr*y, flow=m*6*1.5;
+    cmp+='<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
+      '<td><span class="k">组件月租（元/块/月）</span><span class="v">'+u+'</span></td>'+
+      '<td><span class="k">月租金（元）</span><span class="v">'+G3.fmt(m)+'</span></td>'+
+      '<td><span class="k">年租金（元）</span><span class="v">'+G3.fmt(yr)+'</span></td>'+
+      '<td><span class="k">合同期租金（元）</span><span class="v">'+G3.fmt(tot)+'</span></td>'+
+      '<td><span class="k">6个月流水最低（元）</span><span class="v">'+G3.fmt(flow)+'</span></td></tr>';
+  });
+  G3.$('cmpBody').innerHTML=cmp;
+
+  /* 经济性 */
+  var mDay=day*30, mNight=night*30;
+  var mDirect=r.direct*30, mDis=r.discharge*30;
+  var before=mDay*flat+mNight*peak;
+  var makeupDay=Math.max(0,mDay-mDirect)*flat;
+  var makeupNight=isPv?mNight*(1-nightRate)*peak:Math.max(0,mNight-mDis)*peak;
+  var makeup=makeupDay+makeupNight;
+  var econ='', notes=[];
+  [3,5].forEach(function(y){
+    var u=G3.RENT[S.house][String(y)][scheme];
+    var m=r.panels*u, total=m+makeup, diff=total-before;
+    var cls=diff>0?'diff-pos':'diff-neg';
+    var txt=(diff>=0?'+':'−')+G3.fmt(Math.abs(diff));
+    econ+='<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
+      '<td><span class="k">原先电费（元）</span><span class="v">'+G3.fmt(before)+'</span></td>'+
+      '<td><span class="k">缴租金（元）</span><span class="v">'+G3.fmt(m)+'</span></td>'+
+      '<td><span class="k">电网补交（元）</span><span class="v">'+G3.fmt(makeup)+'</span></td>'+
+      '<td class="total-col"><span class="k">合计（元）</span><span class="v">'+G3.fmt(total)+'</span></td>'+
+      '<td class="'+cls+'"><span class="k">月差额（元）</span><span class="v">'+txt+'</span></td></tr>';
+    var abs=G3.fmt(Math.abs(diff));
+    if(diff>0) notes.push('<span class="tag more">'+y+'年方案</span>比原先<strong>每月多交 '+abs+' 元</strong>，但这笔钱相当于分期付款——'+y+' 年合同期结束后，电站就归您所有。');
+    else notes.push('<span class="tag save">'+y+'年方案</span>比原先<strong>每月省 '+abs+' 元</strong>，而且 '+y+' 年合同期结束后还能获得一座光伏电站。');
+  });
+  G3.$('econBody').innerHTML=econ;
+  G3.$('econNote').innerHTML=notes.join('<br>');
+
+  /* ===== 10 年期经济性分析（纯光 / 配储共用一套口径） =====
+     口径与第 02 节「度电成本」一致：度电成本 = 合同期总租金 ÷ 期间被用掉的电量。
+     纯光：被用掉的电 = 全部发电量（按平段电价替代）；
+     配储：被用掉的电 = 白天消耗 + 夜间放电（已扣充放损耗与弃光），
+           白天按平段、夜间放电按高峰分别计价，再算加权均价。            */
+  var tyBox=G3.$('tenYearBox');
+  if(tyBox){
+    var yearGen=isPv ? r.gen*365 : (r.direct+r.discharge)*365;      // 一年真正被用掉的电量
+    var yearValue=isPv ? yearGen*flat : ((r.direct*flat+r.discharge*peak)*365); // 一年被替代掉的电费
+    if(before>0 && yearGen>0){
+      tyBox.style.display='';
+      var monthGen=yearGen/12;
+      var monthValue=yearValue/12;
+      var priceBlend=yearGen>0?yearValue/yearGen:0;                 // 每度可用电量实际替代的电价
+      var subM=Math.max(0,before-makeup);                           // 合同期满后每月省
+      var termDiff=(r.panels*G3.RENT[S.house]['3'][scheme])+makeup-before; // 3 年期每月差额（正=多交）
+      function ten(y){
+        var u=G3.RENT[S.house][String(y)][scheme];
+        var rentTot=r.panels*u*12*y;                                // 只在合同期交租金
+        var cost10=rentTot/(yearGen*10);                            // 10 年平均度电成本
+        var mSave=monthValue-cost10*monthGen;                       // 每月省下的电费（10 年口径）
+        return {u:u,rentTot:rentTot,cost10:cost10,mSave:mSave,y:y};
+      }
+      var t3=ten(3), t5=ten(5);
+      var gen10=yearGen*10;
+
+      /* ---- 每个数字的计算过程（悬停 / 点击查看） ---- */
+      function tipRent(t){
+        return '合同期总租金\n\n'+r.panels+' 块 × '+t.u+' 元/块/月 × '+(t.y*12)+' 个月\n＝ '+G3.fmt(t.rentTot)+' 元\n\n这是光伏 + 电池打包的租金，'+t.y+' 年交完为止。';
+      }
+      function tipGen(){
+        return '10 年累计可用电量\n\n① 一天真正用掉多少\n   白天消耗 '+G3.dec(r.direct,1)+' 度\n   ＋ 夜间放电 '+G3.dec(r.discharge,1)+' 度\n   ＝ '+G3.dec(r.direct+r.discharge,1)+' 度\n② 折成一年\n   × 365 ＝ '+G3.fmt(yearGen)+' 度\n③ 10 年\n   × 10 ≈ '+G3.fmt(gen10)+' 度\n\n已扣掉充放损耗（×0.88）与弃光（'+G3.fmt(r.curtail)+' 度/日）。';
+      }
+      function tipPrice(){
+        if(isPv) return '替代电价\n\n纯光发出的电全部抵白天（平段）用电，\n按平段电价 '+G3.dec(flat,4)+' 元/度计。';
+        return '替代电价（加权）\n\n① 白天消耗 '+G3.dec(r.direct,1)+' 度 × 平段 '+G3.dec(flat,4)+'\n   ＝ '+G3.dec(r.direct*flat,2)+' 元/日\n② 夜间放电 '+G3.dec(r.discharge,1)+' 度 × 高峰 '+G3.dec(peak,4)+'\n   ＝ '+G3.dec(r.discharge*peak,2)+' 元/日\n③ 相加 ÷ 总可用电量 '+G3.dec(r.direct+r.discharge,1)+' 度\n   ＝ '+G3.dec(priceBlend,4)+' 元/度\n\n电池放出的电替代的是 16—24 点高峰电，比平段贵。';
+      }
+      function tipCost(t){
+        return '10 年平均度电成本\n\n① 合同期总租金\n   '+r.panels+' 块 × '+t.u+' 元 × '+(t.y*12)+' 个月\n   ＝ '+G3.fmt(t.rentTot)+' 元\n② 10 年累计'+(isPv?'发电量':'可用电量')+'\n   '+G3.fmt(yearGen)+' × 10 ≈ '+G3.fmt(gen10)+' 度\n③ 相除\n   '+G3.fmt(t.rentTot)+' ÷ '+G3.fmt(gen10)+'\n   ＝ '+G3.dec(t.cost10,3)+' 元/度\n\n租金只交 '+t.y+' 年，但电量按满 10 年计入。';
+      }
+      function tipMonthSave(t){
+        return '10 年口径每月省电费\n\n① 每月'+(isPv?'发电量':'可用电量')+'\n   '+G3.fmt(yearGen)+' ÷ 12 ≈ '+G3.fmt(monthGen)+' 度\n② 每度省下的钱\n   替代电价 '+G3.dec(priceBlend,4)+' − 度电成本 '+G3.dec(t.cost10,3)+'\n   ＝ '+G3.dec(priceBlend-t.cost10,3)+' 元/度\n③ 相乘\n   '+G3.fmt(monthGen)+' × '+G3.dec(priceBlend-t.cost10,3)+'\n   ≈ '+G3.fmt(t.mSave)+' 元/月\n\n相当于每月电费由 '+G3.fmt(before)+' 元降到约 '+G3.fmt(before-t.mSave)+' 元。';
+      }
+      function tipBefore(){
+        return '现在不装，每月照交电费\n\n① 白天\n   '+G3.fmt(mDay)+' 度 × '+G3.dec(flat,4)+'\n   ＝ '+G3.fmt(mDay*flat)+' 元\n② 晚上\n   '+G3.fmt(mNight)+' 度 × '+G3.dec(peak,4)+'\n   ＝ '+G3.fmt(mNight*peak)+' 元\n③ 相加\n   ＝ '+G3.fmt(before)+' 元/月';
+      }
+      function tipSub(){
+        return '合同期满后每月省\n\n① 原先每月电费\n   ＝ '+G3.fmt(before)+' 元\n② 减去每月补交\n   − '+G3.fmt(makeup)+' 元\n③ 差额\n   ＝ '+G3.fmt(subM)+' 元/月\n\n此时已不再交租金，省下的全部是净收益。';
+      }
+
+      var kpi='';
+      kpi+=rbox('10 年平均度电成本 · 3 年方案',G3.dec(t3.cost10,3),'元/度','5 年方案为 '+G3.dec(t5.cost10,3)+' 元/度');
+      kpi+=rbox('10 年口径每月省电费 · 3 年方案',G3.fmt(t3.mSave),'元','5 年方案为 '+G3.fmt(t5.mSave)+' 元/月');
+      kpi+=rbox('合同期满后每月省',G3.fmt(subM),'元','第 4 年 / 第 6 年起不再交租金');
+      G3.$('tenYearKpi').innerHTML=kpi;
+
+      var kTips=[tipCost(t3),tipMonthSave(t3),tipSub()];
+      var kBoxes=G3.$('tenYearKpi').children;
+      for(var ki=0;ki<kBoxes.length&&ki<kTips.length;ki++){
+        var kBig=kBoxes[ki].querySelector('.big');
+        if(kBig) kBig.setAttribute('data-ty',kTips[ki]);
+      }
+
+      /* 回本点：用客户听得懂的说法讲清「租金比电费高」这件事 */
+      var callout=G3.$('tenYearCallout');
+      if(callout){
+        if(termDiff>0 && subM>0){
+          var extra=termDiff*36, months=extra/subM;
+          var breakYear=3+months/12, netYears=Math.max(0,10-breakYear);
+          var tail = netYears>=1
+            ? '从第 '+Math.floor(breakYear+1)+' 年起，到第 10 年剩下的约 '+Math.round(netYears)+' 年都是净赚。'
+            : '到第 10 年刚好把多掏的钱收回，之后全是净赚。';
+          callout.style.display='';
+          callout.innerHTML='<strong>客户最常问：租金比电费还高，这钱花得值吗？</strong><br>'+
+            '① <b>先认账</b>：合同期这 3 年，每月确实比现在多掏 <b>'+G3.fmt(termDiff)+' 元</b>，3 年合计 '+G3.fmt(extra)+' 元。<br>'+
+            '② <b>换个算法</b>：这笔钱没有花掉，是提前换成了屋顶上的一座电站——合同期满电站就归客户，之后 20 多年照样发电，租金一分钱不用再付。<br>'+
+            '③ <b>看结果</b>：租金一到期就永久归零，每月直接少交 <b>'+G3.fmt(subM)+' 元</b>，约 <b>'+Math.ceil(months)+' 个月</b>就把前面多掏的钱全部收回；'+tail+'<br>'+
+            '<span style="color:#4A5B6B">一句话话术：一直交电费，二十年后手里什么都没有；分期这 3 年，二十年后屋顶上是自己的电站。</span>';
+        }else{
+          callout.style.display='';
+          callout.innerHTML='<strong>客户最常问：装了以后月账单会不会更高？</strong><br>不会。合同期内每月已经比现在'+(termDiff<0?'少掏 <b>'+G3.fmt(-termDiff)+' 元':'持平')+
+            '，租金到期后每月再少掏 <b>'+G3.fmt(subM)+' 元</b>——全程不用「先多付、后回本」。';
+        }
+      }
+
+      var rows10=isPv ? [
+        ['10 年平均度电成本（元/度）',G3.dec(t3.cost10,3),G3.dec(t5.cost10,3),1,tipCost],
+        ['10 年口径每月省电费（元）',G3.fmt(t3.mSave),G3.fmt(t5.mSave),1,tipMonthSave],
+        ['现在不装，每月照交电费（元）',G3.fmt(before),G3.fmt(before),0,tipBefore],
+        ['合同期满后每月省（元）',G3.fmt(subM),G3.fmt(subM),0,tipSub]
+      ] : [
+        ['合同期总租金（元）',G3.fmt(t3.rentTot),G3.fmt(t5.rentTot),0,tipRent],
+        ['10 年累计可用电量（度）',G3.fmt(gen10),G3.fmt(gen10),0,tipGen],
+        ['10 年平均度电成本（元/度）',G3.dec(t3.cost10,3),G3.dec(t5.cost10,3),1,tipCost],
+        ['这些电替代的电价（元/度）',G3.dec(priceBlend,4),G3.dec(priceBlend,4),0,tipPrice],
+        ['10 年口径每月省电费（元）',G3.fmt(t3.mSave),G3.fmt(t5.mSave),1,tipMonthSave],
+        ['现在不装，每月照交电费（元）',G3.fmt(before),G3.fmt(before),0,tipBefore],
+        ['合同期满后每月省（元）',G3.fmt(subM),G3.fmt(subM),0,tipSub]
+      ];
+      var h10='';
+      rows10.forEach(function(q){
+        h10+='<tr><td>'+q[0]+'</td><td class="'+(q[3]?'hi':'')+'">'+q[1]+'</td><td>'+q[2]+'</td></tr>';
+      });
+      var body10=G3.$('tenYearBody');
+      body10.innerHTML=h10;
+      var trs10=body10.querySelectorAll('tr');
+      for(var ti=0;ti<trs10.length&&ti<rows10.length;ti++){
+        var tds=trs10[ti].querySelectorAll('td');
+        if(!tds[2]||!rows10[ti][4]) continue;
+        tds[1].setAttribute('data-ty',rows10[ti][4](t3));
+        tds[2].setAttribute('data-ty',rows10[ti][4](t5));
+      }
+
+      /* 标题 / 导语按方案切换 */
+      var tyIntro=G3.$('tenYearIntro');
+      if(tyIntro){
+        tyIntro.innerHTML=isPv
+          ? '租金只交 3 年或 5 年，之后到第 10 年是<strong>零租金发电</strong>。把时间拉到 10 年，才能看出这套方案真实的用电成本——下面的数字都是<strong>每月口径</strong>，不放大总额。核心只有一个数：<strong>光伏发出的电，每度只花「度电成本」，比按平段电价买电便宜的那部分，乘上每月发电量，就是每月省下的电费。</strong>'
+          : '配储的月度租金确实比纯光高一截，<strong>单看月账单容易得出「不划算」的结论</strong>——因为 3 年的租金要在 3 年内交完，而电站能用 25 年。口径与第 02 节一致：<strong>度电成本 ＝ 合同期总租金 ÷ 期间真正用掉的电量</strong>。配储的分母只算<strong>白天消耗 ＋ 夜间放电</strong>（已经扣掉 12% 充放损耗和弃光，不虚报），分子则按<strong>白天平段、夜间高峰</strong>分别计价后再取加权均价。把 10 年摊平，才是这套方案的真实用电成本。';
+      }
+      var tyHead=G3.$('tenYearHead');
+      if(tyHead) tyHead.textContent=isPv?'10 年期经济性分析（合同期满后电站归用户所有）':'10 年期经济性分析（租金只交 3 年或 5 年，电站归用户所有）';
+
+      var tyNote=isPv
+        ? '算法：10 年平均度电成本 ＝ 合同期总租金 ÷ 10 年累计发电量（租金只交 3 年或 5 年，发电按满 10 年计）；10 年口径每月省电费 ＝ 每月发电量 ×（平段电价 − 10 年平均度电成本）。'
+        : '算法：10 年平均度电成本 ＝ 合同期总租金 ÷ 10 年累计可用电量（可用电量 ＝ 白天消耗 ＋ 夜间放电，已扣充放损耗与弃光）；10 年口径每月省电费 ＝ 每月可用电量 ×（加权替代电价 − 度电成本）。';
+      G3.$('tenYearNote').innerHTML=tyNote+'未计组件衰减与电价上涨，两者大致互抵；10 年也只占组件 25 年寿命的前 40%，取值偏保守。<span style="color:#93A1AE">带虚线的数字可悬停（手机点一下）查看计算过程。</span>';
+    }else{
+      tyBox.style.display='none';
+    }
   }
-  function setRatioDefault(){
-    state.ratio = state.scheme==='纯光' ? 0.5 : 0.7;
-    document.querySelectorAll('#ratioOpts button').forEach(function(b){
-      b.classList.toggle('active', parseFloat(b.dataset.r)===state.ratio);
+
+  var saveYear=r.direct*flat*365+r.discharge*peak*365;
+  if(isPv){
+    G3.$('saveBox').innerHTML='合作期结束后电站归用户所有，此后<strong>不再交租金</strong>。理想条件下，每月可省电费约 <strong>'+
+      G3.fmt(r.direct*flat*30)+' 元</strong>（白天直供 '+G3.fmt(r.direct)+' 度/日 × 平段 '+G3.dec(flat,4)+' 元/度）。'+
+      '组件寿命 25 年，上面只算了前 10 年——后半程的成本为零。';
+  }else{
+    G3.$('saveBox').innerHTML='合作期结束后电站归用户所有。理想条件下，每年可省电费约 <strong>'+G3.fmt(saveYear)+
+      ' 元</strong>（白天直供 '+G3.fmt(r.direct*365)+' 度 × 平段 '+G3.dec(flat,4)+' 元'+
+      '＋电池放电 '+G3.fmt(r.discharge*365)+' 度 × 高峰 '+G3.dec(peak,4)+' 元'+
+      '）；按 25 年使用寿命满发估算，累计可省约 <strong>'+G3.fmt(saveYear*25)+' 元</strong>。';
+  }
+
+  G3.$('priceShown').textContent=G3.dec(flat,2);
+  G3.$('priceShown2').textContent=G3.dec(peak,2);
+  var ehn=G3.$('econHeadNote');
+  if(ehn) ehn.textContent=isPv
+    ? '合同期内本质是分期买电站，因此多数客户这段时间是"多交"的，请与下面的 10 年期分析一起看。'
+    : '配储的月租金比纯光高（含电池），因此合同期内"多交"的幅度更明显——这不是溢价，是把 10 年的电费压进 3—5 年交完。请务必与下面的 10 年期分析一起看。';
+
+  var warn='';
+  if(!isPv && night<=0) warn='⚠ 晚上（高峰）用电量为 0，储能没有可存的需求，电池会和配比一起闲置。请填写晚上用电量，或改用纯光方案。';
+  else if(!isPv && r.kw<16) warn='⚠ 当前配比下装机不足 16kW，建议改用更小的配比或缩小用电口径。';
+  else if(!isPv && r.kw>120) warn='⚠ 配储方案装机上限 120kW，超出部分建议走工商业方案。';
+  else if(isPv && r.kw>400) warn='⚠ 纯光方案装机上限 400kW。';
+  G3.$('warnBox').innerHTML=warn?'<div class="warn">'+warn+'</div>':'';
+}
+
+/* ---------- 事件 ---------- */
+(function(){
+  function bindOpts(id,attr,cb){
+    var box=G3.$(id); if(!box) return;
+    box.addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      Array.prototype.forEach.call(this.querySelectorAll('button'),function(x){x.classList.remove('active');});
+      b.classList.add('active'); cb(b.getAttribute(attr));
     });
   }
-  ['houseType','scheme'].forEach(function(id){
-    document.getElementById(id).addEventListener('click', function(e){
-      var btn = e.target.closest('button'); if(!btn) return;
-      this.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
-      btn.classList.add('active');
-      state[id==='houseType'?'house':'scheme'] = btn.dataset.v;
-      if(id==='scheme') setRatioDefault();
-      updateRentHint(); compute();
+  var tabs=G3.$('modeTabs');
+  if(tabs){
+    tabs.addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      Array.prototype.forEach.call(this.querySelectorAll('button'),function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      S.mode=b.getAttribute('data-m'); S.manual=false;
+      var nEl=G3.$('nightUse'), rEl=G3.$('nightRate');
+      if(nEl) nEl.value=S.night[S.mode];
+      if(rEl) rEl.value=S.nrate[S.mode];
+      render();
+    });
+  }
+  bindOpts('houseType','data-v',function(v){S.house=v;render();});
+  function setUnit(u){
+    S.unit=u;
+    var box=G3.$('loadUnit');
+    if(box){
+      Array.prototype.forEach.call(box.querySelectorAll('button'),function(x){
+        x.classList.toggle('active', x.getAttribute('data-u')===u);
+      });
+    }
+    render();
+  }
+  bindOpts('loadUnit','data-u',setUnit);
+
+  var out=G3.$('esOut');
+  if(out){
+    out.addEventListener('click',function(e){
+      var c=e.target.closest('.plan'); if(!c) return;
+      S.ratio=parseInt(c.getAttribute('data-k'),10); S.manual=true; render();
+    });
+  }
+
+  ['dayUse','dayRate','panelW','genHours','cFlat','cPeak','cValley'].forEach(function(id){
+    var el=G3.$(id); if(el) el.addEventListener('input',render);
+  });
+  /* 晚上两项按方案分别记忆，切换时不互相覆盖 */
+  ['nightUse','nightRate'].forEach(function(id){
+    var el=G3.$(id); if(!el) return;
+    el.addEventListener('input',function(){
+      if(id==='nightUse') S.night[S.mode]=G3.num('nightUse',0);
+      else S.nrate[S.mode]=G3.num('nightRate',0);
+      render();
     });
   });
-  document.getElementById('ratioOpts').addEventListener('click', function(e){
-    var btn = e.target.closest('button'); if(!btn) return;
-    this.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
-    btn.classList.add('active');
-    state.ratio = parseFloat(btn.dataset.r);
-    compute();
-  });
-  document.getElementById('kwhType').addEventListener('click', function(e){
-    var btn = e.target.closest('button'); if(!btn) return;
-    this.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
-    btn.classList.add('active');
-    state.kwhType = btn.dataset.v;
-    document.getElementById('kwhLabel').innerHTML =
-      (state.kwhType==='month' ? '月用电量（kWh/月）' : '年用电量（kWh/年）')+
-      '<span class="lbl-tip">纯光填白天用电量 / 配储填全天用电量</span>';
-    document.getElementById('kwhInput').placeholder =
-      state.kwhType==='month' ? '例如 10000' : '例如 120000';
-    compute();
-  });
-  ['kwhInput','panelW','genHours','price'].forEach(function(id){
-    document.getElementById(id).addEventListener('input', compute);
-  });
-  // 保存板块为图片
-  function tsNow(){
-    var d=new Date(), p=function(n){return (n<10?'0':'')+n;};
-    return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'_'+p(d.getHours())+p(d.getMinutes());
+
+  /* ---- 10 年期数字的计算过程浮层 ---- */
+  var tyEl=G3.$('tyTip'), tyBox=G3.$('tenYearBox'), tyTimer=null;
+  function tyPlace(x,y){
+    var w=tyEl.offsetWidth, h=tyEl.offsetHeight;
+    var left=Math.min(Math.max(10,x-w/2), window.innerWidth-w-10);
+    var top=y-h-14; if(top<10) top=y+22;
+    tyEl.style.left=left+'px'; tyEl.style.top=top+'px';
   }
+  function tyOn(el,x,y){
+    tyEl.textContent=el.getAttribute('data-ty');
+    tyEl.classList.add('on');
+    tyPlace(x,y);
+  }
+  function tyOff(){ tyEl.classList.remove('on'); }
+  if(tyEl&&tyBox){
+    tyBox.addEventListener('mouseover',function(e){
+      var t=e.target.closest?e.target.closest('[data-ty]'):null;
+      if(t&&t.getAttribute('data-ty')) tyOn(t,e.clientX,e.clientY);
+    });
+    tyBox.addEventListener('mousemove',function(e){
+      if(!tyEl.classList.contains('on')) return;
+      var t=e.target.closest?e.target.closest('[data-ty]'):null;
+      if(t) tyPlace(e.clientX,e.clientY);
+    });
+    tyBox.addEventListener('mouseout',function(e){
+      var t=e.target.closest?e.target.closest('[data-ty]'):null;
+      if(t) tyOff();
+    });
+    tyBox.addEventListener('click',function(e){
+      var t=e.target.closest?e.target.closest('[data-ty]'):null;
+      if(!t) return;
+      var r2=t.getBoundingClientRect();
+      tyOn(t,r2.left+r2.width/2,r2.top);
+      clearTimeout(tyTimer); tyTimer=setTimeout(tyOff,4500);
+    });
+  }
+
+  render();
+})();
+</script>
+<script>
   var UA = navigator.userAgent || '';
   var IS_WECHAT = /MicroMessenger/i.test(UA);
   var IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile|HarmonyOS/i.test(UA);

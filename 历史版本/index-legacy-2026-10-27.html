@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光储盈培训赋能站 · 创维光伏</title>
+<style>
+  :root{
+    --blue:#0062B2;
+    --blue-dark:#004A85;
+    --blue-light:#E8F1FB;
+    --ink:#1A2B3C;
+    --muted:#5B6B7B;
+    --line:#E2E8F0;
+    --bg:#FFFFFF;
+    --bg-soft:#F5F8FB;
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .badge{display:inline-block;font-size:12px;color:var(--blue);background:var(--blue-light);
+    padding:2px 10px;border-radius:999px;border:1px solid #CFE2F5;font-weight:500}
+  .badge.gray{color:var(--muted);background:#EEF1F4;border-color:var(--line)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:30px;width:auto}
+  .brand .txt{font-weight:500;font-size:16px}
+  .brand .txt small{display:block;font-size:11px;color:var(--muted);font-weight:400}
+  .menu{display:flex;gap:6px;list-style:none}
+  .menu a{font-size:14px;color:var(--ink);padding:8px 12px;border-radius:8px}
+  .menu a:hover{background:var(--blue-light);color:var(--blue)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+
+  /* hero */
+  .hero{background:var(--blue);color:#fff;padding:64px 0 72px}
+  .hero h1{font-size:34px;font-weight:500;letter-spacing:.5px}
+  .hero p{margin-top:14px;font-size:16px;opacity:.92;max-width:680px}
+  .entrances{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+  .entrance{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+    border-radius:var(--radius);padding:22px;display:block;transition:.2s}
+  .entrance:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+  .entrance h3{font-size:18px;font-weight:500}
+  .entrance p{font-size:13px;opacity:.9;margin-top:6px}
+
+  /* sections */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:28px}
+  .sec-head h2{font-size:24px;font-weight:500;display:flex;align-items:center;gap:10px}
+  .sec-head h2 .no{color:var(--blue);font-size:18px}
+  .sec-head p{color:var(--muted);margin-top:8px;font-size:14px;max-width:100%}
+
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .card.soft{background:var(--bg-soft)}
+  .card h3{font-size:16px;font-weight:500;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--muted)}
+  .card ul{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
+  .card ul li{margin:4px 0}
+  .card ol{margin:8px 0 0 20px;font-size:14px;color:var(--muted)}
+  .card ol li{margin:4px 0}
+
+  /* mode steps */
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+  .step{position:relative;background:var(--blue-light);border:1px solid #CFE2F5;
+    border-radius:var(--radius);padding:18px}
+  .step .num{font-size:22px;font-weight:500;color:var(--blue)}
+  .step h4{font-size:15px;font-weight:500;margin:6px 0 4px}
+  .step p{font-size:13px;color:var(--muted)}
+  .subhead{font-size:15px;font-weight:500;margin:2px 0 10px;color:var(--ink)}
+  .sep{margin:18px 0;border:0;border-top:1px dashed var(--line)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .chip{background:var(--blue-light);color:var(--blue);border:1px solid #CFE2F5;
+    padding:6px 14px;border-radius:999px;font-size:14px;font-weight:500}
+  .vr-link{display:inline-flex;align-items:center;gap:8px;margin:10px 0 6px;padding:10px 18px;
+    border-radius:999px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;
+    text-decoration:none;transition:.15s;box-shadow:0 2px 8px rgba(0,98,178,.25)}
+  .vr-link:hover{background:var(--blue-dark);transform:translateY(-1px)}
+
+  /* table */
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;overflow:hidden}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:center}
+  thead th{background:var(--blue);color:#fff;font-weight:500}
+  tbody tr:nth-child(even){background:var(--bg-soft)}
+  .unit{font-size:13px;color:var(--muted);margin-top:8px}
+  /* 价格表：单元格内容不换行，保证每种配储方案在同一行 */
+  .price-table th,.price-table td{white-space:nowrap}
+
+  /* timeline */
+  .timeline{position:relative;margin-top:10px;padding-left:8px}
+  .tl-item{position:relative;padding:0 0 22px 34px;border-left:2px solid var(--line)}
+  .tl-item:last-child{border-left-color:transparent}
+  .tl-item .dot{position:absolute;left:-9px;top:2px;width:16px;height:16px;border-radius:50%;
+    background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue)}
+  .tl-item h4{font-size:16px;font-weight:500}
+  .tl-item p{font-size:14px;color:var(--muted);margin-top:4px}
+  details{border:1px solid var(--line);border-radius:10px;background:#fff;margin-top:10px}
+  details summary{cursor:pointer;padding:12px 16px;font-size:15px;font-weight:500;color:var(--blue);list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"▸";margin-right:6px;color:var(--blue)}
+  details[open] summary::before{content:"▾"}
+  details .body{padding:0 16px 14px 16px}
+  details .body ol{margin:0 0 0 20px;font-size:14px;color:var(--muted)}
+  details .body ol li{margin:6px 0}
+
+  .placeholder{border-style:dashed;background:#FAFBFC}
+  .placeholder h3{color:var(--muted)}
+
+  footer{padding:32px 0;color:var(--muted);font-size:13px;text-align:center}
+
+  @media(max-width:860px){
+    .menu{position:fixed;top:64px;right:0;left:0;flex-direction:column;background:#fff;
+      border-bottom:1px solid var(--line);padding:10px 20px;display:none}
+    .menu.open{display:flex}
+    .burger{display:flex}
+    .entrances,.steps{grid-template-columns:1fr}
+    .g2,.g3,.g4{grid-template-columns:1fr}
+    .hero h1{font-size:26px}
+  }
+
+  /* 度电成本板块 */
+  .gv-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  #gvGen{grid-template-columns:repeat(4,1fr)}
+  .gv-price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  .gv-src{margin-top:16px;padding:14px 16px;background:#F7FAFD;border:1px solid #DCE9F6;border-radius:10px}
+  .gv-src-t{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:6px}
+  .gv-src ul{margin:0;padding-left:18px}
+  .gv-src li{font-size:12.5px;color:var(--muted);line-height:1.75}
+  .gv-src li strong{color:var(--ink)}
+  .gv-src-n{font-size:12px;color:#8B6B2E;background:#FFFBEB;border:1px solid #FDE68A;
+    border-radius:8px;padding:7px 10px;margin-top:10px}
+  /* DOD 说明 */
+  .gv-dod{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .gv-dod .d{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
+  .gv-dod .t{font-size:18px;font-weight:600;color:var(--blue)}
+  .gv-dod .s{font-size:12px;color:var(--muted);margin:2px 0 8px}
+  .gv-dod p{font-size:13px;color:var(--ink);line-height:1.7}
+  .gv-chain{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px;
+    padding:12px 14px;background:#fff;border:1px dashed #CFE2F5;border-radius:10px}
+  .gv-chain span{font-size:14px;font-weight:600;color:var(--ink);line-height:1.35}
+  .gv-chain span em{display:block;font-style:normal;font-size:11px;font-weight:400;color:var(--muted)}
+  .gv-chain b{font-size:12px;color:var(--blue);background:var(--blue-light);border-radius:999px;
+    padding:2px 8px;font-weight:600}
+  /* 数字说明 */
+  td[data-tip], .result-box .big[data-tip]{cursor:help;text-decoration:underline;
+    text-decoration-style:dotted;text-decoration-thickness:1px;
+    text-underline-offset:3px;text-decoration-color:rgba(0,98,178,.45)}
+  #gvTip{position:fixed;z-index:9997;max-width:290px;background:#16232F;color:#fff;
+    font-size:12.5px;line-height:1.65;padding:10px 12px;border-radius:10px;
+    box-shadow:0 12px 30px rgba(15,30,45,.28);opacity:0;visibility:hidden;transition:opacity .12s;
+    white-space:pre-line;pointer-events:none;left:0;top:0}
+  #gvTip.on{opacity:1;visibility:visible}
+  @media(max-width:860px){
+    .gv-price-grid{grid-template-columns:1fr 1fr}
+    .gv-dod{grid-template-columns:1fr}
+  }
+
+  .gv-h3{font-size:16px;font-weight:500;margin:30px 0 8px;display:flex;align-items:center;gap:8px}
+  .gv-h3 .n{width:22px;height:22px;border-radius:50%;background:var(--blue-light);color:var(--blue);
+    font-size:12px;display:inline-flex;align-items:center;justify-content:center;font-weight:600;flex:0 0 auto}
+  .gv-note{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.7}
+  .gv-table td{font-variant-numeric:tabular-nums}
+  .gv-table td.best{color:var(--blue);font-weight:600;background:var(--blue-light)}
+  .gv-table td.warncell{color:#B45309;font-weight:600;background:#FFF7ED}
+  .gv-table td.lbl{text-align:left;color:var(--ink)}
+  .gv-table tr.total td{font-weight:600}
+  @media(max-width:640px){
+    .gv-pair{grid-template-columns:1fr}
+    .result-grid{grid-template-columns:repeat(2,1fr)}
+    #gvGen{grid-template-columns:repeat(2,1fr)}
+  }
+  /* 装机容量测算 */
+  .field{margin-top:14px}
+  .field>label{display:block;font-size:14px;font-weight:500;margin-bottom:6px;color:var(--ink)}
+  .field input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;
+    font-size:15px;color:var(--ink);background:#fff}
+  .field input:focus{outline:none;border-color:var(--blue)}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opts button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;
+    border-radius:8px;font-size:14px;cursor:pointer;transition:.15s}
+  .opts button:hover{border-color:var(--blue)}
+  .opts button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+  .tabs button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 16px;
+    border-radius:999px;font-size:14px;cursor:pointer;transition:.15s}
+  .tabs button:hover{border-color:var(--blue)}
+  .tabs button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+  .result-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .result-box .big{font-size:26px;font-weight:500;color:var(--blue);line-height:1.2}
+  .result-box .big small{font-size:14px;font-weight:400;color:var(--muted)}
+  .result-box .lbl{font-size:13px;color:var(--muted);margin-top:4px}
+  .result-box .sub{font-size:13px;color:var(--muted);margin-top:8px}
+  .result-box.reco{border-color:var(--blue);background:var(--blue-light)}
+  .warn{margin-top:12px;font-size:13px;color:#B45309;background:#FFF7ED;border:1px solid #FED7AA;
+    padding:8px 12px;border-radius:8px}
+  .tip-box{margin-top:12px;padding:12px 14px;border-radius:10px;background:#FFFBEB;border:1px solid #FDE68A}
+  .tip-box .tip-title{font-size:13px;font-weight:700;color:#B45309;margin-bottom:6px}
+  .tip-box ul{margin:0;padding-left:18px}
+  .tip-box li{font-size:13px;color:var(--ink);line-height:1.7;margin:2px 0}
+  .lbl-tip{display:inline-block;margin-left:6px;font-size:12px;font-weight:400;color:#B45309}
+  .sys-card{display:block;color:inherit;text-decoration:none;transition:.15s}
+  .sys-card:hover{border-color:var(--blue);background:var(--blue-light);transform:translateY(-2px)}
+  .sys-card h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .sys-card .dl{font-size:12px;font-weight:400;color:var(--blue);white-space:nowrap}
+  .key{background:#FFF3C4;border-bottom:2px solid #F5B301;padding:0 2px;font-weight:600;color:#7A4D00}
+  .key-tag{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:999px;
+    background:#FEF3C7;color:#B45309;border:1px solid #FDE68A;font-size:11px;font-weight:700}
+  .save-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .btn-save{border:none;background:var(--blue);color:#fff;padding:12px 22px;border-radius:8px;
+    font-size:15px;font-weight:600;cursor:pointer;transition:.15s}
+  .btn-save:hover{background:var(--blue-dark)}
+  .btn-save:disabled{opacity:.65;cursor:default}
+  .save-hint{font-size:13px;color:var(--muted)}
+  .img-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,20,30,.84);display:none;padding:16px;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  .img-modal.open{display:block}
+  body.no-scroll{overflow:hidden}
+  .img-modal-inner{max-width:760px;margin:0 auto;background:#fff;border-radius:12px;padding:14px}
+  .img-modal-tip{font-size:13px;font-weight:600;color:var(--blue);text-align:center;line-height:1.6;margin-bottom:10px}
+  .img-modal img{width:100%;display:block;border:1px solid var(--line);border-radius:8px}
+  .img-modal-actions{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+  .img-modal-actions .btn-save{display:inline-block;text-decoration:none;padding:10px 18px;font-size:14px}
+  /* 图片放大查看 */
+  .zoom-overlay{position:fixed;inset:0;z-index:9998;background:rgba(10,20,30,.92);
+    display:none;padding:0;overflow:hidden;-webkit-overflow-scrolling:touch}
+  .zoom-overlay.open{display:block}
+  .zoom-bar{position:absolute;top:0;left:0;right:0;display:flex;justify-content:flex-end;
+    padding:12px 14px;background:linear-gradient(rgba(10,20,30,.5),transparent);z-index:2}
+  .zoom-bar .btn-copy{color:#fff;border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.12)}
+  .zoom-bar .btn-copy:hover{background:rgba(255,255,255,.22)}
+  .zoom-overlay img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    max-width:94%;max-height:86%;width:auto;height:auto;display:block;border-radius:8px;
+    box-shadow:0 10px 40px rgba(0,0,0,.5)}
+  .zoom-hint{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:rgba(255,255,255,.8);font-size:12px}
+  .zoomable{cursor:zoom-in;transition:box-shadow .15s}
+  .zoomable:hover{box-shadow:0 0 0 3px var(--blue)}
+  .ai-tip{margin-top:14px;padding:12px 14px;border-radius:10px;background:#F5F9FD;border:1px solid #CFE2F5}
+  .ai-tip-t{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px}
+  .ai-tip p{font-size:13px;color:var(--ink);line-height:1.7;margin:0 0 8px}
+  .prompt-box{background:#fff;border:1px dashed #B9D3EC;border-radius:8px;padding:10px 12px;
+    font-size:13px;line-height:1.75;color:var(--muted);user-select:text}
+  .btn-copy{margin-top:8px;border:1px solid var(--blue);background:#fff;color:var(--blue);
+    padding:7px 14px;border-radius:8px;font-size:13px;cursor:pointer}
+  .btn-copy:hover{background:var(--blue-light)}
+  #shotArea.shooting{padding:16px;background:#fff;border-radius:12px}
+  details.formula{margin-top:16px;background:#FAFCFF;border:1px solid var(--line);border-radius:10px}
+  details.formula summary{padding:11px 14px;font-size:13px;font-weight:600;color:var(--blue)}
+  details.formula .body{padding:0 14px 10px}
+  .flist{margin:0;padding:0;list-style:none}
+  .flist li{font-size:13px;color:var(--ink);line-height:1.7;padding:8px 0 8px 10px;
+    border-top:1px dashed var(--line)}
+  .flist li b{color:var(--blue-dark)}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:2px}
+  .cmp-table th,.cmp-table td{border:1px solid var(--line);padding:10px 8px;text-align:center;color:var(--ink);white-space:nowrap;vertical-align:middle}
+  .cmp-table th{background:var(--bg-soft);font-weight:600}
+  .cmp-table td:first-child,.cmp-table th:first-child{text-align:center}
+  .cmp-table tbody tr:nth-child(even){background:#FAFCFF}
+  .cmp-table td.diff-pos{color:#B45309;font-weight:700;background:#FFFBEB}
+  .cmp-table td.diff-neg{color:#15803D;font-weight:700;background:#F0FDF4}
+  .cmp-table td.total-col{font-weight:700;color:#0062B2}
+  .cmp-table .k{display:none}
+  /* 手机端：对比表改为逐行堆叠的卡片，避免横向滚动，导出图片也能完整 */
+  @media(max-width:700px){
+    .cmp-table{display:block;border-collapse:separate}
+    .cmp-table thead{display:none}
+    .cmp-table tbody{display:block}
+    .cmp-table tr{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:10px}
+    .cmp-table tbody tr:nth-child(even){background:#FAFCFF}
+    .cmp-table td{display:block;border:0;padding:5px 0;text-align:left;white-space:normal;font-size:13px;color:var(--ink)}
+    .cmp-table td.rowhead{text-align:left;border-bottom:1px dashed var(--line);padding:0 0 7px;margin-bottom:4px;font-size:15px;color:var(--blue)}
+    .cmp-table .k{display:inline-block;width:54%;color:var(--muted);font-size:12px;font-weight:500;vertical-align:top}
+    .cmp-table .v{display:inline-block;width:44%;text-align:right;font-weight:600;vertical-align:top}
+  }
+  .econ-note{font-size:13px;line-height:1.7;color:var(--ink);margin:12px 0 4px}
+  .econ-note .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;margin-right:6px}
+  .econ-note .tag.more{background:#FEF3C7;color:#B45309}
+  .econ-note .tag.save{background:#DCFCE7;color:#15803D}
+  .save-box{margin-top:12px;padding:14px 16px;border-radius:var(--radius);background:var(--blue-light);border:1px solid var(--blue);
+    font-size:14px;line-height:1.6;color:var(--ink)}
+  .save-box strong{color:var(--blue);font-size:16px}
+  /* 公司介绍 */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .stat .num{font-size:24px;font-weight:600;color:var(--blue);line-height:1.2}
+  .stat .num small{font-size:13px;font-weight:500;margin-left:2px}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.4}
+  .tl-item ul{margin:6px 0 0 18px;font-size:14px;color:var(--muted)}
+  .tl-item ul li{margin:3px 0}
+  .tl-item ul li b{color:var(--blue-dark);font-weight:600}
+  .qr-inline{width:110px;height:110px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:#fff;padding:6px;flex:none}
+  a.card{display:block;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,98,178,.12)}
+  .video-card .vhead{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0a3a6b,#0062B2);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+  .video-card .vhead .play{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);color:#0062B2;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+  .video-card .vhead .tag{color:#fff;font-size:13px;font-weight:600}
+  .video-card .go{color:var(--blue);font-size:13px;margin-top:8px;font-weight:600}
+  .rec-list{margin:12px 0 0 18px;font-size:14px;color:var(--muted);line-height:1.7}
+  .rec-list li{margin:14px 0}
+  .rec-list b{color:var(--ink);font-weight:600}
+  @media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .rec-grid{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:640px){.rec-grid{grid-template-columns:1fr}}
+
+  @media(max-width:860px){.result-grid{grid-template-columns:1fr}}
+  .scroll-hint{display:none}
+  @media(max-width:640px){
+    th,td{padding:8px 6px;font-size:13px}
+    .cmp-table th,.cmp-table td{padding:8px 5px;font-size:12px}
+    .price-table th,.price-table td{padding:6px 4px;font-size:11.5px}
+    .stat .num{font-size:21px}
+    .hero{padding:48px 0 56px}
+    .entrance{padding:18px}
+    .scroll-hint{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+  }
+
+  /* 历史版本标注 */
+  .issue-box{margin:0 0 20px;padding:16px 18px;background:#FFF7ED;border:1px solid #FED7AA;
+    border-left:4px solid #EA580C;border-radius:10px}
+  .issue-h{font-size:15px;font-weight:700;color:#9A3412;margin-bottom:8px;line-height:1.5}
+  .issue-p{font-size:13.5px;color:#7C2D12;line-height:1.8}
+  .issue-p b{color:#9A3412}
+  .issue-list{margin:10px 0 0 20px}
+  .issue-list li{font-size:13.5px;color:#7C2D12;line-height:1.8;margin:7px 0}
+  .issue-list li b{color:#9A3412}
+  .issue-f{font-size:12.5px;color:#9A3412;margin-top:12px;padding-top:9px;border-top:1px dashed #FDBA74;line-height:1.75}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="../assets/logo.png" alt="创维光伏">
+      <div class="txt">光储盈培训赋能站<small>创维光伏</small></div>
+    </div>
+    <button class="burger" id="burger" aria-label="菜单"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#home">首页</a></li>
+      <li><a href="#model">产品模式</a></li>
+      <li><a href="#cost">度电成本</a></li>
+      <li><a href="#calc">装机容量测算</a></li>
+      <li><a href="#process">业务流程</a></li>
+      <li><a href="#company">公司介绍</a></li>
+      <li><a href="#cases">案例展示</a></li>
+      <li><a href="../河南市场判断与谈判策略.html">河南电价专题</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 首页 -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1>光储盈培训赋能站</h1>
+    <p>面向代理商及其业务团队的光储盈业务支持站点：把产品讲透、把流程讲清、把账算明白。</p>
+    <div class="entrances">
+      <a class="entrance" href="#model"><h3>① 产品模式</h3><p>订阅制怎么运作、配储方案、准入门槛与价格</p></a>
+      <a class="entrance" href="#calc"><h3>② 装机容量测算</h3><p>实地输入客户数据，快速测算可装容量与组件数量</p></a>
+      <a class="entrance" href="#process"><h3>③ 业务流程</h3><p>代理商业务团队从准入到交付要走的步骤</p></a>
+      <a class="entrance" href="#company"><h3>④ 关于创维光伏</h3><p>集团背书、公司实力、国家级认可与全球布局</p></a>
+      <a class="entrance" href="#cases"><h3>⑤ 案例展示</h3><p>官方视频号短视频案例，点击跳转观看</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 产品模式 -->
+<section id="model">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">01</span> 产品模式</h2>
+      <p>光储盈是创维光伏的<strong>订阅制</strong>产品，本质为“客户购置电站 + 售后回租 + 分期付租金 + 期满留购”。以下为核心要点。</p>
+    </div>
+
+    <div class="card soft" style="margin-bottom:16px">
+      <h3>模式定义（四步）</h3>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h4>客户购置电站</h4><p>向创维购买光伏电站设备</p></div>
+        <div class="step"><div class="num">2</div><h4>售后回租</h4><p>与资方（创维租赁）签署融资租赁，盘活资金</p></div>
+        <div class="step"><div class="num">3</div><h4>分期付租金</h4><p>按 3 / 5 年周期，以组件块数为基数按月付租金</p></div>
+        <div class="step"><div class="num">4</div><h4>1 元留购</h4><p>租期届满，以 1 元名义价格取得电站完整所有权</p></div>
+      </div>
+      <p class="unit">合约期内，创维全程负责电站<strong>建设 + 代运营 + 运维（含财产险及公责险）</strong>。</p>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>适用项目场景</h3>
+      <p>酒店、超市、仓库、冷链、小型工商业、独立住宅等自发自用场景的光储一体化项目。<strong>从业务本质上，所有光储盈项目都属于户用项目</strong>，仅在系统录入时按以下规则分流：</p>
+      <table style="margin-top:10px">
+        <thead>
+          <tr><th>项目情况</th><th>系统录入口径</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>纯光方案 16kW – 400kW</td><td>户用系统录入</td></tr>
+          <tr><td>配储方案 16kW – 120kW</td><td>户用系统录入</td></tr>
+          <tr><td>纯光方案 400kW – 6MW</td><td>工商业系统录入</td></tr>
+          <tr><td>所有彩钢瓦方案</td><td>工商业系统录入</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>准入硬门槛 &amp; 产权收资</h3>
+
+      <h4 class="subhead">一、基础准入</h4>
+      <ul>
+        <li>年龄：录单人准入年龄为 18–75 周岁，其中 65–75 周岁须补充 18–55 周岁子女共签</li>
+        <li>征信：近 1 个月无当前逾期 / 呆账 / 冻结，近 2 年累计逾期 &lt; 3 次</li>
+        <li>流水：提供个人近 6 个月的银行收入流水，且需满足月均银行流水 ≥ 月租金 × 1.5</li>
+      </ul>
+
+      <hr class="sep">
+
+      <h4 class="subhead">二、产权收资要求</h4>
+      <p>满足以下<strong>任一情形</strong>，产权资料即视为合格：</p>
+      <ol>
+        <li>提供<strong>不动产权证</strong>或不动产登记资料；</li>
+        <li><strong>四证齐全</strong>：土地使用证、建设用地规划许可证、建设工程规划许可证、建设工程施工许可证。<br>需提供完整版本产权证件；若证件页面标注存在在途抵押，须配套提供抵押合同或抵押登记证明。</li>
+        <li><strong>四证不符</strong>时，按装机容量差异化要求：</li>
+      </ol>
+      <table class="collect-table" style="margin:10px auto 0">
+        <thead>
+          <tr><th>装机容量</th><th>所需资料</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>&lt; 100kW</td><td>【村级】盖章《非违建证明》</td></tr>
+          <tr><td>100kW ≤ 容量 &lt; 400kW</td><td>【村镇两级】盖章《非违建证明》</td></tr>
+          <tr><td>≥ 400kW</td><td>【村镇两级】盖章《非违建证明》+ 全套合规测绘资料</td></tr>
+        </tbody>
+      </table>
+      <p class="unit" style="margin-top:10px">测绘资料要求：由乙级及以上测绘资质单位出具——测绘宗地图、土地地类图、测绘承诺书、测绘资质证书；由自然资源主管部门出具——仅需测绘宗地图、土地地类图（两份图纸均须加盖村镇两级公章）。</p>
+    </div>
+
+    <div class="card">
+      <h3>户用产品线与价格表</h3>
+      <div class="chips" style="margin:8px 0 2px">
+        <span class="chip">金装房</span><span class="chip">向阳院</span><span class="chip">小阳楼</span>
+      </div>
+      <p class="unit">注：悦阳亭按小阳楼录单，但不提供螺旋桩。</p>
+      <div>
+        <a class="vr-link" href="https://vr.3d66.com/vr/index_detail_2047766.asp" target="_blank" rel="noopener">🏠 查看创维光伏产品示意图（VR 全景）↗</a>
+      </div>
+      <p class="unit">三大户型产品的月租金单价不同（见下表）。</p>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="price-table">
+        <thead>
+          <tr><th>产品年限</th><th>配储方案</th><th>金装房</th><th>向阳院</th><th>小阳楼</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="4">3 年</td><td>1:1 配储</td><td>85</td><td>90</td><td>90</td></tr>
+          <tr><td>1:2 配储</td><td>100</td><td>105</td><td>105</td></tr>
+          <tr><td>1:3 配储</td><td>115</td><td>120</td><td>120</td></tr>
+          <tr><td>纯光</td><td>55</td><td>60</td><td>60</td></tr>
+          <tr><td rowspan="4">5 年</td><td>1:1 配储</td><td>55</td><td>60</td><td>60</td></tr>
+          <tr><td>1:2 配储</td><td>65</td><td>70</td><td>70</td></tr>
+          <tr><td>1:3 配储</td><td>75</td><td>80</td><td>80</td></tr>
+          <tr><td>纯光</td><td>35</td><td>40</td><td>40</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="unit">单位：元 / 块（组件）/ 月。具体月租金 = 项目容量 ÷ 组件规格 × 月租金单价（以实施价格政策为准）。</p>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>配储方案详解</h3>
+      <p><strong>配储比例「1:N」= 每 1kW（千瓦）组件功率，配置 N 度（kWh）电池容量。</strong>举例：一个 100kW 的电站——</p>
+      <div class="chips" style="margin:10px 0 4px">
+        <span class="chip">1:1 配储 → 100 度电池</span>
+        <span class="chip">1:2 配储 → 200 度电池</span>
+        <span class="chip">1:3 配储 → 300 度电池</span>
+        <span class="chip">纯光 → 不配电池</span>
+      </div>
+      <p class="unit">配储比例越高，自发自用比例越高，月租金单价也相应越高（见上方价格表）。</p>
+      <div class="card soft" style="margin-top:12px">
+        <h3>逆变器允许 1.5 倍超配</h3>
+        <p>12kW 逆变器最大可适配 <strong>18kW</strong> 组件功率（12 × 1.5 = 18）。所以实际配置以「1 台 12kW 逆变器 + 1 块 16 度电池」为一个标准单元，装机容量越大按单元叠加：</p>
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+        <table style="margin-top:12px;min-width:560px">
+          <thead>
+            <tr><th>可用品牌</th><th>安装容量范围</th><th>逆变器组合</th><th>蓄电池数量</th><th>蓄电池容量</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="5">羲和 / 固德威<br>（12kW 方案）</td><td>14kW &lt; 容量 ≤ 18kW</td><td>1 × 12kW</td><td>1</td><td>16 度</td></tr>
+            <tr><td>28kW &lt; 容量 ≤ 36kW</td><td>2 × 12kW</td><td>2</td><td>32 度</td></tr>
+            <tr><td>42kW &lt; 容量 ≤ 54kW</td><td>3 × 12kW</td><td>3</td><td>48 度</td></tr>
+            <tr><td>56kW &lt; 容量 ≤ 72kW</td><td>4 × 12kW</td><td>4</td><td>64 度</td></tr>
+            <tr><td>70kW &lt; 容量 ≤ 90kW</td><td>5 × 12kW</td><td>5</td><td>80 度</td></tr>
+            <tr><td>固德威（100kW 方案）</td><td>90kW &lt; 容量 ≤ 120kW</td><td>1 × 100kW</td><td>1</td><td>按需配置</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="scroll-hint">← 表格可左右滑动查看 →</p>
+        <p class="unit">注：固德威 12K 方案仅第五档下限为 72kW，其余档位与羲和一致。1:2 / 1:3 配储在 1:1 基础上按比例增加电池块数（每台 12kW 逆变器 1:1 配 1 块 16 度电池，1:2 配 2 块，1:3 配 3 块），具体以实际方案为准。</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>质保政策</h3>
+      <div class="grid g3">
+        <div class="card soft"><h3>光伏组件</h3><p>12 年工艺质保 + 25 年功率质保</p></div>
+        <div class="card soft"><h3>逆变器</h3><p>5 年质保</p></div>
+        <div class="card soft"><h3>储能电池（可选）</h3><p>羲和 10 年 / 固德威 5 年</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 发电量与度电成本 -->
+<section id="cost">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">02</span> 发电量与度电成本</h2>
+      <p>业务员最常被问的三个问题：<strong>一块板一年到底发多少电</strong>、<strong>租金折成每度电多少钱</strong>、<strong>3 年和 5 年到底哪个划算</strong>。这一节按同一个电价口径，把三笔账一次算清楚。</p>
+    </div>
+
+    <!-- ① 前提：年有效小时数 -->
+    <div class="card" style="margin-bottom:16px">
+      <h3>① 前提条件（河南口径，改这里，全节联动）</h3>
+      <p style="margin-top:8px">这一节所有数字都建立在这 5 个前提下。河南户用光伏年有效小时数一般在 <strong>1,050—1,250</strong> 之间（豫北偏高、豫南偏低；屋顶朝向、倾角、遮挡影响很大）。</p>
+
+      <div class="field" style="margin-top:16px">
+        <label>年有效发电小时数（h）<span class="lbl-tip">必填 · 全节共用一个前提</span></label>
+        <input type="number" id="gvHours" value="1150" min="600" max="1600" step="10">
+        <div class="opts" style="margin-top:10px" id="gvPreset">
+          <button type="button" data-h="1050">1,050 · 豫南/遮挡多</button>
+          <button type="button" data-h="1150" class="active">1,150 · 常用</button>
+          <button type="button" data-h="1250">1,250 · 豫北/朝向好</button>
+        </div>
+      </div>
+
+      <div class="gv-price-grid">
+        <div class="field">
+          <label>平段电价<span class="lbl-tip">其余时段</span></label>
+          <input type="number" id="gvFlat" value="0.6063" min="0.2" max="1.5" step="0.0001">
+        </div>
+        <div class="field">
+          <label>高峰电价<span class="lbl-tip">16:00—24:00</span></label>
+          <input type="number" id="gvPeak" value="1.0051" min="0.2" max="2" step="0.0001">
+        </div>
+        <div class="field">
+          <label>尖峰电价<span class="lbl-tip">1/12月17—19、7/8月20—23</span></label>
+          <input type="number" id="gvCap" value="1.1957" min="0.2" max="2" step="0.0001">
+        </div>
+        <div class="field">
+          <label>低谷电价<span class="lbl-tip">0—7 或 0—6、11—14</span></label>
+          <input type="number" id="gvValley" value="0.3017" min="0.05" max="1" step="0.0001">
+        </div>
+      </div>
+
+      <div class="gv-src">
+        <div class="gv-src-t">数据出处</div>
+        <ul>
+          <li><strong>电价（元/度）</strong>：《国网河南省电力公司 2026 年 10 月代理购电价格公告》——工商业 <strong>1—10 千伏两部制</strong>：平段 0.6063、高峰 1.0051、尖峰 1.1957、低谷 0.3017。</li>
+          <li><strong>峰谷浮动比例</strong>：《河南省发展和改革委员会关于调整工商业分时电价有关事项的通知》（<strong>豫发改价管〔2024〕283 号</strong>）——高峰 : 平段 : 低谷 = <strong>1.72 : 1 : 0.45</strong>，尖峰 = 高峰浮动 × 1.2。</li>
+          <li><strong>年有效小时数</strong>：河南户用经验值 1,050—1,250h（<strong>非官方口径</strong>，现场按屋顶朝向、倾角、遮挡调整）。</li>
+        </ul>
+        <p class="gv-src-n">若客户是 380V 单一制，平段 0.6363、高峰 1.0567、尖峰 1.2576、低谷 0.3152，直接改上面四个数即可。</p>
+      </div>
+    </div>
+
+    <!-- ② 一块板发多少电 -->
+    <div class="gv-h3"><span class="n">2</span>一块 785W 组件能发多少电</div>
+    <div class="result-grid" id="gvGen">
+      <div class="result-box"><div class="big" id="gvGenYear">—<small>度</small></div><div class="lbl">每年发电量（一块板）</div></div>
+      <div class="result-box"><div class="big" id="gvGenMonth">—<small>度</small></div><div class="lbl">每月平均发电量</div></div>
+      <div class="result-box"><div class="big" id="gvGenDay">—<small>度</small></div><div class="lbl">每天平均发电量</div></div>
+      <div class="result-box"><div class="big" id="gvGen25">—<small>度</small></div><div class="lbl">25 年累计（不衰减）</div></div>
+    </div>
+    <p class="gv-note">算法：<strong>0.785kW × 年有效小时数</strong>；月 = 年 ÷ 12；日 = 年 ÷ 365（实际冬季低、夏季高，日均值仅用于估算）。</p>
+
+    <!-- ③ 纯光方案 3年 vs 5年 -->
+    <div class="gv-h3"><span class="n">3</span>纯光方案：3 年与 5 年，租金怎么折成度电成本</div>
+    <p style="font-size:14px;color:var(--muted)">以 <strong>小阳楼</strong>为例（3 年 60 元/块/月，5 年 40 元/块/月），下表全部按「一块 785W 组件」计算。</p>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="gv-table">
+        <thead>
+          <tr><th style="text-align:left">项目（每块组件）</th><th>3 年方案</th><th>5 年方案</th></tr>
+        </thead>
+        <tbody id="gvPureBody"></tbody>
+      </table>
+    </div>
+    <p class="gv-note" id="gvPureNote"></p>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card soft">
+        <h3>为什么「任何对齐口径下，3 年都更便宜」</h3>
+        <ul>
+          <li><strong>3 年总租金更低</strong>：2,160 元/块 vs 2,400 元/块，少掏 <strong>240 元（−10%）</strong>。</li>
+          <li><strong>度电成本 = 总租金 ÷ 发电量</strong>，分子越小越便宜。分母相同的情况下，3 年必然更低。</li>
+          <li>5 年的「度电成本低」，是因为它把 2,400 元摊到了 <strong>5 年</strong>的发电量上；同样按 5 年摊，3 年是 <strong id="gvCmp3">—</strong>，5 年是 <strong id="gvCmp5">—</strong>。</li>
+          <li>一句话：<strong>3 年省在「分子」（总钱少），5 年只「省」在「分母」（时间拉长）</strong>——不能拿更长的分母去证明更便宜。</li>
+          <li>而且 3 年从第 4 年起租金归零，这一段 5 年方案没有。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>但 3 年有一个真实代价：期内现金流为负</h3>
+        <ul>
+          <li>3 年期内：每月租金 60 元，替代电费约 <strong id="gvSave3">—</strong> 元 → 每年净支出 <strong style="color:#B45309" id="gvFlow3">—</strong> 元/块</li>
+          <li>5 年期内：每月租金 40 元 → 每年净<strong>省</strong> <strong style="color:var(--blue)" id="gvFlow5">—</strong> 元/块</li>
+          <li>月租高 50%，6 个月流水门槛也高一截（100kW 规模约差 2.3 万）</li>
+        </ul>
+        <p style="margin-top:8px">所以两个方案的适用条件完全不同：</p>
+        <ul>
+          <li><strong>选 3 年</strong>：能过流水、看重总成本与资产归属、电价长期看涨</li>
+          <li><strong>选 5 年</strong>：月供压力大、流水不足、要「当期就省钱」的现金流型客户</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ④ 配储增量账 -->
+    <div class="gv-h3"><span class="n">4</span>小阳楼 1:1 配储：100kW + 100 度的增量账</div>
+    <p style="font-size:14px;color:var(--muted)">只算「比纯光多花的钱」。100kW ≈ <strong>127 块</strong>组件；1:1 配储 = <strong>100 度</strong>电池。电池的可用电量要先打两个折扣，见下。</p>
+
+    <div class="card soft" style="margin:12px 0 14px">
+      <h3>先搞懂两个折扣：90% DOD 和 88% 效率</h3>
+      <p style="margin-top:6px"><strong>100 度电池 ≠ 能放出 100 度电</strong>。中间要打两个折，这也是客户最容易算错的地方。</p>
+      <div class="gv-dod">
+        <div class="d">
+          <div class="t">DOD 90%</div>
+          <div class="s">放电深度（Depth of Discharge）</div>
+          <p>电池不能放到 0，必须留约 10% 余量来保护寿命、避免过放。<strong>100 度电池，真正敢用的只有 90 度</strong>；剩下 10 度是"压箱底"的。</p>
+        </div>
+        <div class="d">
+          <div class="t">效率 88%</div>
+          <div class="s">充放往返效率（Round-trip Efficiency）</div>
+          <p>充进去 100 度、放出来只剩 88 度。少的 12 度是电池化学反应发热 + 逆变器升降压损耗，<strong>物理上必然发生，不是产品缺陷</strong>。</p>
+        </div>
+      </div>
+      <div class="gv-chain">
+        <span>100 度<em>标称容量</em></span><b>×90%</b>
+        <span>90 度<em>可用容量</em></span><b>×88%</b>
+        <span>79.2 度<em>每天实际放出</em></span><b>×365</b>
+        <span>28,908 度<em>一年放电量</em></span>
+      </div>
+      <p class="gv-note" style="margin-top:10px">如果按 100% DOD、100% 效率的"理想值"算，日放 88 度、年 32,120 度，回本期能缩短到 <strong>4.2 年</strong>——但那是拿电池寿命换来的纸面数字，实际不能这么承诺。</p>
+    </div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="gv-table">
+        <thead>
+          <tr><th style="text-align:left">项目</th><th>3 年方案</th><th>5 年方案</th></tr>
+        </thead>
+        <tbody id="gvEssBody"></tbody>
+      </table>
+    </div>
+    <p class="gv-note">电价口径见第 ① 步（峰 <span id="gvNPeak">1.0051</span>、尖峰 <span id="gvNCap">1.1957</span>、谷 <span id="gvNValley">0.3017</span>）；回本期 = 增量总成本 ÷ 年净收益。带虚线的数字可悬停（手机点一下）查看算法。</p>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card soft">
+        <h3>重点结论：充绿电、替峰电，回本 4.7 年</h3>
+        <p>电池充的是<strong>白天用不掉、本来要弃掉的光伏</strong>（机会成本 0），放电替代 16—24 点的峰电（1.0051 元/度）：</p>
+        <ul>
+          <li>3 年方案：<strong style="color:var(--blue)">4.7 年</strong>回本</li>
+          <li>5 年方案：<strong style="color:var(--blue)">5.2 年</strong>回本</li>
+          <li>若替代的是尖峰（1.1957）：4.0 年 / 4.4 年</li>
+        </ul>
+        <p style="margin-top:8px">电池循环寿命 10—15 年，<strong>回本之后还有 5—10 年是净赚</strong>。</p>
+      </div>
+      <div class="card">
+        <h3>但如果是「谷电充电」，回本期翻倍</h3>
+        <p>如果白天光伏已经被吃得干干净净、没有余电可存，电池只能充谷电（0.3017÷0.88≈0.34 元/度成本）：</p>
+        <ul>
+          <li>3 年方案：<strong>7.2 年</strong>回本</li>
+          <li>5 年方案：<strong>8.0 年</strong>回本</li>
+        </ul>
+        <p style="margin-top:8px;color:#B45309"><strong>所以谈配储前必须先确认一件事：白天到底有没有剩电。</strong>有弃光，配储是印钞机；没有弃光，配储只是削需量的工具。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="gvTip" role="tooltip" aria-hidden="true"></div>
+
+<!-- 装机容量测算 -->
+<section id="calc">
+  <div class="wrap">
+   <div id="shotArea">
+    <div class="issue-box">
+      <div class="issue-h">⚠ 本章节测算逻辑已弃用 · 本页为历史版本（2026-10-27 封存）</div>
+      <p class="issue-p">以「小阳楼 + 白天 2,000 度/月 + 晚上 3,000 度/月 + 白天晚上各 70% 消纳」为例：
+        本页算出 <b>47 块 / 36.9 kW（三档配储完全相同）</b>；
+        新版按「白天 / 夜间」双约束算出 <b>1:1 → 88.7 kW、1:2 → 44.7 kW、1:3 → 40.8 kW</b>。
+        差异来自下面 6 处不合理：</p>
+      <ol class="issue-list">
+        <li><b>只有一个「总用电量」，分不清白天和夜间。</b>光伏晚上零出力，夜间那 3,000 度只能靠电池或电网；本页把它和白天混在一起，当作光伏能直接抵掉的部分，等于默认「晚上也有太阳」。</li>
+        <li><b>配比只是价格标签。</b>1:1 / 1:2 / 1:3 三档装机完全相同，只是租金单价从 90 变到 105、120；回答不了客户最关心的「这个配比电池够不够」。</li>
+        <li><b>不计算电池容量，也不扣损耗。</b>夜间要放出 70 度，得先充进 79.5 度（88% 往返效率），电池还得有 88.4 度容量（90% 放电深度）。本页跳过这一环，直接高估了夜间可替代的电量。</li>
+        <li><b>没有弃光率和电池利用率。</b>分不清方案是「过配浪费」（如 1:1 弃光 48%）还是「欠配不够」，也就给不出配比建议。</li>
+        <li><b>组件数用四舍五入。</b>可能把装机算小、导致需求覆盖不足；新版一律向上取整，并对「光伏侧 / 电池侧」两个结果取大。</li>
+        <li><b>经济性偏乐观。</b>用一个平均电价 0.7 元、并假设光伏发电 100% 冲抵电费；新版按平段 0.6063 / 高峰 1.0051 分开计价，用真实的白天直供量与夜间放电量计算，并补了 10 年度电成本口径。</li>
+      </ol>
+      <p class="issue-f">另：本页年有效小时数默认 1,200h，新版为 1,150h，同口径下装机还会再差约 2 块。
+        现行测算逻辑请打开根目录的 <b>index.html</b>；本文件仅作历史留存，请勿再用于对外报价。</p>
+    </div>
+
+    <div class="sec-head">
+      <h2><span class="no">03</span> 装机容量测算</h2>
+      <p>一线业务员实地推广时，输入客户用电数据，快速测算可安装的<strong>装机容量</strong>与<strong>组件数量</strong>，并估算用户需缴纳的<strong>租金</strong>。</p>
+      <p style="margin-top:6px">本测算基于<strong>全年数据</strong>做<strong>理想化估算</strong>；实际光伏出力会受每日天气、云层遮挡、屋顶朝向与倾角等因素影响，真实发电量通常低于测算值，结果仅供参考。</p>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>① 选择产品组合</h3>
+      <div class="field">
+        <label>户型产品</label>
+        <div class="opts" id="houseType">
+          <button type="button" data-v="金装房" class="active">金装房</button>
+          <button type="button" data-v="向阳院">向阳院</button>
+          <button type="button" data-v="小阳楼">小阳楼</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>配储方案</label>
+        <div class="opts" id="scheme">
+          <button type="button" data-v="纯光" class="active">纯光</button>
+          <button type="button" data-v="1:1配储">1:1 配储</button>
+          <button type="button" data-v="1:2配储">1:2 配储</button>
+          <button type="button" data-v="1:3配储">1:3 配储</button>
+        </div>
+      </div>
+      <p class="unit" id="rentHint" style="margin-top:14px">当前产品用户月租（3年 / 5年）见下方测算对比表</p>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>② 输入客户用电数据</h3>
+      <div class="tip-box">
+        <div class="tip-title">⚠ 用电量取数口径（直接影响测算准确性，务必区分）</div>
+        <ul>
+          <li><strong>纯光方案：填「白天用电量」</strong>——光伏只在白天发电，夜间不产生收益，若填全天用电量会明显高估装机容量（建议按 50% 的消纳口径测算）。</li>
+          <li><strong>配储方案：可填「全天用电量」</strong>——储能电池把白天余电搬到夜间使用，夜间也能使用光伏绿电产生收益（建议按 70% 消纳口径测算）。</li>
+        </ul>
+      </div>
+      <div class="field">
+        <label>用电量类型</label>
+        <div class="opts" id="kwhType">
+          <button type="button" data-v="year" class="active">年用电量</button>
+          <button type="button" data-v="month">月用电量</button>
+        </div>
+      </div>
+      <div class="field">
+        <label id="kwhLabel">年用电量（kWh/年）<span class="lbl-tip">纯光填白天用电量 / 配储填全天用电量</span></label>
+        <input type="number" id="kwhInput" placeholder="例如 120000" min="0">
+      </div>
+      <div class="field">
+        <label>消纳比例（光伏发电 ÷ 实际用电；推荐：纯光 50% / 配储 70%，可 50%~100% 按 10% 递增）</label>
+        <div class="opts" id="ratioOpts">
+          <button type="button" data-r="0.5" class="active">50%</button>
+          <button type="button" data-r="0.6">60%</button>
+          <button type="button" data-r="0.7">70%</button>
+          <button type="button" data-r="0.8">80%</button>
+          <button type="button" data-r="0.9">90%</button>
+          <button type="button" data-r="1.0">100%</button>
+        </div>
+      </div>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="field" style="margin-top:0">
+          <label>组件瓦数（W/块）</label>
+          <input type="number" id="panelW" value="785" min="0">
+        </div>
+        <div class="field" style="margin-top:0">
+          <label>年有效小时数（h）</label>
+          <input type="number" id="genHours" value="1200" min="0">
+        </div>
+      </div>
+      <div class="field" style="margin-top:14px">
+        <label>平均电价（元/度，默认 0.7）</label>
+        <input type="number" id="price" value="0.7" min="0" step="0.01">
+      </div>
+    </div>
+
+    <div class="card soft">
+      <h3>③ 测算结果</h3>
+      <div class="result-grid" id="result"></div>
+      <h4 class="subhead" style="margin:18px 0 10px">不同产品年限对比（组件数量与装机容量相同）</h4>
+      <div style="overflow-x:auto">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th>产品年限</th>
+              <th>组件月租金<br>(元/块/月)</th>
+              <th>月缴纳租金<br>(元)</th>
+              <th>年缴纳租金<br>(元)</th>
+              <th>整个合同期租金<br>(元)</th>
+              <th>6个月流水<br>最低值(元)</th>
+            </tr>
+          </thead>
+          <tbody id="cmpBody"></tbody>
+        </table>
+      </div>
+
+      <h4 class="subhead" style="margin:20px 0 4px">经济性分析（平均电价 <span id="priceShown">0.70</span> 元/度）</h4>
+      <p class="unit" style="margin:0 0 10px">每月账单对比：原来只交电费；装了光储盈后 = 交租金 + 未被光伏覆盖部分仍向电网补交电费。</p>
+      <div style="overflow-x:auto">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th rowspan="2">方案</th>
+              <th rowspan="2">原先每月<br>交电费(元)</th>
+              <th colspan="3" style="background:#E8F3FC">装光储盈后每月交费(元)</th>
+              <th rowspan="2">月差额<br>(光储盈−原先)</th>
+            </tr>
+            <tr>
+              <th style="background:#E8F3FC">缴租金</th>
+              <th style="background:#E8F3FC">电网补交</th>
+              <th style="background:#E8F3FC">合计</th>
+            </tr>
+          </thead>
+          <tbody id="econBody"></tbody>
+        </table>
+      </div>
+      <p class="unit" style="margin-top:6px">差额为负 = 每月省钱；差额为正 = 每月多交，但合同期满电站归用户所有。</p>
+      <p id="econNote" class="econ-note"></p>
+      <div class="save-box" id="saveBox"></div>
+
+      <div id="warnBox"></div>
+
+      <details class="formula">
+        <summary>查看测算公式与口径说明（共 14 条，逐行对照）</summary>
+        <div class="body">
+          <ul class="flist">
+            <li><b>年发电量需求</b>＝ 年用电量 × 消纳比例</li>
+            <li><b>装机容量（块）</b>＝ 年发电量需求 ÷（组件瓦数 ÷ 1000 × 年有效小时数）</li>
+            <li><b>装机容量（kW）</b>＝ 组件块数 × 组件瓦数 ÷ 1000</li>
+            <li><b>月缴纳租金</b>＝ 组件块数 × 用户月租（元/块/月）</li>
+            <li><b>年缴纳租金</b>＝ 月缴纳租金 × 12</li>
+            <li><b>整个合同期租金</b>＝ 年缴纳租金 × 合同年限（3 年 / 5 年）</li>
+            <li><b>6 个月流水最低值</b>＝ 月缴纳租金 × 6 × 1.5（还款能力要求）</li>
+            <li><b>原先每月电费</b>＝ 月用电量 × 平均电价</li>
+            <li><b>电网补交电费</b>＝（月用电量 − 光伏月发电量）× 平均电价，负数取 0</li>
+            <li><b>光储盈每月合计</b>＝ 月缴纳租金 ＋ 电网补交电费</li>
+            <li><b>月差额</b>＝ 光储盈每月合计 − 原先每月电费（正数＝多交，负数＝省钱）</li>
+            <li><b>合作期后每年省电费</b>≈ 光伏年发电量 × 平均电价</li>
+            <li><b>25 年累计可省</b>≈ 合作期后每年省电费 × 25（按电站满发、电价不变估算）</li>
+            <li><b>容量范围校验</b>：纯光 16–400kW、配储 16–120kW（超出范围提示调整方案）</li>
+          </ul>
+          <p class="unit" id="formulaEndNote" style="margin-top:10px">注：组件数量与装机容量与产品年限无关；用户月租取自上方「户用产品线与价格表」。</p>
+        </div>
+      </details>
+    </div>
+   </div>
+
+    <div class="card soft" style="margin-top:16px">
+      <h3>④ 保存测算结果</h3>
+      <div class="save-row">
+        <button type="button" class="btn-save" id="saveImg">📷 保存本板块为图片</button>
+        <span class="save-hint" id="saveHint">生成一张包含输入条件、测算结果与对比表的完整图片</span>
+      </div>
+      <div class="ai-tip">
+        <div class="ai-tip-t">💡 建议：把图片发给豆包、元宝等 AI，帮你复核测算是否准确</div>
+        <div class="prompt-box"><span id="promptText">这是创维光伏公司推出的「光储盈」产品，下面这张图是我按照他们给定的规则和公式测算出的装机容量结果（见图）。测算方式：装机容量＝年用电量×消纳比例÷（组件瓦数÷1000×年有效小时数）。请帮我检查：1）公式与单位换算是否正确；2）组件块数与装机容量计算是否准确；3）租金、月差额与 25 年收益推算是否合理；4）是否存在明显高估或漏项。</span></div>
+        <button type="button" class="btn-copy" id="copyPrompt">复制提问模板</button>
+      </div>
+      <p class="unit" style="margin-top:10px">手机端（含微信）点击后会弹出图片，长按图片即可保存到相册；电脑端直接下载到浏览器默认目录。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 业务流程 -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">04</span> 业务流程</h2>
+      <p>代理商业务团队从获客到签约要走的完整订单操作流程。本手册覆盖到<strong>签约与配货单确认</strong>；发货、施工、并网在创维创享 APP 中继续推进。点击各阶段可展开详细步骤。</p>
+    </div>
+
+    <div class="tip-box" style="margin-bottom:16px">
+      <div class="tip-title">★ 阅读提示：光储盈录单方式与「户用租赁」基本一致</div>
+      <p style="font-size:13px;margin:0">多数阶段的录单方式与<strong>户用租赁相同</strong>，熟悉户用租赁的可直接沿用；请<strong>重点关注</strong>下方用 <span class="key">黄色高亮</span> 与 <span class="key-tag">重点</span> 标出的差异步骤，这些是光储盈特有的填写与资料要求。</p>
+    </div>
+
+    <div class="card soft" style="margin-bottom:16px">
+      <h3>工具准备 · 4 大系统（点击卡片可直接下载 / 打开）</h3>
+      <div class="grid g4">
+        <a class="card sys-card" href="https://apk.skyworthpv.com/spv/app-OWNER-release.apk" target="_blank" rel="noopener">
+          <h3>创维光伏 APP <span class="dl">下载 APK ↗</span></h3>
+          <p>用户端（Android）。申请建站、电站 / 收益数据展示。</p>
+        </a>
+        <a class="card sys-card" href="https://apk.skyworthpv.com/spv/app-PROJECT-release.apk" target="_blank" rel="noopener">
+          <h3>创维创富 APP <span class="dl">下载 APK ↗</span></h3>
+          <p>代理商端（Android）。订单进度跟踪、上传资料。</p>
+        </a>
+        <a class="card sys-card" href="https://apk.skyworthpv.com/spv/app-AGENT-release.apk" target="_blank" rel="noopener">
+          <h3>创维创享 APP <span class="dl">下载 APK ↗</span></h3>
+          <p>技术人员（Android）。踏勘、施工、并网。</p>
+        </a>
+        <a class="card sys-card" href="https://am.skyworthpv.com/" target="_blank" rel="noopener">
+          <h3>代理商管理平台 <span class="dl">打开网页 ↗</span></h3>
+          <p>Web 端。订单跟踪、库存、数据分析、EPC 结算。</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item"><span class="dot"></span><h4>阶段一 · 获客录单（用户端 APP）</h4>
+        <details><summary>展开详细操作</summary><div class="body"><ol>
+          <li>扫码下载【创维光伏 APP】，注册账号并完成实名认证（手机号 / 验证码 / 密码 + 姓名 / 身份证）。</li>
+          <li><span class="key-tag">重点</span>选择电站类型 → 选<span class="key">“光储盈”</span> → <span class="key">扫描代理商二维码绑定</span>（绑错将导致订单归属错误）。</li>
+          <li>填写电站安装地址（省 / 市 / 县 / 镇 / 村 / 门牌），上传用户手持明白纸照片。</li>
+          <li><span class="key-tag">重点</span>选择建站参数：<span class="key">房屋类型 = 个人房产</span>、<span class="key">业务模式 = 个人模式</span>、<span class="key">金融方案 = 售后回租</span>、<span class="key">上网 / 并网 = 离网运行</span>、<span class="key">备案 = 自然人备案</span>，再选<span class="key">产品</span>、<span class="key">租赁年限 = 3/5 年</span>、<span class="key">是否配储</span>——参数选错需退回重录。</li>
+          <li>原件拍摄身份证正反面，系统 OCR 识别并填充基本信息，确认无误。</li>
+          <li>关联收益账户：绑定一类银行卡，确认账户信息。</li>
+          <li>签署信息使用授权书，完成风险评估（部分资方需要）。</li>
+          <li>创维创富 APP 上传：房产证明、明白纸照片、装机容量预估（如有）、承诺函（如有）。</li>
+          <li><span class="key-tag">重点</span>预估容量测算：<span class="key">个人月均流水 ≥ 月租金 × 1.5</span>（例：金装房 5 年配储 1，月均流水 2000 元 → 约 24 块组件 / 18.84KW）——流水不足将影响审批通过。</li>
+        </ol></div></details>
+      </div>
+
+      <div class="tl-item"><span class="dot"></span><h4>阶段二 · 踏勘与设计（踏勘 APP + 代理商平台）</h4>
+        <details><summary>展开详细操作</summary><div class="body"><ol>
+          <li>踏勘员进入创维创享 APP，选“我是踏勘及并网人员”，输入踏勘码绑定订单，核对信息、确认地址，选“人工踏勘”。</li>
+          <li>作业顺序：屋外 → 屋内 → 屋顶 → 天空，由内向外、由下向上采集。</li>
+          <li><span class="key-tag">重点</span>主屋屋内信息：建造年份、结构、主梁、屋顶类型、层数；拍入户全景图、<span class="key">配电室照片</span>、房屋全景图、后墙照片。</li>
+          <li>主屋屋顶信息：板 / 防水 / 保温类型与厚度、裂缝漏水、屋顶内部结构图；朝向角度、坡度、尺寸；拍屋顶三方位照片。</li>
+          <li>檐沟平台、遮挡物信息：无则跳过。</li>
+          <li>副屋信息：仅踏勘环节可上传，标准同主屋。</li>
+          <li><span class="key-tag">重点</span>全局信息：屋顶俯视全景图、卫星定位图、自绘草图（标注储能位置、上网方式 = 自发自用余电上网、防逆流 = 否）；<span class="key">其他照片须包含：6 个月流水、近一个月内的征信报告、电表参数、配电箱储能位置</span>；周边含原电表、变压器容量、入户线（≤150m）、障碍物。</li>
+          <li>设计信息上传：金装房由创维设计师上传；代理商登录平台 项目管理 - 电站设计 - 设计列表 - 上传设计信息。</li>
+          <li>踏勘审核：代理商平台 户用订单管理 - 屋顶踏勘 - 审核 → 提交 → 待总部审核 → 通过后显示“图纸设计”。</li>
+          <li>设计确认：设计提交后代理商审核 → 同步创维创富 APP → 确认设计信息、核对配料清单 →“确认配货单”。</li>
+        </ol></div></details>
+      </div>
+
+      <div class="tl-item"><span class="dot"></span><h4>阶段三 · 签约（代理商后台 + 用户 APP）</h4>
+        <details><summary>展开详细操作</summary><div class="body"><ol>
+          <li>代理商后台签约审核：签约状态“待代理商审核” → 确认踏勘资料、设计图纸、房产证明、建站地址、明白纸、征信报告 → 提交 →“待总部审核”。</li>
+          <li>总部终审通过后，订单显示“待签署客户 / 创维协议”，用户使用创维光伏 APP 签约。</li>
+          <li><span class="key-tag">重点</span><span class="key">征信报告要求：须为录单时间一个月内的央行征信，体现近一年信用；无呆账 / 冻结 / 一年内多次逾期；评估收入或项目收益能覆盖月还款</span>。查询渠道：央行征信中心官网、银行 APP（工行 / 建行 / 招行 / 云闪付）、人民银行柜台、自助查询机。</li>
+          <li>用户签署：创维光伏 APP → 立即签署 → 上上签线上签约。</li>
+        </ol></div></details>
+      </div>
+
+      <div class="tl-item"><span class="dot"></span><h4>阶段四 · 发货 / 施工 / 并网（后续）</h4>
+        <p>确认配货单后进入发货与施工环节，由创维创享 APP 推进施工与并网，本操作手册未展开。 <span class="badge gray">待补充</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 公司介绍 -->
+<section id="company">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">05</span> 关于创维光伏</h2>
+      <p>本板块依次呈现<strong>集团背书、公司实力、创新历程、国家级认可、生态合作伙伴与全球业务布局</strong>，一线伙伴向客户介绍公司资质与实力时，可直接引用。<strong>（数据截止 2026 年 3 月）</strong></p>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>集团背书 · 创维集团 <span class="badge">始于 1988</span></h3>
+      <p>创维集团是<strong>具有全球竞争力的智能家电、新能源、信息技术骨干企业</strong>，主要从事智能电视、冰箱、洗衣机、空调、厨电、生活电器的生产与销售，业务覆盖显示器件、新能源光伏/储能、智能家居系统、安防监视系统、大物流、数字机顶盒/智能网关等领域。</p>
+      <div class="stats">
+        <div class="stat"><div class="num">252<small> 位</small></div><div class="lbl">2026《财富》中国 500 强</div></div>
+        <div class="stat"><div class="num">1<small> 家</small></div><div class="lbl">上市公司（创维数字 000810.SZ）</div></div>
+        <div class="stat"><div class="num">20+<small> 家</small></div><div class="lbl">国家高新技术企业</div></div>
+        <div class="stat"><div class="num">近 30000</div><div class="lbl">员工数量</div></div>
+        <div class="stat"><div class="num">120+<small> 个</small></div><div class="lbl">开展业务的国家和地区</div></div>
+        <div class="stat"><div class="num">703.24<small> 亿元</small></div><div class="lbl">营业收入</div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>创维光伏自身实力 <span class="badge">成立于 2020</span></h3>
+      <p>公司以「<strong>光伏 + 普惠 + 数字科技</strong>」为商业模式，以「善用新能源创新技术，创造绿色美好新生活」为使命，致力于成为「<strong>全球领先的智慧能量生态运营商</strong>」。</p>
+      <p style="margin-top:8px">已实现多品牌、多模式、多业务的全球化战略布局，下设<strong>集成事业部、部品事业部、智慧能源事业部、海外事业部</strong>四大业务部门；业务布局涵盖分布式光伏电站系统集成解决方案、光伏产品智能制造、储能、运维、物流、海外及投资等新能源业务。</p>
+      <div class="stats">
+        <div class="stat"><div class="num">2<small> 大</small></div><div class="lbl">赋能中心</div></div>
+        <div class="stat"><div class="num">100+</div><div class="lbl">数字研发团队</div></div>
+        <div class="stat"><div class="num">200+</div><div class="lbl">技术研发团队</div></div>
+        <div class="stat"><div class="num">80+<small> 万座</small></div><div class="lbl">品质电站</div></div>
+        <div class="stat"><div class="num">1000+</div><div class="lbl">项目团队</div></div>
+        <div class="stat"><div class="num">4500+</div><div class="lbl">运维服务团队</div></div>
+      </div>
+    </div>
+
+    <div class="card soft" style="margin-bottom:16px">
+      <h3>创新历程（2020 — 2026）</h3>
+      <div class="timeline">
+        <div class="tl-item"><span class="dot"></span><h4>2020 · 战略筑基</h4>
+          <ul>
+            <li><b>战略基点：</b>确立「光伏 + 普惠 + 数字科技」三维战略引擎</li>
+            <li><b>商业闭环：</b>实现首年营收三级跨越，首年营收突破 1 亿元</li>
+          </ul>
+        </div>
+        <div class="tl-item"><span class="dot"></span><h4>2021 · 规模跃升</h4>
+          <ul>
+            <li><b>规模爆发：</b>年营收突破 40 亿元，百亿为锚，从规模驱动走向价值驱动</li>
+            <li><b>行业认可：</b>首批加入「中国碳目标先锋企业联盟」，获「零碳先锋」荣誉称号</li>
+          </ul>
+        </div>
+        <div class="tl-item"><span class="dot"></span><h4>2022 · 生态构建</h4>
+          <ul>
+            <li><b>产品矩阵：</b>发布四大升级产品解决方案，首创户用 BIPV「小阳楼」，开启产品化、标准化发展路径</li>
+            <li><b>百亿跨越：</b>年营收突破 110 亿元，定义行业标杆</li>
+          </ul>
+        </div>
+        <div class="tl-item"><span class="dot"></span><h4>2023 · 维度升阶</h4>
+          <ul>
+            <li><b>品牌赋能：</b>与中国航天科技国际交流中心合作签约，成为「中国航天太空创想」光伏行业官方合作伙伴</li>
+            <li><b>双效攻坚：</b>营业规模翻倍，年营收实现 230+ 亿元</li>
+            <li><b>多元拓展：</b>确立国内分布式光伏领军地位，Solavita 起明光伏品牌首秀</li>
+          </ul>
+        </div>
+        <div class="tl-item"><span class="dot"></span><h4>2024 · 生态势能</h4>
+          <ul>
+            <li><b>生态势能：</b>累计投资超 600+ 亿元，累计装机容量超 20+ 吉瓦</li>
+            <li><b>场景革新：</b>打造户用 / 工商业场景矩阵，覆盖全国近 2.5 万个乡镇网络</li>
+            <li><b>载誉致远：</b>获评工信部「智能光伏试点示范企业」</li>
+          </ul>
+        </div>
+        <div class="tl-item"><span class="dot"></span><h4>2025 · 全球征途</h4>
+          <ul>
+            <li><b>技术制胜：</b>量产 N 型 710W 大功率组件，获 TÜV 北德权威认证</li>
+            <li><b>光储革命：</b>工商业合作企业突破 500+ 家；全年营收稳健增长至 236+ 亿元</li>
+            <li><b>全球出击：</b>跨海行动、全球出击；海外设立七大战区，实现全球业务覆盖</li>
+          </ul>
+        </div>
+        <div class="tl-item"><span class="dot"></span><h4>2026 · 生态跨越</h4>
+          <ul>
+            <li><b>全球化落地：</b>依托海外 7 大区域布局，深耕欧洲、东南亚等核心市场</li>
+            <li><b>技术升级：</b>N 型 CBC 组件「虎鲸」全面量产，再创功率新高；光储一体化方案全球推广，构建全场景智慧能源产品矩阵</li>
+            <li><b>品牌升维：</b>确立「全球能量智慧引领者」的战略升维，从中国光伏品牌向全球智慧能源运营商跃升</li>
+          </ul>
+        </div>
+      </div>
+      <p class="unit">* 数据截止到 2026 年 3 月。</p>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>国家级认可</h3>
+      <ul class="rec-list">
+        <li><b>智能光伏试点示范企业</b>——工信部等五部委联合认证（2024），全国仅 45 家、广东省仅 3 家</li>
+        <li><b>中国航天太空创想</b>——光伏行业官方合作伙伴（2023）</li>
+        <li><b>零碳先锋</b>——首批「中国碳目标先锋企业联盟」成员</li>
+        <li><b>TÜV 北德权威认证</b>——N 型 710W 大功率组件（2025）</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>生态合作伙伴（部分）</h3>
+      <p>合作资方、组件、逆变器、支架及辅材、认证与保险全链条头部伙伴。</p>
+      <img class="zoomable" src="../assets/img_partners_thumb.jpg" data-full="../assets/img_partners.jpg" width="1100" height="603" loading="lazy" decoding="async" alt="创维光伏生态合作伙伴一览（官方介绍原页）" style="width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
+    </div>
+
+    <div class="card">
+      <h3>全球业务布局</h3>
+      <p>业务覆盖 9 大区域并设海外保障中心，25000+ 线下代理渠道触达全球。</p>
+      <img class="zoomable" src="../assets/img_global_thumb.jpg" data-full="../assets/img_global.jpg" width="1100" height="603" loading="lazy" decoding="async" alt="创维光伏全球业务布局（官方介绍原页）" style="width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;margin-top:10px">
+      <hr class="sep">
+      <p class="unit">官网：www.skyworthpv.com ｜ 客服热线：400-063-8989 ｜ 邮箱：cwgf@skyworth.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- 案例展示 -->
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="no">06</span> 案例展示</h2>
+      <p>真实电站案例与官方宣传短视频的集中展示区，一线可直接转发给客户。<strong>点击卡片即可跳转至微信视频号观看对应视频。</strong></p>
+    </div>
+    <div class="grid g3">
+      <!-- 视频① -->
+      <a class="card video-card" href="https://weixin.qq.com/sph/Az4femJAaX" target="_blank" rel="noopener">
+        <div class="vhead"><span class="play">▶</span><span class="tag">品牌宣传 · 视频①</span></div>
+        <h3>全球智慧能量生态引领者</h3>
+        <p>以「全球智慧能量生态引领者」的全新角色，推动从「能源」到「能量」的价值跃升。</p>
+      </a>
+      <!-- 视频② -->
+      <a class="card video-card" href="https://weixin.qq.com/sph/Ae1Cuu9chd" target="_blank" rel="noopener">
+        <div class="vhead"><span class="play">▶</span><span class="tag">产品讲解 · 视频②</span></div>
+        <h3>光储盈订阅款</h3>
+        <p>创维光伏光储盈订阅款：轻资产、快确权、长期收益，闲置空间不浪费。</p>
+      </a>
+      <!-- 视频③ -->
+      <a class="card video-card" href="https://weixin.qq.com/sph/AjeJkEpNa2" target="_blank" rel="noopener">
+        <div class="vhead"><span class="play">▶</span><span class="tag">本地实拍 · 视频③</span></div>
+        <h3>本地代理商实拍 · 光储系统</h3>
+        <p>创维光伏本地代理商实拍；光储盈解锁整套光储系统，立足本地，传递清洁能源价值。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">创维光伏·光储盈培训赋能站<br><span style="font-size:12px;opacity:.8">Powered by 智慧能源事业部 流程与IT部 算法组</span></div>
+</footer>
+
+<script>
+  var b=document.getElementById('burger'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){m.classList.toggle('open')});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A')m.classList.remove('open')});
+</script>
+
+<div class="img-modal" id="imgModal">
+  <div class="img-modal-inner">
+    <div class="img-modal-tip" id="imgModalTip">长按图片保存到相册</div>
+    <img id="imgModalImg" alt="光储盈装机容量测算结果">
+    <div class="img-modal-actions">
+      <a id="imgModalDownload" class="btn-save" download>下载图片</a>
+      <button type="button" id="imgModalClose" class="btn-copy">关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 图片放大查看（公司介绍模块：生态合作伙伴 / 全球业务布局） -->
+<div class="zoom-overlay" id="zoomModal">
+  <div class="zoom-bar"><button type="button" id="zoomClose" class="btn-copy">关闭 ✕</button></div>
+  <img id="zoomImg" alt="放大查看">
+  <div class="zoom-hint">点击空白处 / 按 ESC 关闭</div>
+</div>
+
+<script src="../assets/html2canvas.min.js"></script>
+
+<script>
+  // 装机容量测算
+  var PRICE = {
+    '金装房':{'3':{'纯光':55,'1:1配储':85,'1:2配储':100,'1:3配储':115},
+             '5':{'纯光':35,'1:1配储':55,'1:2配储':65,'1:3配储':75}},
+    '向阳院':{'3':{'纯光':60,'1:1配储':90,'1:2配储':105,'1:3配储':120},
+             '5':{'纯光':40,'1:1配储':60,'1:2配储':70,'1:3配储':80}},
+    '小阳楼':{'3':{'纯光':60,'1:1配储':90,'1:2配储':105,'1:3配储':120},
+             '5':{'纯光':40,'1:1配储':60,'1:2配储':70,'1:3配储':80}}
+  };
+  var state = {house:'金装房', scheme:'纯光', ratio:0.5, kwhType:'year'};
+
+  function fmt(n){ return (Math.round(n*100)/100).toLocaleString('zh-CN'); }
+  function clampWarn(capKw){
+    var pure = state.scheme==='纯光';
+    var min = 16, max = pure ? 400 : 120;
+    if(capKw < min || capKw > max){
+      return '<div class="warn">⚠ 当前测算容量 '+fmt(capKw)+'kW 超出'+(pure?'纯光':'配储')+
+        '产品录入范围（'+min+'–'+max+'kW），请调整方案或客户条件。</div>';
+    }
+    return '';
+  }
+  function rbox(label, val, unit, sub, reco){
+    return '<div class="result-box'+(reco?' reco':'')+'">'+
+      '<div class="big">'+val+' <small>'+unit+'</small></div>'+
+      '<div class="lbl">'+label+'</div>'+
+      (sub?'<div class="sub">'+sub+'</div>':'')+'</div>';
+  }
+  function compute(){
+    var r = document.getElementById('result');
+    var wbox = document.getElementById('warnBox');
+    var cmp = document.getElementById('cmpBody');
+    var raw = parseFloat(document.getElementById('kwhInput').value);
+    var panelW = parseFloat(document.getElementById('panelW').value);
+    var genH = parseFloat(document.getElementById('genHours').value);
+    if(isNaN(raw) || raw<=0 || isNaN(panelW) || panelW<=0 || isNaN(genH) || genH<=0){
+      r.innerHTML = '<div class="result-box"><div class="lbl">请输入年/月用电量、组件瓦数与年有效小时数开始测算</div></div>';
+      cmp.innerHTML = ''; document.getElementById('econBody').innerHTML = '';
+      document.getElementById('econNote').innerHTML = ''; document.getElementById('saveBox').innerHTML = '';
+      wbox.innerHTML = '';
+      return;
+    }
+    var annualKwh = state.kwhType==='month' ? raw*12 : raw;   // 统一折算为年用电量
+    var genNeed = annualKwh * state.ratio;                    // 需光伏年发电量 kWh
+    // 装机容量(块) = 年发电量需求 ÷ (组件瓦数kW × 年有效小时数)；组件瓦数 W→kW 需 ÷1000
+    var panelsF = genNeed / ((panelW/1000) * genH);
+    var panels = Math.round(panelsF);
+    var capKw = panels * (panelW/1000);
+
+    var html = '';
+    html += rbox('组件数量（块）', fmt(panels), '块', '测算值 '+fmt(panelsF)+' 块（取整）', true);
+    html += rbox('装机容量（kW）', fmt(capKw), 'kW', '年发电需求 '+fmt(genNeed)+' kWh', true);
+    r.innerHTML = html;
+
+    // 不同产品年限对比（组件数量与装机容量相同，仅月租随年限变化）
+    var rows = '';
+    ['3','5'].forEach(function(y){
+      var userRent = PRICE[state.house][y][state.scheme];     // 元/块/月
+      var monthRent = panels * userRent;
+      var yearRent = monthRent * 12;
+      var totalRent = yearRent * parseInt(y, 10);
+      var flowMin = monthRent * 6 * 1.5;                      // 6个月流水最低值
+      rows += '<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
+        '<td><span class="k">组件月租（元/块/月）</span><span class="v">'+userRent+'</span></td>'+
+        '<td><span class="k">月租金（元）</span><span class="v">'+fmt(monthRent)+'</span></td>'+
+        '<td><span class="k">年租金（元）</span><span class="v">'+fmt(yearRent)+'</span></td>'+
+        '<td><span class="k">合同期租金（元）</span><span class="v">'+fmt(totalRent)+'</span></td>'+
+        '<td><span class="k">6个月流水最低要求（元）</span><span class="v">'+fmt(flowMin)+'</span></td></tr>';
+    });
+    cmp.innerHTML = rows;
+
+    // 经济性分析（平均电价）
+    var price = parseFloat(document.getElementById('price').value);
+    if(isNaN(price) || price<=0) price = 0.7;
+    document.getElementById('priceShown').textContent = price.toFixed(2);
+
+    var pvMonth = genNeed/12;                                  // 光伏月发电 kWh
+    var wholeMonth = annualKwh/12;                             // 总月用电 kWh
+    var pvOrigMonth = pvMonth * price;                        // 光伏部分原月电费
+    var wholeOrigMonth = wholeMonth * price;                   // 原全额月电费
+    var uncoveredCost = Math.max(0, wholeMonth - pvMonth) * price;  // 未覆盖月电费
+    var econRows = '', notes = [];
+    ['3','5'].forEach(function(y){
+      var userRent = PRICE[state.house][y][state.scheme];
+      var monthRent = panels * userRent;
+      var gsyCost = monthRent + uncoveredCost;                 // 光储盈每月合计
+      var diff = gsyCost - wholeOrigMonth;                     // >0 多交 / <0 省
+      var diffTxt = (diff>=0?'+':'−') + fmt(Math.abs(diff));
+      econRows += '<tr><td class="rowhead"><strong>'+y+' 年</strong></td>'+
+        '<td><span class="k">原电费（元）</span><span class="v">'+fmt(wholeOrigMonth)+'</span></td>'+
+        '<td><span class="k">缴租金（元）</span><span class="v">'+fmt(monthRent)+'</span></td>'+
+        '<td><span class="k">电网补交（元）</span><span class="v">'+fmt(uncoveredCost)+'</span></td>'+
+        '<td class="total-col"><span class="k">合计（元）</span><span class="v">'+fmt(gsyCost)+'</span></td>'+
+        '<td class="'+(diff>0?'diff-pos':'diff-neg')+'"><span class="k">月差额（元）</span><span class="v">'+diffTxt+'</span></td></tr>';
+      var abs = fmt(Math.abs(diff));
+      if(diff > 0){
+        notes.push('<span class="tag more">'+y+'年方案</span>比原先<strong>每月多交 '+abs+' 元</strong>，但这笔钱相当于分期付款——'+y+' 年合同期结束后，电站就归您所有。');
+      } else {
+        notes.push('<span class="tag save">'+y+'年方案</span>比原先<strong>每月省 '+abs+' 元</strong>，而且 '+y+' 年合同期结束后还能免费获得一座光伏电站。');
+      }
+    });
+    document.getElementById('econBody').innerHTML = econRows;
+    document.getElementById('econNote').innerHTML = notes.join('<br>');
+
+    // 合作期后收益（理想条件：电站归用户，满发估算）
+    var saveYear = genNeed * price;                           // 每年省电费
+    var save25 = saveYear * 25;                               // 25年累计
+    document.getElementById('saveBox').innerHTML =
+      '合作期结束后电站归用户所有。理想条件下，每年可省电费约 <strong>'+fmt(saveYear)+' 元</strong>（光伏年发电 '+fmt(genNeed)+' kWh × 电价）；'+
+      '按光伏电站 25 年使用寿命、满发估算，累计可省约 <strong>'+fmt(save25)+' 元</strong>。';
+
+    wbox.innerHTML = clampWarn(capKw);
+  }
+  function updateRentHint(){
+    var h3 = PRICE[state.house]['3'][state.scheme];
+    var h5 = PRICE[state.house]['5'][state.scheme];
+    document.getElementById('rentHint').textContent =
+      '当前产品（'+state.house+'·'+state.scheme+'）用户月租：3年 '+h3+' 元/块/月，5年 '+h5+' 元/块/月';
+  }
+  function setRatioDefault(){
+    state.ratio = state.scheme==='纯光' ? 0.5 : 0.7;
+    document.querySelectorAll('#ratioOpts button').forEach(function(b){
+      b.classList.toggle('active', parseFloat(b.dataset.r)===state.ratio);
+    });
+  }
+  ['houseType','scheme'].forEach(function(id){
+    document.getElementById(id).addEventListener('click', function(e){
+      var btn = e.target.closest('button'); if(!btn) return;
+      this.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
+      btn.classList.add('active');
+      state[id==='houseType'?'house':'scheme'] = btn.dataset.v;
+      if(id==='scheme') setRatioDefault();
+      updateRentHint(); compute();
+    });
+  });
+  document.getElementById('ratioOpts').addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if(!btn) return;
+    this.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
+    btn.classList.add('active');
+    state.ratio = parseFloat(btn.dataset.r);
+    compute();
+  });
+  document.getElementById('kwhType').addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if(!btn) return;
+    this.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
+    btn.classList.add('active');
+    state.kwhType = btn.dataset.v;
+    document.getElementById('kwhLabel').innerHTML =
+      (state.kwhType==='month' ? '月用电量（kWh/月）' : '年用电量（kWh/年）')+
+      '<span class="lbl-tip">纯光填白天用电量 / 配储填全天用电量</span>';
+    document.getElementById('kwhInput').placeholder =
+      state.kwhType==='month' ? '例如 10000' : '例如 120000';
+    compute();
+  });
+  ['kwhInput','panelW','genHours','price'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', compute);
+  });
+  // 保存板块为图片
+  function tsNow(){
+    var d=new Date(), p=function(n){return (n<10?'0':'')+n;};
+    return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'_'+p(d.getHours())+p(d.getMinutes());
+  }
+  var UA = navigator.userAgent || '';
+  var IS_WECHAT = /MicroMessenger/i.test(UA);
+  var IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile|HarmonyOS/i.test(UA);
+  var modal = document.getElementById('imgModal');
+  var modalImg = document.getElementById('imgModalImg');
+  var modalTip = document.getElementById('imgModalTip');
+  var modalDl = document.getElementById('imgModalDownload');
+  function closeModal(){
+    modal.classList.remove('open');
+    modalImg.removeAttribute('src');
+    document.body.classList.remove('no-scroll');
+  }
+  document.getElementById('imgModalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
+  // 公司介绍图片点击放大
+  (function(){
+    var zModal = document.getElementById('zoomModal');
+    var zImg = document.getElementById('zoomImg');
+    var zClose = document.getElementById('zoomClose');
+    function openZoom(thumbSrc, fullSrc, alt){
+      // 先显示已缓存的缩略图（秒开），再按需加载高清大图替换
+      zImg.src = thumbSrc || fullSrc;
+      if(alt) zImg.alt = alt;
+      zModal.classList.add('open');
+      if(fullSrc && fullSrc !== thumbSrc){
+        var full = new Image();
+        full.onload = function(){ zImg.src = fullSrc; };
+        full.src = fullSrc;
+      }
+    }
+    function closeZoom(){
+      zModal.classList.remove('open');
+      zImg.removeAttribute('src');
+    }
+    document.querySelectorAll('.zoomable').forEach(function(img){
+      img.addEventListener('click', function(){
+        openZoom(img.getAttribute('src'), img.getAttribute('data-full'), img.getAttribute('alt'));
+      });
+    });
+    zClose.addEventListener('click', closeZoom);
+    zModal.addEventListener('click', function(e){ if(e.target===zModal) closeZoom(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeZoom(); });
+  })();
+
+  document.getElementById('saveImg').addEventListener('click', function(){
+    var btn=this, hint=document.getElementById('saveHint'), area=document.getElementById('shotArea');
+    if(typeof html2canvas !== 'function'){
+      hint.textContent='截图组件未加载（assets/html2canvas.min.js 缺失），请改用手机截图保存。';
+      return;
+    }
+    var old=btn.textContent;
+    btn.disabled=true; btn.textContent='生成中…'; hint.textContent='正在生成图片，请稍候…';
+    area.classList.add('shooting');
+
+    // 记录当前滚动位置：html2canvas 渲染时可能滚动页面，结束后需要还原，避免保存后页面乱跳
+    var scrollX0 = window.pageXOffset || 0, scrollY0 = window.pageYOffset || 0;
+
+    // 无论用户是否展开公式，截图时都强制展开，拍完后恢复原状
+    var dts=[].slice.call(area.querySelectorAll('details'));
+    var wasOpen=dts.map(function(d){ return d.open; });
+    dts.forEach(function(d){ d.open=true; });
+
+    function restore(){
+      area.classList.remove('shooting');
+      dts.forEach(function(d,i){ d.open=wasOpen[i]; });
+      btn.disabled=false; btn.textContent=old;
+      window.scrollTo(scrollX0, scrollY0);
+    }
+    function fail(){
+      restore();
+      hint.textContent='生成失败，请改用手机截屏保存。';
+    }
+
+    function runCapture(){
+      var w = area.scrollWidth;
+      var h = area.scrollHeight;
+
+      // 画布尺寸是否被当前设备支持（超限时浏览器会静默截断/失败，导致底部公式丢失）
+      function canMake(wd, ht){
+        try{
+          var c = document.createElement('canvas');
+          c.width = wd; c.height = ht;
+          var ok = (c.width === wd && c.height === ht) && !!c.getContext('2d');
+          c.width = 0; c.height = 0;
+          return ok;
+        }catch(e){ return false; }
+      }
+
+      // 在设备允许范围内尽量高清；若超出画布上限则逐步降级，保证整块内容（含最后一条公式）都能保存
+      var scale = Math.min(IS_MOBILE ? 1.6 : 2, 16000/Math.max(w,h));
+      if(!isFinite(scale) || scale <= 0) scale = 1;
+      var guard = 0;
+      while(scale > 0.5 && guard < 14 && !canMake(Math.ceil(w*scale), Math.ceil(h*scale))){
+        scale *= 0.85; guard++;
+      }
+
+      // 不传 width/height/windowWidth：交给 html2canvas 按元素实际尺寸整块渲染，
+      // 避免克隆视图宽度与真实布局不一致导致内容重排、底部公式被裁掉
+      html2canvas(area, {
+        scale: scale,
+        backgroundColor: '#ffffff',
+        logging: false,
+        imageTimeout: 0,
+        removeContainer: true,
+        useCORS: true
+      }).then(function(canvas){
+        restore();
+        var name='光储盈装机容量测算_'+tsNow();
+        if(IS_MOBILE){
+          // 手机（含微信）不支持直接下载：弹层展示图片，长按保存到相册
+          var dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+          modalImg.src = dataUrl;
+          if(IS_WECHAT){
+            modalTip.textContent='长按上方图片 →「保存图片」即可存入相册';
+            modalDl.style.display='none';
+          } else {
+            modalTip.textContent='长按图片保存到相册，或点击下方「下载图片」';
+            modalDl.href = dataUrl;
+            modalDl.download = name + '.jpg';
+            modalDl.style.display='inline-block';
+          }
+          modal.classList.add('open');
+          document.body.classList.add('no-scroll');
+          hint.textContent='图片已生成，长按图片即可保存到相册';
+        } else {
+          canvas.toBlob(function(blob){
+            if(!blob){ fail(); return; }
+            var fileName = name + '.png';
+            if(window.navigator && window.navigator.msSaveBlob){
+              window.navigator.msSaveBlob(blob, fileName);
+            } else {
+              var url=URL.createObjectURL(blob), a=document.createElement('a');
+              a.href=url; a.download=fileName; a.style.display='none';
+              document.body.appendChild(a); a.click();
+              setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 3000);
+            }
+            hint.textContent='已生成 '+fileName+'，请到「下载」查看';
+          }, 'image/png');
+        }
+      }).catch(fail);
+    }
+
+    // 强制重排，并等待移动端 details 展开、字体与布局稳定后再截图，避免底部被截断
+    area.offsetHeight;
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ setTimeout(runCapture, 120); });
+    });
+  });
+
+  // 复制 AI 提问模板
+  document.getElementById('copyPrompt').addEventListener('click', function(){
+    var btn=this, text=document.getElementById('promptText').textContent;
+    var done=function(){ var o=btn.textContent; btn.textContent='已复制 ✓';
+      setTimeout(function(){ btn.textContent=o; }, 1600); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta=document.createElement('textarea');
+      ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); done(); }catch(e){ btn.textContent='请手动选择上方文字复制'; }
+      document.body.removeChild(ta);
+    }
+  });
+
+  setRatioDefault(); updateRentHint(); compute();
+</script>
+
+<script>
+/* ===== 发电量与度电成本 ===== */
+(function(){
+  var PANEL=0.785, DOD=0.9, EFF=0.88, BLOCKS=127;
+  var R3={pv:60, ess:90}, R5={pv:40, ess:60};   // 小阳楼 元/块/月
+
+  function n0(x){ return Math.round(x).toLocaleString('zh-CN'); }
+  function n2(x){ return (Math.round(x*100)/100).toFixed(2); }
+  function n3(x){ return (Math.round(x*1000)/1000).toFixed(3); }
+  function signed(x){ return (x<0?'−':'+')+Math.round(Math.abs(x)).toLocaleString('zh-CN'); }
+  function num(id,def){ var el=document.getElementById(id); var v=el?parseFloat(el.value):NaN; return (v&&v>0)?v:def; }
+
+  function paint(tbodyId,tips){
+    var box=document.getElementById(tbodyId);
+    if(!box) return;
+    Array.prototype.forEach.call(box.querySelectorAll('td[data-k]'),function(td){
+      var t=tips[td.getAttribute('data-k')];
+      if(t) td.setAttribute('data-tip',t);
+    });
+  }
+
+  function render(){
+    var h=num('gvHours',1150);
+    var flat=num('gvFlat',0.6063), peak=num('gvPeak',1.0051);
+    var cap=num('gvCap',1.1957), valley=num('gvValley',0.3017);
+
+    var annual=PANEL*h, save=annual*flat;
+
+    /* ---- 发电量 ---- */
+    document.getElementById('gvGenYear').innerHTML  = n0(annual)+'<small>度</small>';
+    document.getElementById('gvGenMonth').innerHTML = n0(annual/12)+'<small>度</small>';
+    document.getElementById('gvGenDay').innerHTML   = n2(annual/365)+'<small>度</small>';
+    document.getElementById('gvGen25').innerHTML    = n0(annual*25)+'<small>度</small>';
+
+    var genBoxes=document.querySelectorAll('#gvGen .big');
+    if(genBoxes.length===4){
+      genBoxes[0].setAttribute('data-tip','0.785kW（一块 785W 组件）\n× 年有效小时数 '+h+'h\n= '+n0(annual)+' 度/年');
+      genBoxes[1].setAttribute('data-tip','年发电 '+n0(annual)+' 度 ÷ 12 个月\n= '+n0(annual/12)+' 度/月（月均值）');
+      genBoxes[2].setAttribute('data-tip','年发电 '+n0(annual)+' 度 ÷ 365 天\n= '+n2(annual/365)+' 度/天（日均值，冬低夏高）');
+      genBoxes[3].setAttribute('data-tip','年发电 '+n0(annual)+' 度 × 25 年\n= '+n0(annual*25)+' 度（未计衰减）');
+    }
+
+    /* ---- 纯光 3 年 / 5 年 ---- */
+    var tot3=R3.pv*36, tot5=R5.pv*60;
+    var c3=tot3/(annual*3), c5=tot5/(annual*5);
+    var t53=tot3/(annual*5), t55=tot5/(annual*5);
+    var t103=tot3/(annual*10), t105=tot5/(annual*10);
+    var t253=tot3/(annual*25), t255=tot5/(annual*25);
+    var f3=save-R3.pv*12, f5=save-R5.pv*12;
+
+    var rows=[
+      ['月租金（元/块/月）','rent','',n0(R3.pv),n0(R5.pv)],
+      ['合同期总租金（元/块）','tot','best',n0(tot3),n0(tot5)],
+      ['期内度电成本（合同期内）','in','warncell',n3(c3),n3(c5)],
+      ['按 5 年摊（元/度）','t5','best',n3(t53),n3(t55)],
+      ['按 10 年摊（元/度）','t10','best',n3(t103),n3(t105)],
+      ['按 25 年摊（元/度）','t25','best',n3(t253),n3(t255)],
+      ['期内年现金流（替代电费 − 租金）','flow','warncell',signed(f3),signed(f5)]
+    ];
+    var html='';
+    for(var i=0;i<rows.length;i++){
+      var r=rows[i];
+      var cls3=(r[1]==='flow')?'warncell':r[2];
+      var cls5=(r[1]==='flow')?'best':r[2];
+      html+='<tr><td class="lbl">'+r[0]+'</td>'+
+            '<td class="'+cls3+'" data-k="p3_'+r[1]+'">'+r[3]+'</td>'+
+            '<td class="'+cls5+'" data-k="p5_'+r[1]+'">'+r[4]+'</td></tr>';
+    }
+    document.getElementById('gvPureBody').innerHTML=html;
+
+    var TP={};
+    TP.p3_rent='小阳楼 3 年期价格政策\n60 元/块/月 × 36 个月 = 2,160 元/块';
+    TP.p5_rent='小阳楼 5 年期价格政策\n40 元/块/月 × 60 个月 = 2,400 元/块';
+    TP.p3_tot='月租 60 × 36 个月\n= 2,160 元/块';
+    TP.p5_tot='月租 40 × 60 个月\n= 2,400 元/块';
+    TP.p3_in='2,160 ÷（年发电 '+n0(annual)+' × 3 年）= '+n3(c3)+' 元/度\n分母只有 3 年发电量，不能与 5 年直接比较';
+    TP.p5_in='2,400 ÷（年发电 '+n0(annual)+' × 5 年）= '+n3(c5)+' 元/度\n分母是 5 年发电量，所以看着更低';
+    TP.p3_t5='2,160 ÷（年发电 '+n0(annual)+' × 5 年）= '+n3(t53)+' 元/度\n与 5 年方案同一把尺子';
+    TP.p5_t5='2,400 ÷（年发电 '+n0(annual)+' × 5 年）= '+n3(t55)+' 元/度';
+    TP.p3_t10='2,160 ÷（年发电 '+n0(annual)+' × 10 年）= '+n3(t103)+' 元/度';
+    TP.p5_t10='2,400 ÷（年发电 '+n0(annual)+' × 10 年）= '+n3(t105)+' 元/度';
+    TP.p3_t25='2,160 ÷（年发电 '+n0(annual)+' × 25 年）= '+n3(t253)+' 元/度\n未计组件衰减与运维';
+    TP.p5_t25='2,400 ÷（年发电 '+n0(annual)+' × 25 年）= '+n3(t255)+' 元/度';
+    TP.p3_flow='年发电 '+n0(annual)+' 度 × 平段电价 '+flat+' 元\n= '+n0(save)+' 元替代电费\n'+n0(save)+' − 月租 720 = '+signed(f3)+' 元/年';
+    TP.p5_flow='年发电 '+n0(annual)+' 度 × 平段电价 '+flat+' 元\n= '+n0(save)+' 元替代电费\n'+n0(save)+' − 月租 480 = '+signed(f5)+' 元/年';
+    paint('gvPureBody',TP);
+
+    document.getElementById('gvPureNote').innerHTML =
+      '按年有效小时数 <strong>'+h+'h</strong> 计算：一块板年发电 <strong>'+n0(annual)+' 度</strong>，'+
+      '3 年期内共发 '+n0(annual*3)+' 度、5 年期内共发 '+n0(annual*5)+' 度。'+
+      '期内度电成本的分母分别是 3 年和 5 年，<strong>不可直接比较</strong>；看第 4—6 行才是同一把尺子。带虚线的数字可悬停（手机点一下）查看算法。';
+
+    document.getElementById('gvCmp3').textContent = n3(t53)+' 元';
+    document.getElementById('gvCmp5').textContent = n3(t55)+' 元';
+    document.getElementById('gvSave3').textContent = n0(save);
+    document.getElementById('gvFlow3').textContent = n0(Math.abs(f3));
+    document.getElementById('gvFlow5').textContent = n0(Math.abs(f5));
+
+    /* ---- 1:1 配储增量 ---- */
+    var inc3=R3.ess-R3.pv, inc5=R5.ess-R5.pv;
+    var m3=inc3*BLOCKS, m5=inc5*BLOCKS;
+    var e3=m3*36, e5=m5*60;
+    var dayDis=100*DOD*EFF, yearDis=dayDis*365;
+    var e53=e3/(yearDis*5), e55=e5/(yearDis*5);
+    var e103=e3/(yearDis*10), e105=e5/(yearDis*10);
+    var netG=peak, netT=cap, netV=peak-valley/EFF;
+    var pbG3=e3/(yearDis*netG), pbG5=e5/(yearDis*netG);
+    var pbT3=e3/(yearDis*netT), pbT5=e5/(yearDis*netT);
+    var pbV3=e3/(yearDis*netV), pbV5=e5/(yearDis*netV);
+    var yr=function(v){ return (Math.round(v*10)/10).toFixed(1)+' 年'; };
+    var d1=function(v){ return (Math.round(v*10)/10).toFixed(1); };
+
+    var rows2=[
+      ['增量月租（元/块/月）','inc','',n0(inc3),n0(inc5)],
+      ['增量月租（100kW 合计，元/月）','incm','',n0(m3),n0(m5)],
+      ['增量总成本（约 127 块）','tot','best',n0(e3),n0(e5)],
+      ['电池 100 度 → 日放 '+d1(dayDis)+' 度 → 年放 '+n0(yearDis)+' 度','bat','',null,null],
+      ['5 年度电成本（元/度）','e5','best',n3(e53),n3(e55)],
+      ['10 年度电成本（元/度）','e10','best',n3(e103),n3(e105)],
+      ['回本期：充光伏绿电 · 替代峰电','pg','best',yr(pbG3),yr(pbG5)],
+      ['回本期：充光伏绿电 · 替代尖峰','pt','best',yr(pbT3),yr(pbT5)],
+      ['回本期：谷电充电 · 替代峰电','pv','',yr(pbV3),yr(pbV5)]
+    ];
+    var html2='';
+    for(var j=0;j<rows2.length;j++){
+      var q=rows2[j];
+      if(q[3]===null){
+        html2+='<tr><td class="lbl" colspan="3" data-k="e_bat" style="text-align:center;color:#5B6B7B;background:var(--bg-soft)">'+q[0]+'</td></tr>';
+      }else{
+        html2+='<tr><td class="lbl">'+q[0]+'</td>'+
+               '<td class="'+q[2]+'" data-k="e3_'+q[1]+'">'+q[3]+'</td>'+
+               '<td data-k="e5_'+q[1]+'">'+q[4]+'</td></tr>';
+      }
+    }
+    document.getElementById('gvEssBody').innerHTML=html2;
+
+    var TE={};
+    TE.e_bat='100 度（标称）× 90% DOD = 90 度可用\n90 × 88% 往返效率 = '+d1(dayDis)+' 度/天\n'+d1(dayDis)+' × 365 天 = '+n0(yearDis)+' 度/年';
+    TE.e3_inc='配储 90 − 纯光 60\n= '+inc3+' 元/块/月';
+    TE.e5_inc='配储 60 − 纯光 40\n= '+inc5+' 元/块/月';
+    TE.e3_incm=inc3+' 元/块 × 127 块（100kW）\n= '+n0(m3)+' 元/月';
+    TE.e5_incm=inc5+' 元/块 × 127 块（100kW）\n= '+n0(m5)+' 元/月';
+    TE.e3_tot=n0(m3)+' 元/月 × 36 个月\n= '+n0(e3)+' 元';
+    TE.e5_tot=n0(m5)+' 元/月 × 60 个月\n= '+n0(e5)+' 元';
+    TE.e3_e5=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 5 年）\n= '+n3(e53)+' 元/度';
+    TE.e5_e5=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 5 年）\n= '+n3(e55)+' 元/度';
+    TE.e3_e10=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 10 年）\n= '+n3(e103)+' 元/度';
+    TE.e5_e10=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 10 年）\n= '+n3(e105)+' 元/度';
+    TE.e3_pg=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 峰电价 '+peak+'）\n= '+yr(pbG3)+'\n充电用本来要弃掉的光伏，成本按 0 计';
+    TE.e5_pg=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 峰电价 '+peak+'）\n= '+yr(pbG5);
+    TE.e3_pt=n0(e3)+' ÷（年放电 '+n0(yearDis)+' × 尖峰电价 '+cap+'）\n= '+yr(pbT3);
+    TE.e5_pt=n0(e5)+' ÷（年放电 '+n0(yearDis)+' × 尖峰电价 '+cap+'）\n= '+yr(pbT5);
+    TE.e3_pv='每度净收益 = 峰电价 '+peak+' − 谷电价 '+valley+' ÷ 0.88\n= '+n3(netV)+' 元/度\n'+n0(e3)+' ÷（'+n0(yearDis)+' × '+n3(netV)+'）= '+yr(pbV3);
+    TE.e5_pv='每度净收益 = '+peak+' − '+valley+' ÷ 0.88 = '+n3(netV)+' 元/度\n'+n0(e5)+' ÷（'+n0(yearDis)+' × '+n3(netV)+'）= '+yr(pbV5);
+    paint('gvEssBody',TE);
+
+    var np=document.getElementById('gvNPeak'), nc=document.getElementById('gvNCap'), nv=document.getElementById('gvNValley');
+    if(np) np.textContent=peak; if(nc) nc.textContent=cap; if(nv) nv.textContent=valley;
+  }
+
+  ['gvHours','gvFlat','gvPeak','gvCap','gvValley'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.addEventListener('input',render);
+  });
+  var pre=document.getElementById('gvPreset');
+  if(pre){
+    pre.addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      Array.prototype.forEach.call(this.querySelectorAll('button'),function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      document.getElementById('gvHours').value=b.dataset.h;
+      render();
+    });
+  }
+  render();
+
+  /* ---- 数字说明浮层：电脑悬停、手机点击 ---- */
+  var tipEl=document.getElementById('gvTip');
+  var timer=null;
+  function place(x,y){
+    var w=tipEl.offsetWidth, hh=tipEl.offsetHeight;
+    var left=Math.min(Math.max(10,x-w/2), window.innerWidth-w-10);
+    var top=y-hh-14; if(top<10) top=y+22;
+    tipEl.style.left=left+'px'; tipEl.style.top=top+'px';
+  }
+  function show(el,x,y){
+    tipEl.textContent=el.getAttribute('data-tip');
+    tipEl.classList.add('on');
+    place(x,y);
+  }
+  function hide(){ tipEl.classList.remove('on'); clearTimeout(timer); }
+  document.addEventListener('mouseover',function(e){
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t&&t.getAttribute('data-tip')) show(t,e.clientX,e.clientY);
+  });
+  document.addEventListener('mousemove',function(e){
+    if(!tipEl.classList.contains('on')) return;
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t) place(e.clientX,e.clientY);
+  });
+  document.addEventListener('mouseout',function(e){
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t) hide();
+  });
+  document.addEventListener('click',function(e){
+    var t=e.target.closest?e.target.closest('[data-tip]'):null;
+    if(t&&t.getAttribute('data-tip')){
+      var r=t.getBoundingClientRect();
+      show(t,r.left+r.width/2,r.top);
+      clearTimeout(timer); timer=setTimeout(hide,4000);
+    }else{ hide(); }
+  });
+})();
+</script>
+</body>
+</html>
