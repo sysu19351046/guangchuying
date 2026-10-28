@@ -514,18 +514,19 @@
           <tr><th>产品年限</th><th>配储方案</th><th>金装房</th><th>向阳院</th><th>小阳楼</th></tr>
         </thead>
         <tbody>
-          <tr><td rowspan="4">3 年</td><td>1:1 配储</td><td>85</td><td>90</td><td>90</td></tr>
+          <tr><td rowspan="4">3 年</td><td>纯光</td><td>55</td><td>60</td><td>60</td></tr>
+          <tr><td>1:1 配储</td><td>85</td><td>90</td><td>90</td></tr>
           <tr><td>1:2 配储</td><td>100</td><td>105</td><td>105</td></tr>
           <tr><td>1:3 配储</td><td>115</td><td>120</td><td>120</td></tr>
-          <tr><td>纯光</td><td>55</td><td>60</td><td>60</td></tr>
-          <tr><td rowspan="4">5 年</td><td>1:1 配储</td><td>55</td><td>60</td><td>60</td></tr>
+          <tr><td rowspan="4">5 年</td><td>纯光</td><td>35</td><td>40</td><td>40</td></tr>
+          <tr><td>1:1 配储</td><td>55</td><td>60</td><td>60</td></tr>
           <tr><td>1:2 配储</td><td>65</td><td>70</td><td>70</td></tr>
           <tr><td>1:3 配储</td><td>75</td><td>80</td><td>80</td></tr>
-          <tr><td>纯光</td><td>35</td><td>40</td><td>40</td></tr>
         </tbody>
       </table>
       </div>
       <p class="unit">单位：元 / 块（组件）/ 月。具体月租金 = 项目容量 ÷ 组件规格 × 月租金单价（以实施价格政策为准）。</p>
+      <p class="unit" style="margin-top:6px">读法：每行自上而下就是一条<strong>加价阶梯</strong>——金装房 3 年 55 → 85（<strong>+30</strong>）→ 100（<strong>+15</strong>）→ 115（<strong>+15</strong>）；第一档最贵、后面每档同价，原因见「02 发电量与度电成本」第 ⑤ 小节。</p>
     </div>
 
     <div class="card" style="margin-bottom:16px">
@@ -582,46 +583,46 @@
 
     <!-- ① 前提：年有效小时数 -->
     <div class="card" style="margin-bottom:16px">
-      <h3>① 前提条件（河南口径，改这里，全节联动）</h3>
-      <p style="margin-top:8px">这一节所有数字都建立在这 5 个前提下。河南户用光伏年有效小时数一般在 <strong>1,050—1,250</strong> 之间（豫北偏高、豫南偏低；屋顶朝向、倾角、遮挡影响很大）。</p>
+      <h3>① 前提条件（改这里，全节联动）</h3>
+      <p style="margin-top:8px">这一节所有数字都建立在这 5 个前提下。<strong>页面给的是全国通用的示例口径</strong>，落地到具体省份时，把当地代理购电价格公告上的四个电价换成实际值即可。户用光伏年有效小时数一般在 <strong>1,050—1,250</strong> 之间（纬度越高、朝向越差、遮挡越多，取值越低）。</p>
 
       <div class="field" style="margin-top:16px">
         <label>年有效发电小时数（h）<span class="lbl-tip">必填 · 全节共用一个前提</span></label>
         <input type="number" id="gvHours" value="1150" min="600" max="1600" step="10">
         <div class="opts" style="margin-top:10px" id="gvPreset">
-          <button type="button" data-h="1050">1,050 · 豫南/遮挡多</button>
+          <button type="button" data-h="1050">1,050 · 遮挡多/朝向差</button>
           <button type="button" data-h="1150" class="active">1,150 · 常用</button>
-          <button type="button" data-h="1250">1,250 · 豫北/朝向好</button>
+          <button type="button" data-h="1250">1,250 · 辐照强/朝向好</button>
         </div>
       </div>
 
       <div class="gv-price-grid">
         <div class="field">
-          <label>平段电价<span class="lbl-tip">其余时段</span></label>
-          <input type="number" id="gvFlat" value="0.6063" min="0.2" max="1.5" step="0.0001">
+          <label>平段电价<span class="lbl-tip">约 7:00—16:00（白天/平峰）</span></label>
+          <input type="number" id="gvFlat" value="0.7" min="0.2" max="1.5" step="0.01">
         </div>
         <div class="field">
-          <label>高峰电价<span class="lbl-tip">16:00—24:00</span></label>
-          <input type="number" id="gvPeak" value="1.0051" min="0.2" max="2" step="0.0001">
+          <label>高峰电价<span class="lbl-tip">16:00—24:00（晚上）</span></label>
+          <input type="number" id="gvPeak" value="1.1" min="0.2" max="2" step="0.01">
         </div>
         <div class="field">
-          <label>尖峰电价<span class="lbl-tip">1/12月17—19、7/8月20—23</span></label>
-          <input type="number" id="gvCap" value="1.1957" min="0.2" max="2" step="0.0001">
+          <label>尖峰电价<span class="lbl-tip">按当地尖峰时段</span></label>
+          <input type="number" id="gvCap" value="1.3" min="0.2" max="2" step="0.01">
         </div>
         <div class="field">
-          <label>低谷电价<span class="lbl-tip">0—7 或 0—6、11—14</span></label>
-          <input type="number" id="gvValley" value="0.3017" min="0.05" max="1" step="0.0001">
+          <label>低谷电价<span class="lbl-tip">按当地谷段（多在夜间）</span></label>
+          <input type="number" id="gvValley" value="0.4" min="0.05" max="1" step="0.01">
         </div>
       </div>
 
       <div class="gv-src">
-        <div class="gv-src-t">数据出处</div>
+        <div class="gv-src-t">数据出处与取值说明</div>
         <ul>
-          <li><strong>电价（元/度）</strong>：《国网河南省电力公司 2026 年 10 月代理购电价格公告》——工商业 <strong>1—10 千伏两部制</strong>：平段 0.6063、高峰 1.0051、尖峰 1.1957、低谷 0.3017。</li>
-          <li><strong>峰谷浮动比例</strong>：《河南省发展和改革委员会关于调整工商业分时电价有关事项的通知》（<strong>豫发改价管〔2024〕283 号</strong>）——高峰 : 平段 : 低谷 = <strong>1.72 : 1 : 0.45</strong>，尖峰 = 高峰浮动 × 1.2。</li>
-          <li><strong>年有效小时数</strong>：河南户用经验值 1,050—1,250h（<strong>非官方口径</strong>，现场按屋顶朝向、倾角、遮挡调整）。</li>
+          <li><strong>电价（元/度）</strong>：页面默认<strong>平 0.70、峰 1.10、尖峰 1.30、谷 0.40</strong>，是全国通用示例值，不代表任一省份的正式价格。<strong>实际以当地省级电网当期代理购电价格公告为准</strong>，把公告上的四个数直接填进上面四项，本节所有结论会同步重算。</li>
+          <li><strong>时段划分</strong>：各地略有差异，但通用框架一致——<strong>平段（平峰）约 7:00—16:00、高峰约 16:00—24:00</strong>，谷段多在深夜，尖峰只在个别月份出现。签约前按当地分时电价政策核对时段。</li>
+          <li><strong>年有效小时数</strong>：1,050—1,250h 为户用经验区间（<strong>非官方口径</strong>），现场按屋顶朝向、倾角、遮挡调整。</li>
         </ul>
-        <p class="gv-src-n">若客户是 380V 单一制，平段 0.6363、高峰 1.0567、尖峰 1.2576、低谷 0.3152，直接改上面四个数即可。</p>
+        <p class="gv-src-n">不同省份、不同电压等级、单一制与两部制之间差异都可能很大。给客户报价时，先要一张当地电费单，按单子上的电价改上面四项，再谈回本期。</p>
       </div>
     </div>
 
@@ -699,7 +700,7 @@
         <span>79.2 度<em>每天实际放出</em></span><b>×365</b>
         <span>28,908 度<em>一年放电量</em></span>
       </div>
-      <p class="gv-note" style="margin-top:10px">如果按 100% DOD、100% 效率的"理想值"算，日放 88 度、年 32,120 度，回本期能缩短到 <strong>4.2 年</strong>——但那是拿电池寿命换来的纸面数字，实际不能这么承诺。</p>
+      <p class="gv-note" style="margin-top:10px">如果按 100% DOD、100% 效率的"理想值"算，日放 88 度、年 32,120 度，回本期能缩短到 <strong data-live="ideal">3.9 年</strong>——但那是拿电池寿命换来的纸面数字，实际不能这么承诺。</p>
     </div>
     <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="gv-table">
@@ -709,27 +710,149 @@
         <tbody id="gvEssBody"></tbody>
       </table>
     </div>
-    <p class="gv-note">电价口径见第 ① 步（峰 <span id="gvNPeak">1.0051</span>、尖峰 <span id="gvNCap">1.1957</span>、谷 <span id="gvNValley">0.3017</span>）；回本期 = 增量总成本 ÷ 年净收益。带虚线的数字可悬停（手机点一下）查看算法。</p>
+    <p class="gv-note">电价口径见第 ① 步（峰 <span id="gvNPeak">1.10</span>、尖峰 <span id="gvNCap">1.30</span>、谷 <span id="gvNValley">0.40</span>）；回本期 = 增量总成本 ÷ 年净收益。带虚线的数字可悬停（手机点一下）查看算法。</p>
 
     <div class="grid g2" style="margin-top:16px">
       <div class="card soft">
-        <h3>重点结论：充绿电、替峰电，回本 4.7 年</h3>
-        <p>电池充的是<strong>白天用不掉、本来要弃掉的光伏</strong>（机会成本 0），放电替代 16—24 点的峰电（1.0051 元/度）：</p>
+        <h3>重点结论：充绿电、替峰电，回本 <span data-live="pbG3">4.3 年</span></h3>
+        <p>电池充的是<strong>白天用不掉、本来要弃掉的光伏</strong>（机会成本 0），放电替代 16—24 点的峰电（<span data-live="lagPeak">1.10</span> 元/度）：</p>
         <ul>
-          <li>3 年方案：<strong style="color:var(--blue)">4.7 年</strong>回本</li>
-          <li>5 年方案：<strong style="color:var(--blue)">5.2 年</strong>回本</li>
-          <li>若替代的是尖峰（1.1957）：4.0 年 / 4.4 年</li>
+          <li>3 年方案：<strong style="color:var(--blue)" data-live="pbG3">4.3 年</strong>回本</li>
+          <li>5 年方案：<strong style="color:var(--blue)" data-live="pbG5">4.8 年</strong>回本</li>
+          <li>若替代的是尖峰（<span data-live="lagCap">1.30</span>）：<span data-live="pbT3">3.6 年</span> / <span data-live="pbT5">4.1 年</span></li>
         </ul>
         <p style="margin-top:8px">电池循环寿命 10—15 年，<strong>回本之后还有 5—10 年是净赚</strong>。</p>
       </div>
       <div class="card">
-        <h3>但如果是「谷电充电」，回本期翻倍</h3>
-        <p>如果白天光伏已经被吃得干干净净、没有余电可存，电池只能充谷电（0.3017÷0.88≈0.34 元/度成本）：</p>
+        <h3>但如果是「谷电充电」，回本要拖到 <span data-live="pbV3">7.4 年</span></h3>
+        <p>如果白天光伏已经被吃得干干净净、没有余电可存，电池只能充谷电（<span data-live="lagValley">0.40</span>÷0.88≈<span data-live="valCost">0.45</span> 元/度成本）：</p>
         <ul>
-          <li>3 年方案：<strong>7.2 年</strong>回本</li>
-          <li>5 年方案：<strong>8.0 年</strong>回本</li>
+          <li>3 年方案：<strong data-live="pbV3">7.4 年</strong>回本</li>
+          <li>5 年方案：<strong data-live="pbV5">8.2 年</strong>回本</li>
         </ul>
         <p style="margin-top:8px;color:#B45309"><strong>所以谈配储前必须先确认一件事：白天到底有没有剩电。</strong>有弃光，配储是印钞机；没有弃光，配储只是削需量的工具。</p>
+      </div>
+    </div>
+
+    <!-- ⑤ 加价结构 -->
+    <div class="gv-h3"><span class="n">5</span>配储为什么第一档 +30、之后每档只 +15</div>
+    <p style="font-size:14px;color:var(--muted)">上面算的是「100 度电池的整笔账」。这里换个角度，只盯一件事：<strong>每往上多配一档，到底多付多少钱、多买回来什么。</strong>仍以小阳楼为例。</p>
+
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="gv-table">
+        <thead>
+          <tr><th style="text-align:left">配比</th><th>3 年月租<br>(元/块/月)</th><th>比上一档<br>多付</th><th>3 年合同期<br>总额（元/块）</th><th>5 年月租<br>(元/块/月)</th><th>比上一档<br>多付</th><th>5 年合同期<br>总额（元/块）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="lbl">纯光</td><td>60</td><td>—</td><td>2,160</td><td>40</td><td>—</td><td>2,400</td></tr>
+          <tr><td class="lbl">1:1 配储</td><td class="warncell">90</td><td class="warncell">+30</td><td>3,240</td><td class="warncell">60</td><td class="warncell">+20</td><td>3,600</td></tr>
+          <tr><td class="lbl">1:2 配储</td><td class="best">105</td><td class="best">+15</td><td>3,780</td><td class="best">70</td><td class="best">+10</td><td>4,200</td></tr>
+          <tr><td class="lbl">1:3 配储</td><td class="best">120</td><td class="best">+15</td><td>4,320</td><td class="best">80</td><td class="best">+10</td><td>4,800</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="gv-note">橙色＝第一档（贵），蓝色＝后续每档（同价）。3 年月租高、但合同期总额更低；5 年月供低、总额反而略高——这是 3 年与 5 年的老规律，不是配储带来的。</p>
+
+    <div class="card soft" style="margin:14px 0 0">
+      <h3>把 +30 拆开：一次性的「接入费」＋ 第一块电池</h3>
+      <p style="margin-top:6px">换成 3 年合同期总额（元/块）看，加价的规律整齐得不像巧合，可以反推出一个非常稳定的结构：</p>
+      <div class="gv-chain">
+        <span>纯光 → 1:1<em>＋1,080 元</em></span><b>拆开＝</b>
+        <span>540 元<em>储能接入费（一次性）</em></span><b>＋</b>
+        <span>540 元<em>第 1 块电池</em></span>
+      </div>
+      <div class="gv-chain">
+        <span>1:1 → 1:2<em>＋540 元</em></span><b>＝</b>
+        <span>540 元<em>第 2 块电池</em></span>
+      </div>
+      <div class="gv-chain">
+        <span>1:2 → 1:3<em>＋540 元</em></span><b>＝</b>
+        <span>540 元<em>第 3 块电池</em></span>
+      </div>
+      <p class="gv-note">5 年档完全同构：第一档 ＋1,200 ＝ 600 元接入费 ＋ 600 元首块电池，之后每档都是 ＋600 元。两档年限的「接入费」都稳定在 540—600 元，说明这是结构性定价，不是促销打折。</p>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card soft">
+        <h3>这笔接入费，到底买的是什么</h3>
+        <p>它们有一个共同点：<strong>只跟「有没有储能」有关，跟电池装几块无关。</strong></p>
+        <ul>
+          <li><strong>混网（混合）逆变器 / 储能一体机</strong>——纯光的组串式逆变器只做「直流变交流」的单向输出；配储必须换成能双向充放的一体机。这是接入费里最贵的一块。</li>
+          <li><strong>EMS 能量管理系统</strong>——决定几点充、几点放、放到多深，谷电套利全靠它。</li>
+          <li><strong>并离网切换 ＋ 防逆流装置</strong>——停电时要能带载，平时不许向电网倒送。</li>
+          <li><strong>双向计量表 ＋ 通讯模块</strong>——充了多少、放了多少要单独计量，结算和监控都靠它。</li>
+          <li><strong>电池舱支架、消防、线缆</strong>——按「舱」装，不按「度」装。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>一句话记住这个结构</h3>
+        <p style="font-size:15px;margin-top:6px"><strong>加电池是「线性加价」，上储能是「跨一道门槛」。</strong></p>
+        <p style="margin-top:10px">装 1 块电池要装这套系统，装 3 块电池也是同一套系统，所以这笔钱全压在<strong>第一档</strong>。这就是「从纯光到 1:1 显得贵、从 1:1 往上反而便宜」的全部原因。</p>
+        <p style="margin-top:12px">换算成「每度电池的单价」更直白。一块 785W 组件在 1:N 下配 <strong>0.785×N 度</strong>电池，所以每加一档就是多 0.785 度：</p>
+        <ul>
+          <li>纯光 → 1:1：30 元 ÷ 0.785 度 ≈ <strong style="color:#B45309">38 元/度/月</strong></li>
+          <li>之后每档：15 元 ÷ 0.785 度 ≈ <strong style="color:var(--blue)">19 元/度/月</strong></li>
+        </ul>
+        <p class="gv-note">正好差两倍。多出来的这一倍不是电池涨价，是把接入费摊到了第一档电池身上。</p>
+      </div>
+    </div>
+
+    <!-- ⑥ 多配一档怎么赚回来 -->
+    <div class="gv-h3"><span class="n">6</span>多配一档电池，什么情况下才真的赚回来</div>
+    <p style="font-size:14px;color:var(--muted)"><strong>单价便宜 ≠ 划得来。</strong>多配的那一档，每个月要多交 15 元，问题只有一个：<strong>这块电池能不能把 15 元挣回来。</strong></p>
+
+    <div class="card soft" style="margin:12px 0 0">
+      <h3>先算清「一块组件 ＋ 一档电池」的收益天花板</h3>
+      <div class="gv-chain">
+        <span>0.785 度<em>多一档＝多一块电池</em></span><b>×90%</b>
+        <span>0.71 度<em>可用（DOD）</em></span><b>×88%</b>
+        <span>0.62 度<em>每天最多放出</em></span><b>×30</b>
+        <span>18.6 度<em>每月最多放电</em></span><b data-live="peakMul">×1.10</b>
+        <span><i data-live="ceil" style="font-style:normal;font-weight:inherit;font-size:inherit;color:inherit">20.5 元</i><em>每月最多省的电费</em></span>
+      </div>
+      <p style="margin-top:12px"><strong><span data-live="ceil">20.5 元</span>的天花板，对着 15 元的租金。</strong>也就是说，这块电池必须<strong>天天满充满放</strong>，一个月才勉强赚 <span data-live="ceilMargin">5.5 元</span>；它一旦经常闲着，多配这一档就是纯支出。</p>
+      <p class="gv-note">所以「配储越多越划算」只在纸面上成立——它成立的前提是每一档电池都被喂饱，而现实中越往上加的那一档，越容易喂不饱。</p>
+    </div>
+
+    <p style="font-size:14px;margin-top:20px">那怎么才算「喂饱」？<strong>看这块电池的电是从哪儿来的。</strong>同一个电池，充的电不同，赚钱能力差一大截：</p>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="gv-table">
+        <thead>
+          <tr><th style="text-align:left">这块电池充的是什么电</th><th>充电成本<br>(元/度)</th><th>每放 1 度<br>净赚（元）</th><th>一块组件的电池<br>每月收益</th><th>对 15 元租金</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="lbl"><strong>白天发多了、本来要弃掉的光伏</strong>（机会成本＝0）</td><td>0</td><td data-live="n1">1.10</td><td class="best" data-live="m1">20.5 元</td><td class="best" data-live="v1">赚 5.5 元</td></tr>
+          <tr><td class="lbl">同上，但替代的是 <strong>尖峰</strong>时段（<span data-live="lagCap">1.30</span>）</td><td>0</td><td data-live="n2">1.30</td><td class="best" data-live="m2">24.2 元</td><td class="best" data-live="v2">赚 9.2 元</td></tr>
+          <tr><td class="lbl"><strong>凌晨谷电</strong>（<span data-live="lagValley">0.40</span> ÷ 88% ＝ <span data-live="valCost">0.45</span> 元/度成本）</td><td data-live="valCost2">0.45</td><td data-live="n3">0.65</td><td class="warncell" data-live="m3">12.0 元</td><td class="warncell" data-live="v3">亏 3.0 元</td></tr>
+          <tr><td class="lbl">没有任何来源，电池空着</td><td>—</td><td>0</td><td class="warncell">0 元</td><td class="warncell">亏 15 元</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="gv-note">每放 1 度净赚 ＝ 替代的峰／尖峰电价 − 充电成本；谷电那行要先按 88% 效率把充电成本还原到「每放出 1 度」的口径。以 15 元/块/月的边际租金为基准。</p>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card soft">
+        <h3>收益最大化的打法：三个来源叠着用</h3>
+        <ol style="margin:8px 0 0 20px;font-size:14px;color:var(--muted);line-height:1.75">
+          <li><strong>第一优先——白天弃光。</strong>成本为 0，放出来全是净赚。落地动作：先问客户白天家里有没有人、空调开不开、有没有午休时段。</li>
+          <li><strong>第二优先——谷段补满。</strong>光伏余电不够时，凌晨 <span data-live="lagValley">0.40</span> 元/度把电池补到 100%，每度仍净赚 <span data-live="n3">0.65</span> 元，等于把「看天吃饭」变成「天天满仓」。</li>
+          <li><strong>第三优先——挪到尖峰放。</strong>能落到当地尖峰时段就别在普通高峰放，同样一度电多赚 <span data-live="spikeDiff">0.20</span> 元。</li>
+        </ol>
+        <p style="margin-top:10px"><strong>三个来源叠起来，电池才做得到天天满充满放</strong>——这正是「多配一档」唯一站得住的前提。</p>
+      </div>
+      <div class="card">
+        <h3>一条红线：<span data-live="be3">73%</span> 利用率</h3>
+        <p>把上面的账倒过来算，边际那一档电池的<strong>盈亏平衡点</strong>是：</p>
+        <ul>
+          <li>3 年档：15 元 ÷ <span data-live="ceil">20.5 元</span> ≈ <strong style="color:#B45309" data-live="be3">73%</strong>（一年要用满约 <strong data-live="be3d">267 天</strong>）</li>
+          <li>5 年档：10 元 ÷ <span data-live="ceil">20.5 元</span> ≈ <strong style="color:var(--blue)" data-live="be5">49%</strong>（约 <strong data-live="be5d">178 天</strong>）</li>
+        </ul>
+        <p style="margin-top:10px">所以谈配储的顺序应该是：</p>
+        <ul>
+          <li><strong>利用率能上 <span data-live="be3">73%</span></strong> → 往上加一档，赚</li>
+          <li><strong><span data-live="be5">49%</span>—<span data-live="be3">73%</span></strong> → 勉强持平，别拿它当卖点</li>
+          <li><strong>低于 <span data-live="be5">49%</span></strong> → 加一档就是白交租金，宁可留在低配比</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -772,8 +895,8 @@
       <div class="tip-box">
         <div class="tip-title">⚠ 两个用电量怎么取（全页只在这里定义，下面所有输入都按这个口径）</div>
         <ul>
-          <li><strong>白天用电量 ＝ 平段电量</strong>。白天对应电价的<strong>平峰（平段）时段</strong>，约 7:00—16:00，共 9 小时。这一段光伏正在发电，是能被直接抵掉的部分。（春秋季 11:00—14:00 属低谷，仍计入白天，按平段价估算偏保守。）</li>
-          <li><strong>晚上用电量 ＝ 高峰电量</strong>。晚上对应电价的<strong>高峰时段</strong>，16:00—24:00，共 8 小时，光伏此时零出力，只能靠电池或电网。（1、12 月 17—19 点、7、8 月 20—23 点为尖峰，按高峰价估算同样偏保守。）</li>
+          <li><strong>白天用电量 ＝ 平段电量</strong>。白天对应电价的<strong>平峰（平段）时段</strong>，约 7:00—16:00，共 9 小时。这一段光伏正在发电，是能被直接抵掉的部分。（部分地区春秋季午间属低谷，本表仍按平段价计入白天，估算偏保守。）</li>
+          <li><strong>晚上用电量 ＝ 高峰电量</strong>。晚上对应电价的<strong>高峰时段</strong>，16:00—24:00，共 8 小时，光伏此时零出力，只能靠电池或电网。（部分地区另有尖峰时段，本表按高峰价估算，结果偏保守。）</li>
           <li><strong>取数最省事的办法</strong>：直接抄电费单上的「<strong>平段电量</strong>」和「<strong>高峰电量</strong>」，不用自己拆负荷曲线。没有分时电费单时，可按白天 60% / 晚上 40% 粗估。</li>
           <li>下方三个电价的对应关系：<strong>平段电价 ↔ 白天</strong>、<strong>高峰电价 ↔ 晚上</strong>、低谷电价仅用于夜间谷电参考。</li>
         </ul>
@@ -819,9 +942,9 @@
         </div>
       </div>
       <div class="gv-price-grid" style="margin-top:14px">
-        <div class="field"><label>平段电价<span class="lbl-tip">对应白天（平峰）</span></label><input type="number" id="cFlat" value="0.6063" step="0.0001"></div>
-        <div class="field"><label>高峰电价<span class="lbl-tip">对应晚上（高峰）</span></label><input type="number" id="cPeak" value="1.0051" step="0.0001"></div>
-        <div class="field"><label>低谷电价<span class="lbl-tip">夜间谷段 · 仅配储谷电参考</span></label><input type="number" id="cValley" value="0.3017" step="0.0001"></div>
+        <div class="field"><label>平段电价<span class="lbl-tip">对应白天 · 约 7:00—16:00</span></label><input type="number" id="cFlat" value="0.7" step="0.01"></div>
+        <div class="field"><label>高峰电价<span class="lbl-tip">对应晚上 · 16:00—24:00</span></label><input type="number" id="cPeak" value="1.1" step="0.01"></div>
+        <div class="field"><label>低谷电价<span class="lbl-tip">夜间谷段 · 仅配储谷电参考</span></label><input type="number" id="cValley" value="0.4" step="0.01"></div>
       </div>
     </div>
 
@@ -885,7 +1008,7 @@
         </table>
       </div>
 
-      <h4 class="subhead" style="margin:20px 0 4px">经济性分析（平段 <span id="priceShown">0.61</span> / 高峰 <span id="priceShown2">1.01</span> 元/度）</h4>
+      <h4 class="subhead" style="margin:20px 0 4px">经济性分析（平段 <span id="priceShown">0.70</span> / 高峰 <span id="priceShown2">1.10</span> 元/度）</h4>
       <p class="unit" style="margin:0 0 10px">每月账单对比：原来只交电费；装光储盈后 = 交租金 + 未被光伏覆盖部分仍向电网补交电费。<strong id="econHeadNote">合同期内本质是分期买电站，因此多数客户这段时间是"多交"的，请与下面的 10 年期分析一起看。</strong></p>
       <div style="overflow-x:auto">
         <table class="cmp-table">
@@ -1238,7 +1361,7 @@
 /* ===== 装机容量测算：白天 / 晚上双约束 ===== */
 var G3=(function(){
   var DOD=0.9,EFF=0.88;
-  var PRICE={flat:0.6063,peak:1.0051,valley:0.3017};
+  var PRICE={flat:0.7,peak:1.1,valley:0.4};
   var RENT={
     '金装房':{'3':{'纯光':55,'1:1':85,'1:2':100,'1:3':115},'5':{'纯光':35,'1:1':55,'1:2':65,'1:3':75}},
     '向阳院':{'3':{'纯光':60,'1:1':90,'1:2':105,'1:3':120},'5':{'纯光':40,'1:1':60,'1:2':70,'1:3':80}},
@@ -1431,9 +1554,9 @@ function render(){
     ? '这是创维光伏「光储盈」纯光方案的装机测算结果（测算口径见图中公式说明）。请帮我复核：① 公式与单位换算是否有误；② 组件块数与装机容量是否匹配；③ 自用率与弃光是否合理；④ 租金、月差额与 10 年收益是否高估或漏项。'
     : '这是创维光伏「光储盈」配储方案的装机测算结果（测算口径见图中公式说明）。请帮我复核：① 公式与单位换算是否有误；② 组件块数、装机容量、电池容量是否匹配；③ 弃光率与电池利用率是否合理、两者有无矛盾；④ 租金、月差额与 10 年收益是否高估或漏项。';
 
-  G3.PRICE.flat=G3.num('cFlat',0.6063);
-  G3.PRICE.peak=G3.num('cPeak',1.0051);
-  G3.PRICE.valley=G3.num('cValley',0.3017);
+  G3.PRICE.flat=G3.num('cFlat',0.7);
+  G3.PRICE.peak=G3.num('cPeak',1.1);
+  G3.PRICE.valley=G3.num('cValley',0.4);
   var flat=G3.PRICE.flat, peak=G3.PRICE.peak;
   var panel=G3.num('panelW',785), hours=G3.num('genHours',1150);
 
@@ -2012,8 +2135,8 @@ function render(){
 
   function render(){
     var h=num('gvHours',1150);
-    var flat=num('gvFlat',0.6063), peak=num('gvPeak',1.0051);
-    var cap=num('gvCap',1.1957), valley=num('gvValley',0.3017);
+    var flat=num('gvFlat',0.7), peak=num('gvPeak',1.1);
+    var cap=num('gvCap',1.3), valley=num('gvValley',0.4);
 
     var annual=PANEL*h, save=annual*flat;
 
@@ -2147,6 +2270,32 @@ function render(){
 
     var np=document.getElementById('gvNPeak'), nc=document.getElementById('gvNCap'), nv=document.getElementById('gvNValley');
     if(np) np.textContent=peak; if(nc) nc.textContent=cap; if(nv) nv.textContent=valley;
+
+    /* ---- 把结论里的数字也绑到电价上（改价 → 结论同步重算） ---- */
+    var mDisP=PANEL*DOD*EFF*30, ceilV=mDisP*peak;
+    var idealYr=e3/(100*EFF*365*peak);
+    var LIVE={
+      ideal: yr(idealYr),
+      pbG3: yr(pbG3), pbG5: yr(pbG5), pbT3: yr(pbT3), pbT5: yr(pbT5),
+      pbV3: yr(pbV3), pbV5: yr(pbV5),
+      lagPeak: n2(peak), lagCap: n2(cap), lagValley: n2(valley),
+      valCost: n2(valley/EFF), valCost2: n2(valley/EFF),
+      peakMul: '×'+n2(peak),
+      ceil: d1(ceilV)+' 元',
+      ceilMargin: d1(ceilV-15)+' 元',
+      n1: n2(peak), n2: n2(cap), n3: n2(netV),
+      m1: d1(ceilV)+' 元', v1: '赚 '+d1(ceilV-15)+' 元',
+      m2: d1(mDisP*cap)+' 元', v2: '赚 '+d1(mDisP*cap-15)+' 元',
+      m3: d1(mDisP*netV)+' 元', v3: '亏 '+d1(15-mDisP*netV)+' 元',
+      spikeDiff: n2(cap-peak),
+      be3: Math.round(15/ceilV*100)+'%', be3d: Math.round(15/ceilV*365)+' 天',
+      be5: Math.round(10/ceilV*100)+'%', be5d: Math.round(10/ceilV*365)+' 天'
+    };
+    for(var lk in LIVE){
+      if(!LIVE.hasOwnProperty(lk)) continue;
+      var nodes=document.querySelectorAll('[data-live="'+lk+'"]');
+      for(var lj=0;lj<nodes.length;lj++){ nodes[lj].textContent=LIVE[lk]; }
+    }
   }
 
   ['gvHours','gvFlat','gvPeak','gvCap','gvValley'].forEach(function(id){
